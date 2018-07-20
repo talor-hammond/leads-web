@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('users').insert([
-        {id: 1, user_name: 'Brad', hash: ''}
+        {id: 1, user_name: 'Brad', email: 'spy@gmail.com', hash: 'igldhagidshfgdfhgdsjkgdf'}
       ]);
     });
 };
