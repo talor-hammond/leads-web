@@ -17,8 +17,11 @@ router.get('/', (req, res) => {
 router.get('/andusers', (req, res) => {
   postsDB.getPostsWithUsers()
     .then(posts => {
-      console.log(posts)
+      // console.log(posts)
       res.json(posts)
+    })
+    .catch(err => {
+      if (err) throw err
     })
 })
 
@@ -26,12 +29,12 @@ router.post('/', (req, res) => {
   const post = req.body
 
   postsDB.addPost(post)
-      .then(() => {
-          res.sendStatus(200)
-      })
-      .catch(err => {
-          if (err) throw err
-      })
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(err => {
+      if (err) throw err
+    })
 })
 
 
