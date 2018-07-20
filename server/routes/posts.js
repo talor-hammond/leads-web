@@ -6,10 +6,19 @@ const postsDB = require('../db/posts')
 router.get('/', (req, res) => {
   postsDB.getPosts()
     .then(posts => {
+      // console.log(posts)
       res.json(posts)
     })
     .catch(err => {
       if (err) throw err
+    })
+})
+
+router.get('/andusers', (req, res) => {
+  postsDB.getPostsWithUsers()
+    .then(posts => {
+      console.log(posts)
+      res.json(posts)
     })
 })
 
@@ -24,6 +33,7 @@ router.post('/', (req, res) => {
           if (err) throw err
       })
 })
+
 
 module.exports = router
 

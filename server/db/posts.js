@@ -8,6 +8,13 @@ function addPost (post) {
 
 function getPosts () {
   return conn('posts')
+  
+}
+
+function getPostsWithUsers () {
+  return conn('users')
+    .join('posts', 'users.id', 'posts.user_id')
+    // .select('posts.id as id', 'posts.title as Title', 'users.user_name as User')
 }
 
 
@@ -16,7 +23,8 @@ function getPosts () {
 
 module.exports = {
   addPost,
-  getPosts
+  getPosts,
+  getPostsWithUsers
 }
 
 
