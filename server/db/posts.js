@@ -17,7 +17,7 @@ function getPostsWithUsers () {
     // .select('posts.id as id', 'posts.title as Title', 'users.user_name as User')
 }
 
-
+ 
 
 
 
