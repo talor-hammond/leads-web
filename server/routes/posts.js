@@ -1,23 +1,12 @@
 const express = require('express')
 const router = express.Router()
 
-const postsDB = require('../db/posts')
+const db = require('../db/posts')
 
-// router.get('/', (req, res) => {
-//   postsDB.getPosts()
-//     .then(posts => {
-//       // console.log(posts)
-//       res.json(posts)
-//     })
-//     .catch(err => {
-//       if (err) throw err
-//     })
-// })
-
-router.get('/', (req, res) => { // this route grabs posts -- with user information attached
-  postsDB.getPostsWithUsers()
+// Getting posts w user information...
+router.get('/', (req, res) => {
+  db.getPosts()
     .then(posts => {
-      // console.log(posts)
       res.json(posts)
     })
     .catch(err => {
@@ -25,10 +14,50 @@ router.get('/', (req, res) => { // this route grabs posts -- with user informati
     })
 })
 
+// Adding a post...
 router.post('/', (req, res) => {
   const post = req.body
 
-  postsDB.addPost(post)
+  db.addPost(post)
+    .then(() => {
+      res.sendStatus(200)
+    })
+    .catch(err => {
+      if (err) throw err
+    })
+})
+
+// Getting a post, by the post's id
+router.get('/post/:id', (req, res) => {
+  const id = req.params.id
+  
+  db.getPostByPostId(id)
+    .then(post => {
+      res.json(post)
+    })
+    .catch(err => {
+      if (err) throw err
+    })
+})
+
+// Getting all posts, from a particular user id
+router.get('/user/:id', (req, res) => {
+  const id = req.params.id
+  
+  db.getPostsByUserId(id)
+    .then(posts => {
+      res.json(posts)
+    })
+    .catch(err => {
+      if (err) throw err
+    })
+})
+
+// Deleting a post by post id
+router.delete('/post/:id', (req, res) => {
+  const id = req.params.id
+
+  db.deletePostById(id)
     .then(() => {
       res.sendStatus(200)
     })
@@ -39,14 +68,3 @@ router.post('/', (req, res) => {
 
 
 module.exports = router
-
-// router.post('/', (req, res) => {
-//   const post = req.body
-//   postsDB.addPost()
-//     .then(() => {
-//       res.send(200)
-//     })
-//     .catch(err => {
-//       if (err) throw err
-//   })  
-// })
