@@ -7,9 +7,6 @@ function getMessages() {
 function getMessagesByReceiver(id) {
     return conn('messages')
         .where('receiver_id', id) // need to ultimately grab messages between both users, not just received -- i.e. can be on either end
-        .then((messages) => {
-            console.log(messages)
-        })
 }
 
 function sendMessage(sender_id, receiver_id, content) {
@@ -27,5 +24,3 @@ module.exports = {
     getMessagesByReceiver,
     sendMessage
 }
-
-getMessagesByReceiver(2)

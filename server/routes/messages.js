@@ -8,7 +8,7 @@ router.get('/:id', (req, res) => { // this route grabs posts -- with user inform
 
     db.getMessagesByReceiver(id)
         .then(messages => {
-            // console.log(messages)
+            console.log(messages)
             res.json(messages)
         })
         .catch(err => {
