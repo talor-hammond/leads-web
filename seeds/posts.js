@@ -5,7 +5,7 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('posts').insert([
-        {id: 1, title: 'leads', lat: 2.0, long: 5.3, user_id: '1'}
+        {id: 1, title: 'I need jumper leads plz', description: 'My car broke down rip smh', lat: 2.0, long: 5.3, user_id: '1'}
       ]);
     });
 };
