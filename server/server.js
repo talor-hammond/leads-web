@@ -12,9 +12,9 @@ server.use(passport.initialize())
 server.use(bodyParser.json())
 server.use(express.static(path.join(__dirname, '../public')))
 
+// Our api routes:
 server.use('/api/auth', require('./routes/auth'))
-
-
 server.use('/api/posts', require('./routes/posts'))
+server.use('/api/messages', require('./routes/messages')) // need this to be private (token) only
 
 module.exports = server
