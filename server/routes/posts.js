@@ -53,12 +53,12 @@ router.get('/user/:id', (req, res) => {
     })
 })
 
+// Deleting a post by post id
 router.delete('/post/:id', (req, res) => {
   const id = req.params.id
 
   db.deletePostById(id)
     .then(() => {
-      console.log('Deleted?')
       res.sendStatus(200)
     })
     .catch(err => {
