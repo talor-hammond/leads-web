@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const request = require('superagent')
+
 const db = require('../db/posts')
 
 // Getting posts w user information...
@@ -16,15 +18,25 @@ router.get('/', (req, res) => {
 
 // Adding a post...
 router.post('/', (req, res) => {
-  const post = req.body
+  let post = req.body
 
-  db.addPost(post)
+  // fetch the address with post.latitude, post.longitude
+  request.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${post.lat}%2C${post.long}&sensor=true`)
+    .then(res => {
+      const address = res.body.results[0].formatted_address
+      post.address = address
+    })
     .then(() => {
-      res.sendStatus(200)
+      db.addPost(post)
+        .then(() => {
+          console.log('Firing... ', post)
+          res.sendStatus(200)
+        })
+        .catch(err => {
+          if (err) throw err
+        })
     })
-    .catch(err => {
-      if (err) throw err
-    })
+
 })
 
 // Getting a post, by the post's id
