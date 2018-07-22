@@ -3,7 +3,7 @@ const conn = require('./connection')
 function getPosts() { // comes with user information, username, user_id, etc.
   return conn('users')
     .join('posts', 'users.id', 'posts.user_id')
-    .select('posts.id as post_id', 'users.id as user_id', 'users.user_name as username', 'posts.title as title', 'posts.description as description' )
+    .select('posts.id as post_id', 'users.id as user_id', 'users.user_name as username', 'posts.title as title', 'posts.topic as topic', 'posts.description as description' )
 }
 
 function addPost(post) {
