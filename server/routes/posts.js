@@ -42,7 +42,7 @@ router.post('/', (req, res) => {
 // Getting a post, by the post's id
 router.get('/post/:id', (req, res) => {
   const id = req.params.id
-  
+
   db.getPostByPostId(id)
     .then(post => {
       res.json(post)
@@ -55,7 +55,7 @@ router.get('/post/:id', (req, res) => {
 // Getting all posts, from a particular user id
 router.get('/user/:id', (req, res) => {
   const id = req.params.id
-  
+
   db.getPostsByUserId(id)
     .then(posts => {
       res.json(posts)
@@ -77,6 +77,6 @@ router.delete('/post/:id', (req, res) => {
       if (err) throw err
     })
 })
- 
+
 
 module.exports = router
