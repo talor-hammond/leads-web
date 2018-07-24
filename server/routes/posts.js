@@ -31,6 +31,8 @@ router.post('/', (req, res) => {
       const lat = parseFloat(res.body.results[0].geometry.location.lat)
       const long = parseFloat(res.body.results[0].geometry.location.lng)
 
+      console.log(lat, long)
+
       post.lat = lat
       post.long = long
     })
