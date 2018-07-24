@@ -13,7 +13,12 @@ router.get('/', (req, res) => {
   db.getPosts()
     .then(posts => {
       console.log(posts[0])
-      res.json(posts)
+      // 
+      res.json(posts.map((post) => {
+        post.lat = parseInt(post.lat)
+        post.long = parseInt(post.long)
+        return post
+      }))
     })
     .catch(err => {
       if (err) throw err
@@ -29,8 +34,8 @@ router.post('/', (req, res) => {
   // fetch post.lat, post.long with post.address
   request.get(`https://maps.googleapis.com/maps/api/geocode/json?apiKey=${key}&address=${parsedAddress}`)
     .then(res => {
-      const lat = parseFloat(res.body.results[0].geometry.location.lat)
-      const long = parseFloat(res.body.results[0].geometry.location.lng)
+      const lat = res.body.results[0].geometry.location.lat.toString()
+      const long = res.body.results[0].geometry.location.lng.toString()
 
       console.log(lat, long)
 
