@@ -6,8 +6,8 @@ exports.up = function(knex, Promise) {
     table.string('topic')
     table.string('title')
     table.string('description')
-    table.decimal('lat')
-    table.decimal('long')
+    table.float('lat')
+    table.float('long')
     table.integer('user_id')
   })
 };
