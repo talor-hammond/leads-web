@@ -15,8 +15,8 @@ router.get('/', (req, res) => {
       console.log(posts[0])
       // 
       res.json(posts.map((post) => {
-        post.lat = parseInt(post.lat)
-        post.long = parseInt(post.long)
+        post.lat = parseFloat(post.lat)
+        post.long = parseFloat(post.long)
         return post
       }))
     })
