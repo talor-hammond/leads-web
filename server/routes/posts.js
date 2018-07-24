@@ -12,6 +12,7 @@ const key = "AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY"
 router.get('/', (req, res) => {
   db.getPosts()
     .then(posts => {
+      console.log(posts[0])
       res.json(posts)
     })
     .catch(err => {
