@@ -20,7 +20,7 @@ router.get('/comment/:id', (req, res) => {
 })
 
 // Add a comment
-router.post('/comment/:id', (req, res) => {
+router.post('/comment', (req, res) => {
     let comment = req.body
 
     db.addComment(comment)
