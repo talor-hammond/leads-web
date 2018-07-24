@@ -5,6 +5,9 @@ const request = require('superagent')
 
 const db = require('../db/posts')
 
+// keys; headers
+const key = "AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY"
+
 // Getting posts w user information...
 router.get('/', (req, res) => {
   db.getPosts()
@@ -18,15 +21,20 @@ router.get('/', (req, res) => {
 
 // Adding a post...
 router.post('/', (req, res) => {
-  let post = req.body
+  let post = req.body //
 
-  // fetch the address with post.latitude, post.longitude
-  request.get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${post.lat}%2C${post.long}&sensor=true`)
+  const parsedAddress = post.address.split(' ').join('+') // splitting the string at ' ', and connecting w '+'
+
+  // fetch post.lat, post.long with post.address
+  request.get(`https://maps.googleapis.com/maps/api/geocode/json?apiKey=${key}&address=${parsedAddress}`)
     .then(res => {
-      const address = res.body.results[0].formatted_address
-      post.address = address
+      const lat = res.body.results[0].geometry.location.lat
+      const long = res.body.results[0].geometry.location.long
+
+      post.lat = lat
+      post.long = long
     })
-    .then(() => {
+    .then(() => { // once we've retrieved latitude and longitude from google maps api
       db.addPost(post)
         .then(() => {
           console.log('Firing... ', post)
