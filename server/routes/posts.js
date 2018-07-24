@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
   request.get(`https://maps.googleapis.com/maps/api/geocode/json?apiKey=${key}&address=${parsedAddress}`)
     .then(res => {
       const lat = res.body.results[0].geometry.location.lat
-      const long = res.body.results[0].geometry.location.long
+      const long = res.body.results[0].geometry.location.lng
 
       post.lat = lat
       post.long = long
