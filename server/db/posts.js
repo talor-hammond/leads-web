@@ -4,7 +4,8 @@ function getPosts() { // comes with user information, username, user_id, etc.
   return conn('users')
     .join('posts', 'users.id', 'posts.user_id')
     .select('posts.id as post_id', 'users.id as user_id', 'users.user_name as username', 'posts.address as address', 'posts.lat as lat', 'posts.long as long', 'posts.title as title', 'posts.topic as topic', 'posts.description as description' )
-}
+    .orderBy('post_id', 'desc')
+  }
 
 function addPost(post) {
   return conn('posts')
