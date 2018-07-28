@@ -1,12 +1,79 @@
 const express = require('express')
 const router = express.Router()
 
-const postsDB = require('../db/posts')
+const request = require('superagent')
 
+const db = require('../db/posts')
+
+// keys; headers
+const key = "AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY"
+
+// Getting posts w user information...
 router.get('/', (req, res) => {
-  postsDB.getPosts()
+  db.getPosts()
     .then(posts => {
-      // console.log(posts)
+      console.log(posts[0])
+      // 
+      res.json(posts.map((post) => {
+        post.lat = parseFloat(post.lat)
+        post.long = parseFloat(post.long)
+        return post
+      }))
+    })
+    .catch(err => {
+      if (err) throw err
+    })
+})
+
+// Adding a post...
+router.post('/', (req, res) => {
+  let post = req.body //
+
+  const parsedAddress = post.address.split(' ').join('+') // splitting the string at ' ', and connecting w '+'
+
+  // fetch post.lat, post.long with post.address
+  request.get(`https://maps.googleapis.com/maps/api/geocode/json?apiKey=${key}&address=${parsedAddress}`)
+    .then(res => {
+      const lat = res.body.results[0].geometry.location.lat.toString()
+      const long = res.body.results[0].geometry.location.lng.toString()
+
+      console.log(lat, long)
+
+      post.lat = lat
+      post.long = long
+    })
+    .then(() => { // once we've retrieved latitude and longitude from google maps api
+      db.addPost(post)
+        .then(() => {
+          console.log('Firing... ', post)
+          res.sendStatus(200)
+        })
+        .catch(err => {
+          if (err) throw err
+        })
+    })
+
+})
+
+// Getting a post, by the post's id
+router.get('/post/:id', (req, res) => {
+  const id = req.params.id
+
+  db.getPostByPostId(id)
+    .then(post => {
+      res.json(post)
+    })
+    .catch(err => {
+      if (err) throw err
+    })
+})
+
+// Getting all posts, from a particular user id
+router.get('/user/:id', (req, res) => {
+  const id = req.params.id
+
+  db.getPostsByUserId(id)
+    .then(posts => {
       res.json(posts)
     })
     .catch(err => {
@@ -14,36 +81,18 @@ router.get('/', (req, res) => {
     })
 })
 
-router.get('/andusers', (req, res) => {
-  postsDB.getPostsWithUsers()
-    .then(posts => {
-      console.log(posts)
-      res.json(posts)
+// Deleting a post by post id
+router.delete('/post/:id', (req, res) => {
+  const id = req.params.id
+
+  db.deletePostById(id)
+    .then(() => {
+      res.sendStatus(200)
     })
-})
-
-router.post('/', (req, res) => {
-  const post = req.body
-
-  postsDB.addPost(post)
-      .then(() => {
-          res.sendStatus(200)
-      })
-      .catch(err => {
-          if (err) throw err
-      })
+    .catch(err => {
+      if (err) throw err
+    })
 })
 
 
 module.exports = router
-
-// router.post('/', (req, res) => {
-//   const post = req.body
-//   postsDB.addPost()
-//     .then(() => {
-//       res.send(200)
-//     })
-//     .catch(err => {
-//       if (err) throw err
-//   })  
-// })
