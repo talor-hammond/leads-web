@@ -60,7 +60,7 @@ test('addPost returns ids of type: number', () => {
 
 test('deletePost does its job', () => {
     return posts.deletePostById(1, testDb)
-        .then(id => { // returns the id of the deleted post...
+        .then(id => { // returns the id of the deleted post... 
             const expected = 1
             const actual = id
 
