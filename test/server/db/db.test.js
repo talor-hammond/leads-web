@@ -27,6 +27,8 @@ test('getPosts returns the correct array of data; length', () => {
         })
 })
 
+// TODO: test join w join keys @getPosts
+
 test('getPostByPostId gets a post obj by an id', () => {
     return posts.getPostByPostId(1, testDb)
         .then(post => {
@@ -51,6 +53,16 @@ test('addPost returns ids of type: number', () => {
         .then(ids => {
             const expected = 'number'
             const actual = typeof ids[0]
+
+            expect(actual).toBe(expected)
+        })
+})
+
+test('deletePost does its job', () => {
+    return posts.deletePostById(1, testDb)
+        .then(id => { // returns the id of the deleted post...
+            const expected = 1
+            const actual = id
 
             expect(actual).toBe(expected)
         })
