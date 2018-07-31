@@ -8,8 +8,7 @@
     "postinstall": "webpack && knex migrate:latest",
     "dev": "nodemon --watch server server/index & webpack --watch",
     "start": "node server/index",
-    "test": "ava  -v  --serial 'test/**/*.test.js'",
-    "watch": "nodemon -e js,jsx -x npm test",
+    "test": "jest --watch",
     "h:deploy": "git push heroku master",
     "h:rl": "heroku run knex migrate:rollback && heroku run knex migrate:latest",
     "h:migrate": "heroku run knex migrate:latest",
@@ -32,7 +31,8 @@
   "license": "ISC",
   "devDependencies": {
     "ava": "^0.19.1",
-    "enzyme": "^2.8.2",
+    "enzyme": "^3.3.0",
+    "jest": "^23.4.2",
     "nodemon": "^1.11.0",
     "sqlite3": "^4.0.2",
     "supertest": "^3.0.0"
