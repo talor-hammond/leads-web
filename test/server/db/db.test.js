@@ -19,7 +19,7 @@ afterEach(() => { // destroying the connection; clean-slate
     return env.cleanup(testDb)
 })
 
-// TESTS
+// 1 - 'posts' table:
 test('getPosts returns the correct array of data; length', () => {
     return posts.getPosts(testDb)
         .then(postsArray => {
@@ -67,3 +67,5 @@ test('deletePost does its job', () => {
             expect(actual).toBe(expected)
         })
 })
+
+// 2 - 'comments' table
