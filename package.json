@@ -8,7 +8,8 @@
     "postinstall": "webpack && knex migrate:latest",
     "dev": "nodemon --watch server server/index & webpack --watch",
     "start": "node server/index",
-    "test": "jest --watch",
+    "test": "jest",
+    "test:watch": "jest --watch",
     "h:deploy": "git push heroku master",
     "h:rl": "heroku run knex migrate:rollback && heroku run knex migrate:latest",
     "h:migrate": "heroku run knex migrate:latest",
@@ -16,9 +17,9 @@
     "h:seed": "heroku run knex seed:run",
     "knex": "knex"
   },
-  "ava": {
-    "require": "babel-register",
-    "babel": "inherit"
+  "jest": {
+    "collectCoverage": true,
+    "testURL": "http://localhost/"
   },
   "babel": {
     "presets": [
@@ -32,13 +33,13 @@
   "devDependencies": {
     "ava": "^0.19.1",
     "enzyme": "^3.3.0",
-    "jest": "^23.4.2",
     "nodemon": "^1.11.0",
     "sqlite3": "^4.0.2",
     "supertest": "^3.0.0"
   },
   "dependencies": {
     "babel-core": "^6.24.1",
+    "babel-jest": "^23.4.2",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
@@ -50,6 +51,7 @@
     "dotenv": "^4.0.0",
     "express": "^4.14.0",
     "express-jwt": "^5.3.0",
+    "jest": "22.4.0",
     "jsdom": "^11.0.0",
     "jsonwebtoken": "^7.4.3",
     "jsx-loader": "^0.13.2",

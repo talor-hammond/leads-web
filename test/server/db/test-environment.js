@@ -4,7 +4,7 @@ const testConfig = require('../../../knexfile').test
 
 module.exports = {
   // Test database connection
-  getTestDb: () => knex(testConfig), // getTestDb refers to an anonymous function that returns our test connection
+  getTestDb: () => knex(testConfig), // ...getTestDb refers to an anonymous function that returns our test connection
 
   // Create a separate in-memory database before each test
   // In our tests, we can get at the database as `t.context.db`
