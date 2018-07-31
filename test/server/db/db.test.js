@@ -15,6 +15,11 @@ afterEach(() => { // destroying the connection; clean-slate
 })
 
 // TESTS
-test('Test suite is running', () => {
-    expect(true).toBe(true)
+test('getPosts returns the correct array of data; length', () => {
+
+    return posts.getPosts(testDb)
+        .then(postsArray => {
+            expect(postsArray).toHaveLength(1)
+        })
+
 })
