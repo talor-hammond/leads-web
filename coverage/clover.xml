@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1533022243797" clover="3.2.0">
+  <project timestamp="1533022243797" name="All files">
+    <metrics statements="82" coveredstatements="64" conditionals="18" coveredconditionals="2" methods="32" coveredmethods="21" elements="132" coveredelements="87" complexity="0" loc="82" ncloc="82" packages="5" files="13" classes="13">
+      <package name="leads-web-api">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="knexfile.js" path="/Users/tay/Desktop/Projects/leads-web-api/knexfile.js">
+          <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="3" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="leads-web-api.migrations">
+        <metrics statements="38" coveredstatements="34" conditionals="0" coveredconditionals="0" methods="12" coveredmethods="8"/>
+        <file name="20170829044256_users.js" path="/Users/tay/Desktop/Projects/leads-web-api/migrations/20170829044256_users.js">
+          <metrics statements="8" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="11" count="1" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+        </file>
+        <file name="20180720094840_posts.js" path="/Users/tay/Desktop/Projects/leads-web-api/migrations/20180720094840_posts.js">
+          <metrics statements="12" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="9" count="2" type="stmt"/>
+          <line num="10" count="2" type="stmt"/>
+          <line num="11" count="2" type="stmt"/>
+          <line num="15" count="1" type="stmt"/>
+          <line num="16" count="0" type="stmt"/>
+        </file>
+        <file name="20180722001305_messages.js" path="/Users/tay/Desktop/Projects/leads-web-api/migrations/20180722001305_messages.js">
+          <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+        </file>
+        <file name="20180723093154_comments.js" path="/Users/tay/Desktop/Projects/leads-web-api/migrations/20180723093154_comments.js">
+          <metrics statements="9" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="3" count="2" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="5" count="2" type="stmt"/>
+          <line num="6" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="8" count="2" type="stmt"/>
+          <line num="12" count="1" type="stmt"/>
+          <line num="13" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="leads-web-api.seeds">
+        <metrics statements="12" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="8" coveredmethods="8"/>
+        <file name="comments.js" path="/Users/tay/Desktop/Projects/leads-web-api/seeds/comments.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+        </file>
+        <file name="populate_messages.js" path="/Users/tay/Desktop/Projects/leads-web-api/seeds/populate_messages.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+        </file>
+        <file name="posts.js" path="/Users/tay/Desktop/Projects/leads-web-api/seeds/posts.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+        </file>
+        <file name="users.js" path="/Users/tay/Desktop/Projects/leads-web-api/seeds/users.js">
+          <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
+          <line num="2" count="1" type="stmt"/>
+          <line num="4" count="2" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+        </file>
+      </package>
+      <package name="leads-web-api.server.db">
+        <metrics statements="24" coveredstatements="10" conditionals="18" coveredconditionals="2" methods="8" coveredmethods="1"/>
+        <file name="comments.js" path="/Users/tay/Desktop/Projects/leads-web-api/server/db/comments.js">
+          <metrics statements="8" coveredstatements="2" conditionals="6" coveredconditionals="0" methods="3" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="4" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="27" count="1" type="stmt"/>
+        </file>
+        <file name="connection.js" path="/Users/tay/Desktop/Projects/leads-web-api/server/db/connection.js">
+          <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="0" coveredmethods="0"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="2" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+        </file>
+        <file name="posts.js" path="/Users/tay/Desktop/Projects/leads-web-api/server/db/posts.js">
+          <metrics statements="12" coveredstatements="4" conditionals="10" coveredconditionals="1" methods="5" coveredmethods="1"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="4" count="1" type="cond" truecount="1" falsecount="1"/>
+          <line num="6" count="1" type="stmt"/>
+          <line num="13" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="15" count="0" type="stmt"/>
+          <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="22" count="0" type="stmt"/>
+          <line num="30" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="32" count="0" type="stmt"/>
+          <line num="39" count="0" type="cond" truecount="0" falsecount="2"/>
+          <line num="41" count="0" type="stmt"/>
+          <line num="46" count="1" type="stmt"/>
+        </file>
+      </package>
+      <package name="leads-web-api.test.server.db">
+        <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+        <file name="test-environment.js" path="/Users/tay/Desktop/Projects/leads-web-api/test/server/db/test-environment.js">
+          <metrics statements="7" coveredstatements="7" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="4"/>
+          <line num="1" count="1" type="stmt"/>
+          <line num="3" count="1" type="stmt"/>
+          <line num="5" count="1" type="stmt"/>
+          <line num="7" count="2" type="stmt"/>
+          <line num="12" count="2" type="stmt"/>
+          <line num="14" count="2" type="stmt"/>
+          <line num="20" count="2" type="stmt"/>
+        </file>
+      </package>
+    </metrics>
+  </project>
+</coverage>
