@@ -5,7 +5,9 @@ const comments = require('../../../server/db/comments')
 const env = require('./test-environment')
 
 // mock-imports:
-import { fakePost } from './mocks'
+import {
+    fakePost
+} from './mocks'
 
 // testDb setup:
 let testDb = null
@@ -30,6 +32,16 @@ test('getPostByPostId gets a post obj by an id', () => {
         .then(post => {
             expect(post).toBeTruthy()
             expect(post.post_id).toBe(1)
+        })
+})
+
+test('getPostsByUserId returns an array of a users\' posts', () => {
+    return posts.getPostsByUserId(1, testDb)
+        .then(postsArray => {
+            const expected = true
+            const actual = Array.isArray(postsArray)
+
+            expect(actual).toBe(expected)
         })
 })
 
