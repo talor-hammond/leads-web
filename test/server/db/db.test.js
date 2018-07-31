@@ -42,6 +42,7 @@ test('getPostsByUserId returns an array of a users\' posts', () => {
             const actual = Array.isArray(postsArray)
 
             expect(actual).toBe(expected)
+            expect(postsArray).toHaveLength(1)
         })
 })
 
