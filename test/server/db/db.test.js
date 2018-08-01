@@ -1,6 +1,18 @@
-// grabbing all our relevant db functions:
-const posts = require('../../../server/db/posts')
-const comments = require('../../../server/db/comments')
+// setup:
+
+import { // 'posts' methods
+    getPostByPostId,
+    getPosts,
+    getPostsByUserId,
+    addPost,
+    deletePostById
+} from '../../../server/db/posts'
+
+import { // 'comments' methods
+    getComments,
+    addComment,
+    deleteCommentById
+} from '../../../server/db/comments'
 
 const env = require('./test-environment')
 
@@ -19,9 +31,11 @@ afterEach(() => { // destroying the connection; clean-slate
     return env.cleanup(testDb)
 })
 
+// ********************************************************** TESTS ********************************************************** //
+
 // 1 - 'posts' table:
 test('getPosts returns the correct array of data; length', () => {
-    return posts.getPosts(testDb)
+    return getPosts(testDb)
         .then(postsArray => {
             expect(postsArray).toHaveLength(1)
         })
@@ -30,7 +44,7 @@ test('getPosts returns the correct array of data; length', () => {
 // TODO: test join w join keys @getPosts
 
 test('getPostByPostId gets a post obj by an id', () => {
-    return posts.getPostByPostId(1, testDb)
+    return getPostByPostId(1, testDb)
         .then(post => {
             expect(post).toBeTruthy()
             expect(post.post_id).toBe(1)
@@ -38,7 +52,7 @@ test('getPostByPostId gets a post obj by an id', () => {
 })
 
 test('getPostsByUserId returns an array of a users\' posts', () => {
-    return posts.getPostsByUserId(1, testDb)
+    return getPostsByUserId(1, testDb)
         .then(postsArray => {
             const expected = true
             const actual = Array.isArray(postsArray)
@@ -49,7 +63,7 @@ test('getPostsByUserId returns an array of a users\' posts', () => {
 })
 
 test('addPost returns ids of type: number', () => {
-    return posts.addPost(fakePost, testDb)
+    return addPost(fakePost, testDb)
         .then(ids => {
             const expected = 'number'
             const actual = typeof ids[0]
@@ -59,7 +73,7 @@ test('addPost returns ids of type: number', () => {
 })
 
 test('deletePost does its job', () => {
-    return posts.deletePostById(1, testDb)
+    return deletePostById(1, testDb)
         .then(id => { // returns the id of the deleted post... 
             const expected = 1
             const actual = id
@@ -69,3 +83,19 @@ test('deletePost does its job', () => {
 })
 
 // 2 - 'comments' table
+test('getComments returns an array', () => {
+    return getComments(1, testDb)
+        .then(comments => {
+            const expected = true
+            const actual = Array.isArray(comments)
+
+            expect(actual).toBe(expected)
+        })
+})
+
+test('getComments returns the correct length of data', () => {
+    return getComments(1, testDb)
+        .then(comments => {
+            console.log(comments)
+        })
+})
