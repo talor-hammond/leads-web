@@ -6,3 +6,9 @@ export const fakePost = {
     long: 174.7734782,
     user_id: 3
 }
+
+export const fakeComment = {
+    user_id: 2, 
+    post_id: 1, 
+    content: 'Here\s a fake comment'
+}

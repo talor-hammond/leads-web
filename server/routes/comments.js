@@ -5,7 +5,7 @@ const request = require('superagent')
 
 const db = require('../db/comments')
 
-// Get comments by user id
+// Get comments by post id??
 router.get('/comment/:id', (req, res) => {
     const id = req.params.id
 
