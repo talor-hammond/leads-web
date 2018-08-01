@@ -12,3 +12,15 @@ export const fakeComment = {
     post_id: 1, 
     content: 'Here\s a fake comment'
 }
+
+export const getPostsKeys = [
+    'post_id',
+    'user_id',
+    'username',
+    'address',
+    'lat',
+    'long',
+    'title',
+    'topic',
+    'description'
+]
