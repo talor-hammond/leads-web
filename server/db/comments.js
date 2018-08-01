@@ -7,6 +7,9 @@ function getComments (postId, testDb) {
     .join('comments', 'users.id', 'comments.user_id')
     .select('users.user_name as username', 'comments.content as content', 'comments.published as published')
     .where('comments.post_id', postId)
+    // .then(comments => {
+    //     console.log(comments)
+    // })
 }
 
 function addComment (comment, testDb) {
@@ -29,3 +32,5 @@ module.exports = {
     addComment,
     deleteCommentById
 }
+
+// getComments(1)

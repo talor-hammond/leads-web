@@ -18,7 +18,8 @@ const env = require('./test-environment')
 
 // mock-imports:
 import {
-    fakePost
+    fakePost,
+    fakeComment
 } from './mocks'
 
 // testDb setup:
@@ -73,7 +74,7 @@ test('addPost returns ids of type: number', () => {
 })
 
 test('deletePost does its job', () => {
-    return deletePostById(1, testDb)
+    return deletePostById(4, testDb)
         .then(id => { // returns the id of the deleted post... 
             const expected = 1
             const actual = id
@@ -93,9 +94,26 @@ test('getComments returns an array', () => {
         })
 })
 
-test('getComments returns the correct length of data', () => {
+test.skip('getComments returns the correct length of data', () => { // TODO???
     return getComments(1, testDb)
         .then(comments => {
-            console.log(comments)
+            expect(comments).toHaveLength(3)
+        })
+})
+
+test('addComment adds another comment to our database', () => {
+    return addComment(fakeComment, testDb)
+        .then(id => {
+            const expected = 6
+            const actual = id[0]
+
+            expect(actual).toBe(expected)
+        })
+})
+
+test('deleteCommentById deletes the single comment', () => {
+    return deleteCommentById(5, testDb)
+        .then(id => {
+            expect(id).toBe(1)
         })
 })
