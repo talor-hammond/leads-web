@@ -19,7 +19,8 @@ const env = require('./test-environment')
 // mock-imports:
 import {
     fakePost,
-    fakeComment
+    fakeComment,
+    getPostsKeys
 } from './mocks'
 
 // testDb setup:
@@ -42,7 +43,17 @@ test('getPosts returns the correct array of data; length', () => {
         })
 })
 
-// TODO: test join w join keys @getPosts
+test.only('getPosts: posts joins to users w expectedKeys', () => {
+    return getPosts(testDb)
+        .then(postsArray => {
+            const result = postsArray[0]
+
+            // const expected = getPostsKeys
+            const actual = Object.keys(result)
+
+            expect(actual).toEqual(getPostsKeys)
+        })
+})
 
 test('getPostByPostId gets a post obj by an id', () => {
     return getPostByPostId(1, testDb)
@@ -94,7 +105,7 @@ test('getComments returns an array', () => {
         })
 })
 
-test.skip('getComments returns the correct length of data', () => { // TODO???
+test.skip('getComments returns the correct length of data', () => { // TODO: check db query 'where'
     return getComments(1, testDb)
         .then(comments => {
             expect(comments).toHaveLength(3)
