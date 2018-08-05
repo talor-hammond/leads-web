@@ -43,7 +43,6 @@ test('getPosts returns the correct array of data; length', () => {
         })
 })
 
-// TODO: test join w join keys @getPosts
 test.only('getPosts: posts joins to users w expectedKeys', () => {
     return getPosts(testDb)
         .then(postsArray => {
@@ -106,7 +105,7 @@ test('getComments returns an array', () => {
         })
 })
 
-test.skip('getComments returns the correct length of data', () => { // TODO???
+test.skip('getComments returns the correct length of data', () => { // TODO: check db query 'where'
     return getComments(1, testDb)
         .then(comments => {
             expect(comments).toHaveLength(3)
