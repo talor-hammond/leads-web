@@ -12,8 +12,6 @@ const key = "AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY"
 router.get('/', (req, res) => {
   db.getPosts()
     .then(posts => {
-      console.log(posts[0])
-      // 
       res.json(posts.map((post) => {
         post.lat = parseFloat(post.lat)
         post.long = parseFloat(post.long)
