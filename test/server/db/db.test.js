@@ -46,12 +46,17 @@ test('getPosts returns the correct array of data; length', () => {
 test.only('getPosts: posts joins to users w expectedKeys', () => {
     return getPosts(testDb)
         .then(postsArray => {
-            const result = postsArray[0]
+            // const result = postsArray[0] // grab an individual post object
 
-            // const expected = getPostsKeys
-            const actual = Object.keys(result)
+            postsArray.forEach(post => {
+                const actual = Object.keys(post)
 
-            expect(actual).toEqual(getPostsKeys)
+                expect(actual).toEqual(getPostsKeys)
+            })
+            
+            // const actual = Object.keys(result) // grab the array of keys of that post object
+
+            // expect(actual).toEqual(getPostsKeys)
         })
 })
 
