@@ -7,7 +7,13 @@ const url = '/api/posts'
 jest.mock('../../../server/db/posts', () => ({ // our 'mock' posts database:
     // addPost,
     // getPosts: jest.fn(),
-    getPosts: () => ([1]),
+    getPosts: () => Promise.resolve([
+        {
+            
+            lat: 1,
+            long: 1
+        }
+    ]),
     // getPostByPostId,
     // deletePostById,
     // getPostsByUserId
