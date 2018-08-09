@@ -55,10 +55,11 @@ describe('posts route tests', () => {
                 .then(res => {
                     const posts = res.body
 
+                    expect(posts).toBeDefined()
                     expect(posts).toHaveLength(2)
                 })
         })
-    
+
     })
 
     describe('GET /api/posts/post/:id', () => {
@@ -74,8 +75,16 @@ describe('posts route tests', () => {
 
                     expect(post).toBeDefined()
                     expect(post.id).toBe(String(id))
-                    // assertion around mock object may be better?
+                    // assertion around values of mock object may be better?
                 })
+        })
+
+    })
+
+    describe('GET /api/posts/user/:id', () => {
+
+        it('returns all of a users posts', () => {
+
         })
 
     })
