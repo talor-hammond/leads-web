@@ -29,7 +29,7 @@ router.post('/', (req, res) => {
 
   const parsedAddress = post.address.split(' ').join('+') // splitting the string at ' ', and connecting w '+'
 
-  // fetch post.lat, post.long with post.address
+  // fetch post.lat, post.long with post.address from google maps api
   request.get(`https://maps.googleapis.com/maps/api/geocode/json?apiKey=${key}&address=${parsedAddress}`)
     .then(res => {
       const lat = res.body.results[0].geometry.location.lat.toString()
