@@ -37,9 +37,30 @@ jest.mock('../../../server/db/posts', () => ({ // our 'mock' posts database:
             description: 'Just realised, cheers',
             user_id: 1
     })
-    : Promise.reject('Error; post not found')
+    : Promise.reject('Database error'),
     // deletePostById,
-    // getPostsByUserId
+    getPostsByUserId: (id) => id
+    ? Promise.resolve([
+        {
+            id: 1,
+            address: '1 Airlie Road, Plimmerton',
+            lat: -41.073070,
+            long: 174.857012,
+            title: 'Need lemons, urgently',
+            description: 'Making lemonade and have no lemons smh',
+            user_id: id
+        },
+        {
+            id: 2,
+            address: '1 Airlie Road, Plimmerton',
+            lat: -41.073070,
+            long: 174.857012,
+            title: 'Also need sugar',
+            description: 'Just realised, cheers',
+            user_id: id
+        }
+    ])
+    : Promise.reject('Database error')
   }))
 
 // tests --
@@ -84,7 +105,20 @@ describe('posts route tests', () => {
     describe('GET /api/posts/user/:id', () => {
 
         it('returns all of a users posts', () => {
+            const id = 2
 
+            return request
+                .get(url + '/user/' + id)
+                .expect(200)
+                .then(res => {
+                    const posts = res.body
+
+                    expect(posts).toHaveLength(2)
+                    
+                    posts.forEach(post => {
+                        expect(post.user_id).toBe(String(id))
+                    })
+                })
         })
 
     })
