@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const SecondInfo = () => {
+const SecondHero = () => {
     return (
         <section className="hero is-medium is-dark is-bold">
             <div className="hero-body">
@@ -25,4 +25,4 @@ const SecondInfo = () => {
     )
 }
 
-export default SecondInfo
+export default SecondHero
