@@ -12,7 +12,7 @@ const FirstHero = () => {
                             <h2 className="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nulla nam omnis delectus quam
                     ea suscipit voluptate adipisci odit porro.</h2>
                             <p className="control">
-                                <Link to="/register" className="button cta is-Hero">Get started for free</Link>
+                                <Link to="/register" className="button cta is-info">Get started for free</Link>
                             </p>
                         </div>
                     </div>
