@@ -8,8 +8,9 @@ import Home from './Home'
 
 const App = () => (
   <Router>
-    <div className='app-container has-text-centered'>
+    <div className='app-container'>
       <Route path="/" component={HomeNav} />
+      <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
       <Route path="/Register" component={Register} />
     </div>

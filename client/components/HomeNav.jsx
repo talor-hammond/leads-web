@@ -7,11 +7,11 @@ const HomeNav = (props) => {
   return (
 
     <div>
-
-    <div className="darkline"></div>
+      <div className="darkline"></div>
 
       <nav className="navbar">
         <div className="container">
+
           <div className="navbar-brand">
             <Link to="/" className="navbar-item logo"><strong>leads</strong></Link>
           </div>
@@ -43,11 +43,9 @@ const HomeNav = (props) => {
                 </div>
               )
             }
-
           </div>
         </div>
       </nav>
-
     </div>
   )
 
