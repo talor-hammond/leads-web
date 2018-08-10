@@ -1,7 +1,149 @@
-body {
-  background-color: "blue";
+/* * {
+    outline: 1px solid red !important;
+ }
+ 
+ * {
+     -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+     -ms-box-sizing: border-box;
+     box-sizing: border-box;
+ }  */
+
+/* ------------- NAV ----------- */
+.logo {
+  font-size: 22px;
 }
 
-button {
-  background-color: "red";
+.navbar {
+  border-bottom: 1px solid rgba(0, 0, 0, .12);
+  /* opacity: .9; */
+}
+
+.darkline {
+  background-color: #363636;
+  height: 5px;
+  width: 100%;
+}
+
+.navbar-start, .navbar-end {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.1rem;
+  /* font-weight: bold; */
+}
+
+.notHome {
+  margin-bottom: 30px;
+}
+
+/* HOME */
+.control .cta {
+  font-weight: bold;
+}
+
+.homeListings h1 {
+  font-size: 20px;
+  margin-top: 10px;
+}
+
+/* FOOTER */
+.footer {
+  background-color: rgba(139, 139, 139, 0.05);
+  border-top: 1px solid rgba(0, 0, 0, .22);
+}
+
+/* BROWSE */
+section.content {
+  margin-top: 75px;
+}
+
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+
+.wrapper .miniListing {
+  /* margin: 0 auto; */
+  margin-right: 1%;
+  width: 23.5%;
+  height: 275px;
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.wrapper .miniListing figure {
+  width: 100%;
+  margin: 0;
+}
+
+.address, .price {
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+p.listingTitle {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.username {
+  font-style: italic;
+}
+
+/* CREATE */
+input.cost {
+  width: 90px;
+}
+
+/* PINS / LISTING */
+.pin h2.subtitle {
+  text-transform: uppercase;
+  font-size: 17px;
+}
+
+.featuredImage {
+  border: 1px solid rgba(0, 0, 0, .4)
+}
+
+.description-etc h1.title {
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+/* PROFILE */
+.profile, .pin {
+  margin-top: 75px;
+}
+
+/* FIX CLASSES */
+.threeQuarterHeight {
+  height: 75vh;
+}
+
+.fullHeight {
+  height: 100vh;
+}
+
+.divider {
+  border-right: 1px solid rgba(0, 0, 0, .2);
+}
+
+.has-vertically-aligned-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.thin {
+  font-weight: 100;
+}
+
+.border {
+  border: 1px solid black;
 }
