@@ -1,8 +1,8 @@
 import request from 'superagent'
-import {saveUserToken} from '../utils/auth'
-import {receiveLogin} from './login'
+import { saveUserToken } from '../utils/auth'
+import { receiveLogin } from './login'
 
-export function registerUserRequest ({user_name, password}) {
+export function registerUserRequest ({ user_name, password }) {
   global.window.localStorage.setItem('fun', 'times')
   return (dispatch) => {
     request

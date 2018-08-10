@@ -1,12 +1,14 @@
 var hash = require('../auth/hash')
 const conn = require('./connection')
 
-function createUser (user_name, password, db) {
+function createUser (user, db) {
+  const { first_name, last_name, email, user_name, password } = user
+
   return new Promise ((resolve, reject) => {
     hash.generate(password, (err, hash) => {
       if (err) reject(err)
       db('users')
-        .insert({user_name: user_name.toLowerCase(), hash})
+        .insert({first_name, last_name, email, user_name: user_name.toLowerCase(), hash})
         .then(user_id => resolve(user_id))
     })
 

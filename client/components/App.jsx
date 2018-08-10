@@ -14,7 +14,7 @@ const App = () => (
       <Route path="/" component={HomeNav} />
       <Route exact path="/" component={Home} />
       <Route path="/login" component={Login} />
-      <Route path="/Register" component={Register} />
+      <Route path="/register" component={Register} />
       <Route path="/" component={Footer} />
     </div>
   </Router>

@@ -1,27 +1,41 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {registerUserRequest} from '../actions/register'
+import { connect } from 'react-redux'
+import { registerUserRequest } from '../actions/register'
 
 class Register extends React.Component {
+
   constructor(props) {
     super(props)
+
     this.state = {
+      first_name: '',
+      last_name: '',
+      email: '',
       user_name: '',
       password: '',
       confirm_password: ''
     }
+
     this.updateDetails = this.updateDetails.bind(this)
     this.submit = this.submit.bind(this)
   }
+
   updateDetails(e) {
     this.setState({[e.target.name]: e.target.value})
   }
+
   submit(e) {
     e.preventDefault()
     e.target.reset()
-    let {user_name, password, confirm_password} = this.state
-    if (password == confirm_password) this.props.dispatch(registerUserRequest({user_name, password}))
+    const { user_name, password, confirm_password } = this.state
+
+    if (password == confirm_password) {
+      this.props.dispatch(registerUserRequest({ user_name, password }))
+    } else {
+      console.log('errrrrrrrror, passwords don\'t match')
+    }
   }
+
   render() {
     return (
       <form className="Register container" onSubmit={this.submit}>
@@ -38,6 +52,7 @@ class Register extends React.Component {
       </form>
     )
   }
+
 }
 
 export default connect()(Register)
