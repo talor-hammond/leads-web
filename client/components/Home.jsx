@@ -9,6 +9,7 @@ const Home = (props) => {
     return (
         <div>
             <FirstInfo />
+            <SecondInfo />
         </div>
     )
 }

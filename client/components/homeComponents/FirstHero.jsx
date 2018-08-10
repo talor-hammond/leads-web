@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const FirstInfo = () => {
+const FirstHero = () => {
     return (
         <section className="hero is-medium">
             <div className="hero-body">
@@ -12,7 +12,7 @@ const FirstInfo = () => {
                             <h2 className="subtitle">Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis nulla nam omnis delectus quam
                     ea suscipit voluptate adipisci odit porro.</h2>
                             <p className="control">
-                                <Link to="/register" className="button cta is-info">Get started for free</Link>
+                                <Link to="/register" className="button cta is-Hero">Get started for free</Link>
                             </p>
                         </div>
                     </div>
@@ -22,4 +22,4 @@ const FirstInfo = () => {
     )
 }
 
-export default FirstInfo
+export default FirstHero
