@@ -27,9 +27,13 @@ class RegisterForm extends Component {
     submit(e) {
         e.preventDefault()
         e.target.reset()
-        const { user_name, password, confirm_password } = this.state
+        const { email, user_name, password, confirm_password } = this.state
 
-        if (password == confirm_password) this.props.dispatch(registerUserRequest(user))
+        if (password == confirm_password) {
+            this.props.dispatch(registerUserRequest(user))
+        } else {
+            console.log('passwords do not match lol')
+        }
     }
 
     render() {
@@ -40,7 +44,7 @@ class RegisterForm extends Component {
                     Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate exercitationem sequi repellat minus vitae.
                 </p>
 
-                <form method="post">
+                <form>
 
                     <div className="field">
                         <label className="label">Email</label>
