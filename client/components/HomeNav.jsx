@@ -5,7 +5,6 @@ import { logoutUser } from '../actions/logout'
 
 const HomeNav = (props) => {
   return (
-
     <div>
       <nav className="navbar is-dark is-fixed-top">
         <div className="container">

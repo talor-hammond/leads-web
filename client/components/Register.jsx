@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 
 // components:
 import RegisterForm from './RegisterForm'
 
-class Register extends React.Component {
+class Register extends Component {
 
   render() {
     return (
