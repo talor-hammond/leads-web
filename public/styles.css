@@ -76,6 +76,16 @@ body {
   margin-left: 3px;
 }
 
+/* LOGIN */
+.login-logo {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.login-subtitle {
+  margin-bottom: 15px;
+}
+
 /* BROWSE */
 section.content {
   margin-top: 75px;

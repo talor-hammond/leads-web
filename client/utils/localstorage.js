@@ -5,6 +5,8 @@ export function get (key) {
 }
 
 export function set (key, value) {
+  console.log('setting token with key: ' + key + ', and value: ' + value)
+
   if(value === null) {
     localStorage.removeItem(key)
   } else {

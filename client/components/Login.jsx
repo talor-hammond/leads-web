@@ -1,6 +1,7 @@
 import React from 'react'
-import {connect} from 'react-redux'
-import {loginUser} from '../actions/login'
+import { connect } from 'react-redux'
+
+import LoginForm from './LoginForm'
 
 class Login extends React.Component {
   constructor(props) {
@@ -23,15 +24,15 @@ class Login extends React.Component {
   }
   render() {
     return (
-      <form className="Login container" onSubmit={this.submit}>
-        <label>Username:
-          <input className="input" type="text" name="user_name" onChange={this.updateDetails}/>
-        </label><br/>
-        <label>Password:
-          <input className="input" type="password" name="password" onChange={this.updateDetails}/>
-        </label><br/>
-        <input className="button is-success" type="submit" />
-      </form>
+      <section className="section">
+        <div className="hero-body">
+          <div className="container">
+            <div className="column is-4 is-offset-4">
+                <LoginForm />
+            </div>
+          </div>
+        </div>
+      </section>
     )
   }
 }

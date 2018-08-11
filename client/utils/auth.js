@@ -1,9 +1,11 @@
 const decode = require('jwt-decode')
 
-import {get, set} from './localstorage'
+import { get, set } from './localstorage'
 
 export function isAuthenticated () {
   const token = get('token')
+
+  console.log(token)
 
   if (token) {
     const payload = decode(token)
@@ -20,7 +22,9 @@ export function isAuthenticated () {
 }
 
 export function saveUserToken (token) {
-  set('token', token)
+  // console.log('here\'s the user token being passed into set : ' + token) // token exists here...
+
+  set('token', token) // but token isn't being 'set' here...
   return decode(token)
 }
 

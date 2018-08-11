@@ -13,21 +13,34 @@ class RegisterForm extends Component {
             email: '',
             user_name: '',
             password: '',
-            confirm_password: ''
+            confirm_password: '',
+            passwordsMatch: false
         }
 
         this.updateDetails = this.updateDetails.bind(this)
         this.submit = this.submit.bind(this)
+        this.handlePasswords = this.handlePasswords.bind(this)
     }
 
     updateDetails(e) {
+        // this.handlePasswords()
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    handlePasswords() {
+        const { password, confirm_password } = this.state
+
+        if (confirm_password.length > 0 && confirm_password != password) {
+            this.setState({ passwordsMatch: false })
+        } else if (confirm_password.length > 0 && confirm_password == password) {
+            this.setState({ passwordsMatch: true }) // use this piece of state to control success / error in icon
+        }
     }
 
     submit(e) {
         e.preventDefault()
 
-        const { email, user_name, password, confirm_password } = this.state
+        const { email, user_name, password, confirm_password, passwordsMatch } = this.state
 
         const user = {
             email,

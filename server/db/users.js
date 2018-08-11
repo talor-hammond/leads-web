@@ -6,9 +6,11 @@ function createUser (user, db) {
 
   return new Promise ((resolve, reject) => {
     hash.generate(password, (err, hash) => {
+      console.log({ email, user_name, password }, hash)
+
       if (err) reject(err)
       db('users')
-        .insert({email, user_name: user_name, hash})
+        .insert({ email, user_name, hash })
         .then(user_id => resolve(user_id))
     })
 
