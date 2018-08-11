@@ -1,6 +1,6 @@
 var router = require('express').Router()
 
-var {userExists, createUser} = require('../db/users')
+var { userExists, createUser } = require('../db/users')
 var token = require('../auth/token')
 
 router.post('/register', register, token.issue)
