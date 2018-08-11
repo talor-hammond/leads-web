@@ -9,7 +9,7 @@ class Register extends React.Component {
     return (
       <section className="hero is-light is-fullheight is-bold">
         <div className="hero-body">
-          <div className="container has-text-centered">
+          <div className="container">
             <div className="column is-4 is-offset-4">
                 <RegisterForm />
             </div>

@@ -10,8 +10,6 @@ class RegisterForm extends Component {
         super(props)
 
         this.state = {
-            first_name: '',
-            last_name: '',
             email: '',
             user_name: '',
             password: '',
@@ -31,41 +29,56 @@ class RegisterForm extends Component {
         e.target.reset()
         const { user_name, password, confirm_password } = this.state
 
-        if (password == confirm_password) this.props.dispatch(registerUserRequest({ user_name, password })) // 'else' is handled through html attr / bulma
+        if (password == confirm_password) this.props.dispatch(registerUserRequest(user))
     }
 
     render() {
         return (
             <div className="box">
-                <h3 className="title has-text-dark">leads</h3>
-                <p className="subtitle has-text-dark">
-                    <Link to="/"><em><b>browse</b></em>, or sign-up here</Link>
+                <h3 className="title is-4 is-spaced has-text-dark">Get started with a free account</h3>
+                <p className="subtitle is-6 has-text-dark">
+                    Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cupiditate exercitationem sequi repellat minus vitae.
                 </p>
 
                 <form method="post">
 
                     <div className="field">
-                        <div className="control">
-                            <input onChange={this.updateDetails} name="email" className="input is-medium" type="email" placeholder="Email" />
+                        <label className="label">Email</label>
+                        <div className="control has-icons-left">
+                            <input onChange={this.updateDetails} className="input" name="email" type="email" />
+                            <div className="icon is-small is-left">
+                                <i className="fa fa-envelope"></i>
+                            </div>
                         </div>
                     </div>
 
                     <div className="field">
-                        <div className="control">
-                            <input onChange={this.updateDetails} name="first_name" className="input is-medium" placeholder="First name" />
+                        <label className="label">Username <span className="extra-text">(displayed on your profile)</span></label>
+                        <div className="control has-icons-left">
+                            <input onChange={this.updateDetails} className="input" name="user_name" type="text" />
+                            <div className="icon is-small is-left">
+                                <i className="fa fa-user"></i>
+                            </div>
                         </div>
                     </div>
 
                     <div className="field">
-                        <div className="control">
-                            <input onChange={this.updateDetails} name="last_name" className="input is-medium" placeholder="Last name" />
+                        <label className="label">Password</label>
+                        <div className="control has-icons-left">
+                            <input onChange={this.updateDetails} className="input" name="password" type="password" />
+                            <div className="icon is-small is-left">
+                                <i className="fa fa-lock"></i>
+                            </div>
                         </div>
                     </div>
 
-
                     <div className="field">
-                        <div className="control">
-                            <input onChange={this.updateDetails} name="username" className="input is-medium" placeholder="Username" />
+                        <label className="label">Confirm password</label>
+                        <div className="control has-icons-left">
+                            <input onChange={this.updateDetails} className="input" name="confirm_password" type="password" />
+                            <div className="icon is-small is-left">
+                                <i className="fa fa-lock"></i>
+                            </div>
                         </div>
                     </div>
 

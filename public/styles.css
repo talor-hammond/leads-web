@@ -52,6 +52,16 @@
   border-top: 1px solid rgba(0, 0, 0, .22);
 }
 
+/* REGISTER */
+.label {
+  font-weight: 500;
+  font-size: 14px
+}
+
+.label .extra-text {
+  font-weight: 100;
+}
+
 /* BROWSE */
 section.content {
   margin-top: 75px;
