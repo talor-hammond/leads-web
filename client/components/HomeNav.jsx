@@ -7,9 +7,7 @@ const HomeNav = (props) => {
   return (
 
     <div>
-      <div className="darkline"></div>
-
-      <nav className="navbar">
+      <nav className="navbar is-dark is-fixed-top">
         <div className="container">
 
           <div className="navbar-brand">
@@ -18,11 +16,11 @@ const HomeNav = (props) => {
 
           <div className="navbar-end">
             <div className="navbar-item">
-              <Link to="/browse" className="has-text-dark">browse</Link>
+              <Link to="/browse" className="has-text-light">browse</Link>
             </div>
 
             <div className="navbar-item">
-              <Link to="/post" className="has-text-dark">post a lead</Link>
+              <Link to="/post" className="has-text-light">post a lead</Link>
             </div>
 
             {
@@ -32,14 +30,14 @@ const HomeNav = (props) => {
                 </div>
 
                 : <div className="navbar-item">
-                  <Link to="/login" className="has-text-dark">sign-in</Link>
+                  <Link to="/login" className="has-text-light">sign-in</Link>
                 </div>
             }
 
             {
               !props.auth.isAuthenticated && (
                 <div className="navbar-item">
-                  <Link to="/register" className="has-text-dark">register</Link>
+                  <Link to="/register" className="has-text-light">register</Link>
                 </div>
               )
             }
