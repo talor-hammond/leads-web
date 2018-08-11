@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
 
 // actions:
 import { registerUserRequest } from '../actions/register'
@@ -25,18 +25,29 @@ class RegisterForm extends Component {
     }
 
     submit(e) {
+        console.log('pressed sign-up')
+
         e.preventDefault()
-        e.target.reset()
+        // e.target.reset()
+
         const { email, user_name, password, confirm_password } = this.state
+
+        const user = {
+            email,
+            user_name,
+            password // gets 'hashed' server-side; db.users
+        }
 
         if (password == confirm_password) {
             this.props.dispatch(registerUserRequest(user))
         } else {
-            console.log('passwords do not match lol')
+            alert('passwords do not match lol')
         }
     }
 
     render() {
+        console.log(this.props)
+
         return (
             <div className="box">
                 <h3 className="title is-4 is-spaced has-text-dark">Get started with a free account</h3>
@@ -86,8 +97,18 @@ class RegisterForm extends Component {
                         </div>
                     </div>
 
-                    <input className="button is-info is-medium is-fullwidth" type="submit" value="Sign-up" />
+                    <div className="field">
+                        <div className="control">
+                            <div className="terms-text has-text-centered">By clicking Sign-up, you agree to leads' <b>User Agreement</b> & <b>Terms and Conditions</b></div>
+                        </div>
+                    </div>
 
+                    <div className="field">
+                        <div className="control">
+                            <input className="button is-info is-medium is-fullwidth" onClick={this.submit} type="submit" value="Sign-up" />
+                        </div>
+                    </div>
+ 
                 </form>
 
             </div>
@@ -95,4 +116,4 @@ class RegisterForm extends Component {
     }
 }
 
-export default RegisterForm
+export default connect()(RegisterForm)
