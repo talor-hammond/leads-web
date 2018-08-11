@@ -25,10 +25,7 @@ class RegisterForm extends Component {
     }
 
     submit(e) {
-        console.log('pressed sign-up')
-
         e.preventDefault()
-        // e.target.reset()
 
         const { email, user_name, password, confirm_password } = this.state
 
@@ -46,8 +43,6 @@ class RegisterForm extends Component {
     }
 
     render() {
-        console.log(this.props)
-
         return (
             <div className="box">
                 <h3 className="title is-4 is-spaced has-text-dark">Get started with a free account</h3>
