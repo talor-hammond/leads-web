@@ -9,35 +9,46 @@ import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 class BrowseMap extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            markers: []
+        }
+    }
+
+    mapStyle = {
+        height: '80%',
+        width: '80%',
+        margin: '0 auto'
     }
 
     render() {
 
         return (
-            <section className="section">
-                <div className="container">
-                    {/* parse 'area' from google maps api w browsers' lat & long */}
-                    <h1 className="title">Leads in your area...</h1>
-                        <div className="map-container">
-                            <Map google={window.google}
-                                style={{ height: '80%', width: '100%', margin: 'none', left: 0, position: 'absolute' }}
-                                zoom={17}
-                                initialCenter={{
-                                    lat: -41.300637,
-                                    lng: 174.801782
-                                }}
-                                centerAroundCurrentLocation={false}
-                            >
-                            {/* Markers here */}
-                            </Map>
-                        </div>
+            <div className="hero is-fullheight">
+                <div className="map-container">
+                    <div className="container map-title">
+                        <h1 className="title">Leads in <b>Wellington</b></h1>
+                    </div>
+                        <Map google={window.google}
+                            style={this.mapStyle}
+                            zoom={17}
+                            initialCenter={{
+                                lat: -41.300637,
+                                lng: 174.801782
+                            }}
+                        >
+                        </Map>
                 </div>
-            </section>
+            </div>
         )
-
     }
 }
 
+const LoadingContainer = (props) => (
+    <div>Fancy loading container!</div>
+)
+
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'
+    apiKey: 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY',
+    LoadingContainer
 })(BrowseMap)
