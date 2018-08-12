@@ -30,18 +30,14 @@ class BrowseMap extends Component {
             navigator.geolocation.getCurrentPosition(pos => {
                 const coords = pos.coords
 
-                console.log(coords)
-
                 const browserLocation = {
                     lat: coords.latitude,
                     lng: coords.longitude
                 }
 
-                console.log(browserLocation)
-
                 this.setState({
                     initialRegion: browserLocation,
-                    isGettingRegion: false
+                    isGettingRegion: false // stops map from rendering w out necessary information
                 })
             })
         }
@@ -82,6 +78,10 @@ class BrowseMap extends Component {
                             zoom={17}
                             initialCenter={initialRegion}
                         >
+                        <Marker
+                            title='Your current location'
+                            position={initialRegion}
+                        />
                             {
                                 posts.map(post => {
                                     return (
