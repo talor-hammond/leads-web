@@ -10,7 +10,7 @@ class Register extends Component {
       <section className="section">
         <div className="hero-body">
           <div className="container">
-            <div className="column is-4 is-offset-4">
+            <div className="column is-5 is-offset-3">
                 <RegisterForm />
             </div>
           </div>
