@@ -66,12 +66,12 @@ class BrowseMap extends Component {
 
         return (
             <div className="hero is-fullheight">
+                            {
+                                !isGettingRegion && (
                 <div className="map-container">
                     <div className="container map-title">
                         <h1 className="title">Leads in <b>Wellington</b></h1>
                     </div>
-                    {
-                        !isGettingRegion && (
                         <Map
                             google={window.google}
                             style={this.mapStyle}
@@ -101,9 +101,9 @@ class BrowseMap extends Component {
                                 })
                             }
                         </Map>
+                </div>
                         )
                     }
-                </div>
             </div>
         )
     }
