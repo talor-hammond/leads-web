@@ -56,6 +56,9 @@ body {
 .footer {
   background-color: rgba(139, 139, 139, 0.05);
   border-top: 1px solid rgba(0, 0, 0, .22);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
 }
 
 /* REGISTER */
