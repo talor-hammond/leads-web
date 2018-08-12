@@ -11,6 +11,7 @@ class BrowseMap extends Component {
         super(props)
 
         this.state = {
+            isGettingRegion: true,
             initialRegion: {}, // parsed and set w browser's geolocation
             posts: [
                     { title: 'EDA STUDENT GRADUATION', topic: 'Celebration!', description: 'Bring your friends and family for EDA students presentation and appreciation. There will be nibbles and beer so come along!! 5:30pm 26th July.', lat: -41.2969355, long: 174.7734782, user_id: 1 },
@@ -23,6 +24,30 @@ class BrowseMap extends Component {
         }
     }
 
+    // Lifecycle --
+    componentDidMount() {
+        if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
+            navigator.geolocation.getCurrentPosition(pos => {
+                const coords = pos.coords
+
+                console.log(coords)
+
+                const browserLocation = {
+                    lat: coords.latitude,
+                    lng: coords.longitude
+                }
+
+                console.log(browserLocation)
+
+                this.setState({
+                    initialRegion: browserLocation,
+                    isGettingRegion: false
+                })
+            })
+        }
+    }
+
+    // Class variables
     mapStyle = {
         height: '80%',
         width: '80%',
@@ -41,7 +66,7 @@ class BrowseMap extends Component {
     }
 
     render() {
-        const { initialRegion, posts } = this.state
+        const { initialRegion, posts, isGettingRegion } = this.state
 
         return (
             <div className="hero is-fullheight">
@@ -49,41 +74,35 @@ class BrowseMap extends Component {
                     <div className="container map-title">
                         <h1 className="title">Leads in <b>Wellington</b></h1>
                     </div>
-                    <Map
-                        google={window.google}
-                        style={this.mapStyle}
-                        zoom={17}
-                        initialCenter={{
-                            lat: -41.300637,
-                            lng: 174.801782
-                        }}
-                    >
-                        {
-                            posts.map(post => {
-                                return (
-                                    <Marker
-                                        id={post.id}
-                                        title={post.title}
-                                        description={post.description}
-                                        name={'SOMA'}
-                                        position={{ 
-                                            lat: post.lat,
-                                            lng: post.long
-                                        }}
-                                        onMouseover={this.onMouseoverMarker}
-                                        onClick={this.onMarkerClick}
-                                    />
-                                )
-                            })
-                        }
-                        <InfoWindow
-                            marker={posts[0]}
-                            visible={this.state.showingInfoWindow}>
-                                <div>
-                                    <h1>Wellington</h1>
-                                </div>
-                        </InfoWindow>
-                    </Map>
+                    {
+                        !isGettingRegion && (
+                        <Map
+                            google={window.google}
+                            style={this.mapStyle}
+                            zoom={17}
+                            initialCenter={initialRegion}
+                        >
+                            {
+                                posts.map(post => {
+                                    return (
+                                        <Marker
+                                            id={post.id}
+                                            title={post.title}
+                                            description={post.description}
+                                            name={'SOMA'}
+                                            position={{ 
+                                                lat: post.lat,
+                                                lng: post.long
+                                            }}
+                                            onMouseover={this.onMouseoverMarker}
+                                            onClick={this.onMarkerClick}
+                                        />
+                                    )
+                                })
+                            }
+                        </Map>
+                        )
+                    }
                 </div>
             </div>
         )
