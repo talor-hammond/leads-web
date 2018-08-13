@@ -15,7 +15,7 @@ const HomeNav = (props) => {
 
           <div className="navbar-end">
             <div className="navbar-item">
-              <Link to="/browse" className="has-text-light">browse</Link>
+              <Link to="/browse/map" className="has-text-light">browse</Link>
             </div>
 
             <div className="navbar-item">

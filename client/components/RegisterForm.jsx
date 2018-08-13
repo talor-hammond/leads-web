@@ -19,7 +19,7 @@ class RegisterForm extends Component {
 
         this.updateDetails = this.updateDetails.bind(this)
         this.submit = this.submit.bind(this)
-        this.handlePasswords = this.handlePasswords.bind(this)
+        // this.handlePasswords = this.handlePasswords.bind(this)
     }
 
     updateDetails(e) {
@@ -27,20 +27,20 @@ class RegisterForm extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
-    handlePasswords() {
-        const { password, confirm_password } = this.state
+    // handlePasswords() {
+    //     const { password, confirm_password } = this.state
 
-        if (confirm_password.length > 0 && confirm_password != password) {
-            this.setState({ passwordsMatch: false })
-        } else if (confirm_password.length > 0 && confirm_password == password) {
-            this.setState({ passwordsMatch: true }) // use this piece of state to control success / error in icon
-        }
-    }
+    //     if (confirm_password.length > 0 && confirm_password != password) {
+    //         this.setState({ passwordsMatch: false })
+    //     } else if (confirm_password.length > 0 && confirm_password == password) {
+    //         this.setState({ passwordsMatch: true }) // use this piece of state to control success / error in icon
+    //     }
+    // }
 
     submit(e) {
         e.preventDefault()
 
-        const { email, user_name, password, confirm_password, passwordsMatch } = this.state
+        const { email, user_name, password, confirm_password } = this.state
 
         const user = {
             email,

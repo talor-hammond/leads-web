@@ -56,6 +56,9 @@ body {
 .footer {
   background-color: rgba(139, 139, 139, 0.05);
   border-top: 1px solid rgba(0, 0, 0, .22);
+  /* position: absolute;
+  bottom: 0;
+  width: 100%; */
 }
 
 /* REGISTER */
@@ -86,7 +89,21 @@ body {
   margin-bottom: 15px;
 }
 
-/* BROWSE */
+/* BROWSE; MAPS */
+/* .map-container {
+  width: 20%;
+  height: 20%;
+} */
+
+.map-title {
+  margin: 30px auto;
+}
+
+.map-title .title {
+  font-weight: 100;
+}
+
+/* BROWSE; CARDS */
 section.content {
   margin-top: 75px;
 }
@@ -95,7 +112,6 @@ section.content {
   display: flex;
   flex-wrap: wrap;
 }
-
 
 .wrapper .miniListing {
   /* margin: 0 auto; */
