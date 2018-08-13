@@ -38,7 +38,7 @@ class BrowseMap extends Component {
                     lng: coords.longitude
                 }
 
-                // fetch mapTitle w lat and long from google maps api, .then...
+                // reverse-geocoding with browser's lat & long
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
@@ -47,7 +47,7 @@ class BrowseMap extends Component {
                         const mapTitle = suburb.split(',')[0] // grabbing just the first word out of the suburb result
 
                         return mapTitle
-                    }).then(mapTitle => {
+                    }).then(mapTitle => { // wait for that return value before setting state...
                         this.setState({
                             browserLocation,
                             mapTitle,
