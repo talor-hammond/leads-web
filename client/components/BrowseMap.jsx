@@ -6,13 +6,16 @@ import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react'
 // Components:
 // import Map from './Map'
 
+import request from 'superagent'
+
 class BrowseMap extends Component {
     constructor(props) {
         super(props)
 
         this.state = {
             isGettingRegion: true,
-            initialRegion: {}, // parsed and set w browser's geolocation
+            browserLocation: {}, // parsed and set w browser's geolocation
+            mapTitle: '',
             posts: [
                     { title: 'EDA STUDENT GRADUATION', topic: 'Celebration!', description: 'Bring your friends and family for EDA students presentation and appreciation. There will be nibbles and beer so come along!! 5:30pm 26th July.', lat: -41.2969355, long: 174.7734782, user_id: 1 },
                     { title: 'Need Jumper Leads', topic: 'Car Problems', description: 'Got a flat battery, if anyone has any jumper leads and would like to help, let me know.', lat: -41.2963787, long: 174.7688924, user_id: 2 },
@@ -35,10 +38,22 @@ class BrowseMap extends Component {
                     lng: coords.longitude
                 }
 
-                this.setState({
-                    initialRegion: browserLocation,
-                    isGettingRegion: false // stops map from rendering w out necessary information
-                })
+                // fetch mapTitle w lat and long from google maps api, .then...
+                request
+                    .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
+                    .then(res => {
+                        const suburb = res.body.results[1].formatted_address
+
+                        const mapTitle = suburb.split(',')[0] // grabbing just the first word out of the suburb result
+
+                        return mapTitle
+                    }).then(mapTitle => {
+                        this.setState({
+                            browserLocation,
+                            mapTitle,
+                            isGettingRegion: false // stops map from rendering w out necessary information
+                        })
+                    })
             })
         }
     }
@@ -51,18 +66,18 @@ class BrowseMap extends Component {
     }
 
     // Marker events:
-    onMouseoverMarker(props, marker, e) {
+    onMouseoverMarker(props, marker, e) { // TODO
         
     }
 
     onMarkerClick(props, marker, e) {
         this.setState({
-        showingInfoWindow: true
+            showingInfoWindow: true
         })
     }
 
     render() {
-        const { initialRegion, posts, isGettingRegion } = this.state
+        const { browserLocation, posts, isGettingRegion, mapTitle } = this.state
 
         return (
             <div className="hero is-fullheight">
@@ -70,17 +85,17 @@ class BrowseMap extends Component {
                                 !isGettingRegion && (
                 <div className="map-container">
                     <div className="container map-title">
-                        <h1 className="title">Leads in <b>Wellington</b></h1>
+                        <h1 className="title">Leads in <b>{mapTitle}</b></h1>
                     </div>
                         <Map
                             google={window.google}
                             style={this.mapStyle}
                             zoom={17}
-                            initialCenter={initialRegion}
+                            initialCenter={browserLocation}
                         >
                         <Marker
                             title='Your current location'
-                            position={initialRegion}
+                            position={browserLocation}
                         />
                             {
                                 posts.map(post => {
@@ -113,7 +128,9 @@ const LoadingContainer = (props) => (
     <div>Fancy loading container!</div>
 )
 
+const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'
+
 export default GoogleApiWrapper({
-    apiKey: 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY',
+    apiKey,
     LoadingContainer
 })(BrowseMap)
