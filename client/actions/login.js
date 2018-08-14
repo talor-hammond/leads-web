@@ -38,7 +38,7 @@ export function loginUser (creds) {
           return Promise.reject(response.body.message)
         } else {
           const userInfo = saveUserToken(response.body.token)
-          dispatch(receiveLogin(userInfo))
+          dispatch(receiveLogin(userInfo)) // dispatch an action to init user state in app here?
           document.location = "/#/"
         }
       }).catch(err => alert("Try Again!")
