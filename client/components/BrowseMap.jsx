@@ -25,12 +25,16 @@ class BrowseMap extends Component {
                 ],
             showingInfoWindow: false
         }
+
+        this.onMarkerClick = this.onMarkerClick.bind(this)
     }
 
     // Lifecycle --
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
             navigator.geolocation.getCurrentPosition(pos => {
+                console.log(pos)
+
                 const coords = pos.coords
 
                 const browserLocation = {
@@ -38,11 +42,13 @@ class BrowseMap extends Component {
                     lng: coords.longitude
                 }
 
-                // reverse-geocoding with browser's lat & long
+                // reverse-geocoding (through google maps api) with browser's lat & long
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        const suburb = res.body.results[1].formatted_address
+                        console.log(res.body)
+
+                        const suburb = res.body.results[2].formatted_address
 
                         const mapTitle = suburb.split(',')[0] // grabbing just the first word out of the suburb result
 
@@ -81,8 +87,7 @@ class BrowseMap extends Component {
 
         return (
             <div className="hero is-fullheight">
-                            {
-                                !isGettingRegion && (
+                { !isGettingRegion && (
                 <div className="map-container">
                     <div className="container map-title">
                         <h1 className="title">Leads in <b>{mapTitle}</b></h1>
@@ -101,7 +106,7 @@ class BrowseMap extends Component {
                                 posts.map(post => {
                                     return (
                                         <Marker
-                                            id={post.id}
+                                            key={post.id}
                                             title={post.title}
                                             description={post.description}
                                             name={'SOMA'}
@@ -117,8 +122,7 @@ class BrowseMap extends Component {
                             }
                         </Map>
                 </div>
-                        )
-                    }
+            )}
             </div>
         )
     }

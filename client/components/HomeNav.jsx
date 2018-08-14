@@ -34,7 +34,7 @@ const HomeNav = (props) => {
             {
               props.auth.isAuthenticated
                 ? <div className="navbar-item">
-                  <button onClick={(props.dispatch(logoutUser()))}>Logout</button>
+                  <button onClick={() => props.dispatch(logoutUser())}>Logout</button>
                 </div>
 
                 : <div className="navbar-item">
