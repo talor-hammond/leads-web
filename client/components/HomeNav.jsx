@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom'
 import { logoutUser } from '../actions/logout'
 
 const HomeNav = (props) => {
+  console.log(props)
+
   return (
     <div>
       <nav className="navbar is-dark is-fixed-top" role="navigation" aria-label="dropdown navigation">
@@ -15,16 +17,12 @@ const HomeNav = (props) => {
 
           <div className="navbar-end">
 
-            <div className="navbar-item has-dropdown is-hoverable">
-              <div className="navbar-link">
-                <Link to="/browse/map" className="has-text-light">browse</Link>
-              </div>
+            <div className="navbar-item">
+              <Link to="/browse/" className="has-text-light">browse</Link>
+            </div>
 
-              <div className="navbar-dropdown">
-                <Link to="/browse/map" className="navbar-item">your community map</Link>
-                <Link to="/browse/" className="navbar-item">leads</Link>
-              </div>
-
+            <div className="navbar-item">
+              <Link to="/browse/map" className="has-text-light">community map</Link>
             </div>
 
             <div className="navbar-item">
@@ -32,11 +30,20 @@ const HomeNav = (props) => {
             </div>
 
             {
-              props.auth.isAuthenticated
-                ? <div className="navbar-item">
-                  <button onClick={() => props.dispatch(logoutUser())}>Logout</button>
-                </div>
+              props.auth.isAuthenticated ? (
+                <div className="navbar-item has-dropdown is-hoverable">
+                  <div className="navbar-link">
+                    <Link to="/browse/map" className="has-text-light">{props.auth.user.user_name}</Link>
+                  </div>
 
+                  <div className="navbar-dropdown">
+                    <Link to="/browse/map" className="navbar-item">your profile</Link>
+                    <hr className="navbar-divider" />
+                    <Link to="#" onClick={() => props.dispatch(logoutUser())} className="navbar-item">signout</Link>
+                  </div>
+
+                </div>
+              )
                 : <div className="navbar-item">
                   <Link to="/login" className="has-text-light">sign-in</Link>
                 </div>
