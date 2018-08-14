@@ -22,8 +22,8 @@ const App = (props) => {
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
-        <Route path="/browse" component={Browse} />
-        <Route exact path="/browse/map" component={BrowseMap} />
+        <Route exact path="/browse" component={Browse} />
+        <Route path="/browse/map" component={BrowseMap} />
         <Route path="/" component={Footer} />
       </div>
     </Router>
