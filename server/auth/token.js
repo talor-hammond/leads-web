@@ -28,9 +28,11 @@ function createToken (user, secret) {
   console.log(user)
 
   const tokenDetails = {
-    user_id:user.user_id,
-    user_name: user.user_name
+    user_id: user.user_id,
+    user_name: user.user_name,
+    user_email: user.email
   }
+  
   return jwt.sign(tokenDetails, secret, {
     expiresIn: '24h'
   })
