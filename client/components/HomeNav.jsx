@@ -6,7 +6,7 @@ import { logoutUser } from '../actions/logout'
 const HomeNav = (props) => {
   return (
     <div>
-      <nav className="navbar is-dark is-fixed-top">
+      <nav className="navbar is-dark is-fixed-top" role="navigation" aria-label="dropdown navigation">
         <div className="container">
 
           <div className="navbar-brand">
@@ -14,8 +14,17 @@ const HomeNav = (props) => {
           </div>
 
           <div className="navbar-end">
-            <div className="navbar-item">
-              <Link to="/browse/map" className="has-text-light">browse</Link>
+
+            <div className="navbar-item has-dropdown is-hoverable">
+              <div className="navbar-link">
+                <Link to="/browse/map" className="has-text-light">browse</Link>
+              </div>
+
+              <div className="navbar-dropdown">
+                <Link to="/browse/map" className="navbar-item">your community map</Link>
+                <Link to="/browse/" className="navbar-item">leads</Link>
+              </div>
+
             </div>
 
             <div className="navbar-item">
