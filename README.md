@@ -2,7 +2,7 @@
 stay connected with your community -- find leads to just about anything: jobs, community events, alerts, etc.
 
 ## The project(s)
-* The website -- while still very much in development (I'm adding stuff most days) -- is live on [heroku](https://www.leadsnz.herokuapp.com)
+* The website -- while still very much in development (I'm adding stuff most days) -- is live on [heroku](https://leadsnz.herokuapp.com)
 * there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
 * **the technology / concepts involved:**
   * Authorisation with jwt
