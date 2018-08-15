@@ -20,17 +20,26 @@ stay connected with your community -- find leads to just about anything: jobs, c
 ## db; migrations (server-side) --
 Decided to build a separate table for each category of post, as attributes are specific to each category.
 
-### alerts
-  | Column Name | Data-type | Purpose |
-  | --- | --- | --- |
-  | id | increments | Unique identifier for each item |
-  | category | string | defaults to 'alerts' |
+### general
+  | Column Name | Data-type | Purpose | Other notes: |
+  | --- | --- | --- | --- |
+  | id | increments | Unique identifier for each item | *Look at use of .uuid* |
+  | category | string | Defaults to 'alerts' | *Use this string to .filter on the concatenated results* |
+  | title | string | A title of the alert |  |
+  | description | string | A description of the alert |  |
+  | published | timestamp | Timestamp at .insert | *Use 'moment' to parse the timestamp* |
+  | user_id | integer | The id of the user that made the post | *FK, used for .join('users')* |
   
 ### events
   | Column Name | Data-type | Purpose |
   | --- | --- | --- |
   | id | increments | Unique identifier for each item |
   | category | string | defaults to 'events' |
+  | title | string | A title of the alert |  |
+  | description | string | A description of the alert |  |
+  | address | string | The event address | |
+  | lat | text | Latitude | Reverse-geocoded w google api, parsed into a float server-side |
+  | lng | text | Longitude | Reverse-geocoded w google api, parsed into a float server-side |
   
 ### jobs
   | Column Name | Data-type | Purpose |
@@ -43,6 +52,10 @@ Decided to build a separate table for each category of post, as attributes are s
   | --- | --- | --- |
   | id | increments | Unique identifier for each item |
   | category | string | defaults to 'services' |
+  
+### favourites
+  | Column Name | Data-type | Purpose | Notes |
+  | --- | --- | --- | --- |
 
 * *nb:*
   * Looking into the use of .uuid instead of .increments as the unique identifier for each post
