@@ -18,7 +18,11 @@ stay connected with your community -- find leads to just about anything: jobs, c
     * Redux-thunk to make asynchronous api calls from the server to feed back to the client's redux state
     
 ## db; migrations (server-side) --
-Decided to build a separate table for each category of post, as attributes are specific to each category.
+Decided to build a separate table for each category of post, as attributes are specific to each category. Additionally, will make altering the required data for different types of post easier in the long run.
+* What does this mean for the routes?
+  * Routes for each table as per; potentially a route encompassing all the posts? .concat the arrays returned into one return value
+* What does this mean for redux-state?
+  * Planning to have separate pieces of state for each table
 
 ### general
   | Column Name | Data-type | Purpose | Other notes: |
