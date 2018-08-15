@@ -1,8 +1,8 @@
 # leads
 stay connected with your community -- find leads to just about anything: jobs, community events, alerts, etc.
 
-## The project(s)
-* The website -- while still very much in development (I'm adding stuff most days) -- is live on [heroku](https://leadsnz.herokuapp.com)
+## The project
+* The website -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com)
 * there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
 * **the technology / concepts involved:**
   * Authorisation with jwt
@@ -16,8 +16,40 @@ stay connected with your community -- find leads to just about anything: jobs, c
   * **Redux**, **redux-thunk**
     * Used Redux to manage the application's state
     * Redux-thunk to make asynchronous api calls from the server to feed back to the client's redux state
+    
+## db; migrations (server-side) --
+Decided to build a separate table for each category of post, as attributes are specific to each category.
+
+### alerts
+  | Column Name | Data-type | Purpose |
+  | --- | --- | --- |
+  | id | increments | Unique identifier for each item |
+  | category | string | defaults to 'alerts' |
+  
+### events
+  | Column Name | Data-type | Purpose |
+  | --- | --- | --- |
+  | id | increments | Unique identifier for each item |
+  | category | string | defaults to 'events' |
+  
+### jobs
+  | Column Name | Data-type | Purpose |
+  | --- | --- | --- |
+  | id | increments | Unique identifier for each item |
+  | category | string | defaults to 'jobs' |
+  
+### services
+  | Column Name | Data-type | Purpose |
+  | --- | --- | --- |
+  | id | increments | Unique identifier for each item |
+  | category | string | defaults to 'services' |
+
+* *nb:*
+  * Looking into the use of .uuid instead of .increments as the unique identifier for each post
+  *
   
 ### Notes:
 * [google-maps-react module](https://github.com/fullstackreact/google-maps-react)
 * [font used for logo](https://fonts.google.com/specimen/Pacifico)
 * [font for body](https://fonts.google.com/specimen/Lato)
+* [moment](https://momentjs.com/) - a simple library for formatting dates and timestamps and such
