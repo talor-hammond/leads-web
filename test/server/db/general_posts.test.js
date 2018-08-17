@@ -3,7 +3,8 @@ const env = require('./test-environment')
 
 // db methods to be tested:
 import {
-    getGeneralPosts
+    getGeneralPosts,
+    getGeneralPostById
 } from '../../../server/db/general_posts'
 
 // mock-imports:
@@ -37,3 +38,10 @@ test('getGeneralPosts joins to users w correct keys', () => {
             })
         })
 })
+
+// test('getGeneralPostById returns an object', () => {
+//     return getGeneralPostById(1)
+//         .then(post => {
+//             expect(post)
+//         })
+// })
