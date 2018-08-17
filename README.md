@@ -27,32 +27,32 @@ Decided to build a separate table for each category of post, as attributes are s
 ### users
   | Column Name | Data-type | Purpose | Other notes: |
   | --- | --- | --- | --- |
-  | id | increments | Unique identifier for each user | *Look at use of .uuid* |
-  | email | string | The email used for registration | |
-  | user_name | string | The chosen username of the user | *Display this in navigation bar?* |
-  | hash | string | A 'hash' of the user's password | *Gets hashed server-side* |
+  | **id** | increments | Unique identifier for each user | *Look at use of .uuid* |
+  | **email** | string | The email used for registration | |
+  | **user_name** | string | The chosen username of the user | *Display this in navigation bar?* |
+  | **hash** | string | A 'hash' of the user's password | *Gets hashed server-side* |
 
 ### general_posts (mvp)
   | Column Name | Data-type | Purpose | Other notes: |
   | --- | --- | --- | --- |
-  | id | increments | Unique identifier for each item | *Look at use of .uuid* |
-  | category | string | Defaults to 'alerts' | *Use this string to .filter on the concatenated results* |
-  | title | string | A title of the alert |  |
-  | description | string | A description of the alert |  |
-  | address | string | The event address | |
-  | lat | text | Latitude | *Reverse-geocoded w google api, parsed into a float server-side* |
-  | lng | text | Longitude | *Reverse-geocoded w google api, parsed into a float server-side* |
-  | published | timestamp | Timestamp at .insert | *Use 'moment' to format the timestamp* |
-  | user_id | integer | The id of the user that made the post | *FK, used for .join('users')* |
+  | **id** | increments | Unique identifier for each item | *Look at use of .uuid* |
+  | **category** | string | Defaults to 'alerts' | *Use this string to .filter on the concatenated results* |
+  | **title** | string | A title of the alert |  |
+  | **description** | string | A description of the alert |  |
+  | **address** | string | The event address | |
+  | **lat** | text | Latitude | *Reverse-geocoded w google api, parsed into a float server-side* |
+  | **lng** | text | Longitude | *Reverse-geocoded w google api, parsed into a float server-side* |
+  | **published** | timestamp | Timestamp at .insert | *Use 'moment' to format the timestamp* |
+  | **user_id** | integer | The id of the user that made the post | *FK, used for .join('users')* |
 
 ### comments
   | Column Name | Data-type | Purpose | Notes |
   | --- | --- | --- | --- |
-  | id | increments | id of the posted comment |  |
-  | user_id | integer | FK, id of the user who posted the comment |  |
-  | post_id | integer | FK, id of the post the comment is attached to |  |
-  | content | string | content of the comment |  |
-  | published | timestamp | Timestamp at .insert |  |
+  | **id** | increments | id of the posted comment |  |
+  | **user_id** | integer | FK, id of the user who posted the comment |  |
+  | **post_id** | integer | FK, id of the post the comment is attached to |  |
+  | **content** | string | content of the comment |  |
+  | **published** | timestamp | Timestamp at .insert |  |
 
 **Notes about structure of 'comments':**
   * ~likely to have a comments table for each type of post~ 
@@ -66,9 +66,9 @@ Decided to build a separate table for each category of post, as attributes are s
 ### favourites
   | Column Name | Data-type | Purpose | Notes |
   | --- | --- | --- | --- |
-  | post_id | integer | the id of the favourited post | foreign key |
-  | user_id | integer | the id of the user that saved it | foreign key |
-  | category | string | the category of the post saved | used to differentiate api calls / inserts (i'm thinking) |
+  | **post_id** | integer | the id of the favourited post | foreign key |
+  | **user_id** | integer | the id of the user that saved it | foreign key |
+  | **category** | string | the category of the post saved | used to differentiate api calls / inserts (i'm thinking) |
 
 **Note to myself about `.timestamp()` in general**:
   * might be easier to use the 'moment' library to pre-format *published* date for posts & comments client-side / in the browser; 1-step instead of 2 (with the current .timestamp + format idea)
@@ -84,23 +84,26 @@ Decided to build a separate table for each category of post, as attributes are s
 ## stretch-stuff -- i.e. stuff for later:
 
 ### jobs  -- *stretch (left to be added to)*
-  | Column Name | Data-type | Purpose |
-  | --- | --- | --- |
-  | id | increments | Unique identifier for each item |
-  | category | string | defaults to 'jobs' |
+  | Column Name | Data-type | Purpose | Notes |
+  | --- | --- | --- | --- |
+  | **id** | increments | Unique identifier for each item | |
+  | **category** | string | defaults to 'jobs' | |
+  | **TBD** | tbd | tbd | tbd |
 
 ### services -- *stretch  (left to be added to)*
   | Column Name | Data-type | Purpose |
-  | --- | --- | --- |
-  | id | increments | Unique identifier for each item |
-  | category | string | defaults to 'services' |
+  | --- | --- | --- | --- |
+  | **id** | increments | Unique identifier for each item | |
+  | **category** | string | defaults to 'services' | |
+  | **TBD** | tbd | tbd | tbd |
 
 ### ratings -- *stretch*
   | Column Name | Data-type | Purpose | Notes |
   | --- | --- | --- | --- |
-  | sender_id | integer | ID of the user that gave the rating |  |
-  | profile_id | integer | ID of the user that received the rating |  |
-  | value | integer | Number between 1-5 |  |
+  | **sender_id** | integer | ID of the user that gave the rating |  |
+  | **profile_id** | integer | ID of the user that received the rating |  |
+  | **value** | integer | Number between 1-5 |  |
+  | **TBD** | tbd | tbd | tbd |
 
 **Notes on 'ratings'**:
 * Eventually add a 'contents' table for feedback? or maybe have preset responses
