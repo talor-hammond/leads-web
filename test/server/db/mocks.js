@@ -24,3 +24,18 @@ export const getPostsKeys = [
     'topic',
     'description'
 ]
+
+export const getGeneralPostsKeys = [
+    'post_id',
+    'category',
+    'title',
+    'description',
+    'address',
+    'lat',
+    'lng',
+    'published',
+    'user_id',
+    'user_name',
+    'email',
+    'avatar'
+]

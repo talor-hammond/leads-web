@@ -7,6 +7,9 @@ import {
 } from '../../../server/db/general_posts'
 
 // mock-imports:
+import {
+    getGeneralPostsKeys
+} from './mocks'
 
 let testDb = null
 beforeEach(() => { // initialising before each test...
@@ -23,5 +26,14 @@ test('getGeneralPosts returns the correct length of data', () => {
     return getGeneralPosts(testDb)
         .then(postsArray => {
             expect(postsArray).toHaveLength(3)
+        })
+})
+
+test('getGeneralPosts joins to users w correct keys', () => {
+    return getGeneralPosts(testDb)
+        .then(posts => {
+            posts.forEach(post => {
+                expect(Object.keys(post)).toEqual(getGeneralPostsKeys)
+            })
         })
 })
