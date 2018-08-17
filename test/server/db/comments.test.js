@@ -10,9 +10,9 @@ import {
 } from '../../../server/db/comments'
 
 // mock-imports:
-// import {
-    
-// } from './mocks'
+import {
+    fakeComment    
+} from './mocks'
 
 let testDb = null
 beforeEach(() => { // initialising before each test...
@@ -34,5 +34,20 @@ test('getComments retrieves the correct array of comments', () => {
             comments.forEach(comment => {
                 expect(comment.post_id).toBe(1)
             })
+        })
+})
+
+test('addComment adds a comment to the right post', () => {
+    return addComment(fakeComment, testDb)
+        .then(ids => {
+            const expected = 'number'
+            const actual = typeof ids[0]
+
+            expect(actual).toBe(expected)
+            
+            return getComments('general_posts', 1, testDb)
+                .then(comments => {
+                    expect(comments).toHaveLength(4)
+                })
         })
 })
