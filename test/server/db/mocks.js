@@ -7,7 +7,7 @@ export const fakePost = {
     lng: '174.7734782',
     published: '19 August 2018, 2:01PM',
     user_id: 1
-  }
+}
 
 export const getGeneralPostsKeys = [
     'post_id',
