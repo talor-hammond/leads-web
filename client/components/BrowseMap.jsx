@@ -25,8 +25,6 @@ class BrowseMap extends Component {
                 ],
             showingInfoWindow: false
         }
-
-        this.onMarkerClick = this.onMarkerClick.bind(this)
     }
 
     // Lifecycle --
@@ -57,6 +55,8 @@ class BrowseMap extends Component {
                             suburb,
                             isGettingRegion: false // stops map from rendering w out necessary information
                         })
+                    }).then(() => {
+                        document.title = `${this.state.suburb} Community Map - leads`
                     })
             })
         }
