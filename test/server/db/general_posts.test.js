@@ -88,3 +88,15 @@ test('addGeneralPost adds a post', () => {
                 })
         })
 })
+
+test('deletePostById does its job', () => {
+    return deletePostById(1, testDb)
+        .then(id => {
+            expect(id).toBe(1)
+
+            return getGeneralPosts(testDb)
+                .then(posts => {
+                    expect(posts).toHaveLength(2)
+                })
+        })
+})
