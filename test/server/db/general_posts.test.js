@@ -23,10 +23,20 @@ afterEach(() => { // destroying the connection; clean-slate
 
 // ********************************************************** TESTS ********************************************************** //
 
+test('getGeneralPosts returns an array', () => {
+    return getGeneralPosts(testDb)
+        .then(posts => {
+            const expected = true
+            const actual = Array.isArray(posts)
+
+            expect(actual).toBe(expected)
+        })
+})
+
 test('getGeneralPosts returns the correct length of data', () => {
     return getGeneralPosts(testDb)
-        .then(postsArray => {
-            expect(postsArray).toHaveLength(3)
+        .then(posts => {
+            expect(posts).toHaveLength(3)
         })
 })
 
