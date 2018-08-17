@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // components:
 import RegisterForm from './RegisterForm'
@@ -18,6 +18,5 @@ const Register = (props) => {
     </section>
   )
 }
-
 
 export default Register

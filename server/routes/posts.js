@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
   db.getPosts()
     .then(posts => {
       res.json(posts.map((post) => {
-        post.lat = parseFloat(post.lat)
+        post.lat = parseFloat(post.lat) // converting the lat/lng strings into floats for accuracy
         post.long = parseFloat(post.long)
         return post
       }))
