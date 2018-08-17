@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 
 // components:
 import FirstHero from './homeComponents/FirstHero'
@@ -8,10 +8,10 @@ const Home = (props) => {
     document.title = 'leads'
 
     return (
-        <Fragment>
+        <div>
             <FirstHero />
             <SecondHero />
-        </Fragment>
+        </div>
     )
 }
 
