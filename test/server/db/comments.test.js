@@ -28,7 +28,13 @@ afterEach(() => { // destroying the connection; clean-slate
 // ********************************************************** TESTS ********************************************************** //
 test('getComments retrieves the correct array of comments', () => {
     return getComments('general_posts', 1, testDb)
-        .then(results => {
-            console.log(results)
+        .then(comments => {
+            console.log(comments)
+
+            expect(comments).toHaveLength(3)
+
+            comments.forEach(comment => {
+                expect(comment.post_id).toBe(1)
+            })
         })
 })
