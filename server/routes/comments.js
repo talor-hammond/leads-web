@@ -6,46 +6,57 @@ const request = require('superagent')
 const db = require('../db/comments')
 
 // Get comments by post id??
-router.get('/comment/:id', (req, res) => {
-    const id = req.params.id
+router.get('/:table/:postId', (req, res) => {
+    const { table, postId } = req.params
 
-    db.getComments(id)
-    .then(comments => {
-        res.json(comments)
-    })
-    .catch(err => {
-        if (err) console.log(err)
-        res.json({message: 'Something went wrong'})
-    })
+    db.getComments(table, postId)
+        .then(comments => {
+            res.json(comments)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
 })
 
-// Add a comment
-router.post('/comment', (req, res) => {
-    let comment = req.body
+// Adding a comment
+router.post('/', (req, res) => {
+    const comment = req.body
 
     db.addComment(comment)
-    .then(comment => {
-        console.log('Firing!', comment)
-        res.sendStatus(200)
-    })
-    .catch(err => {
-        if (err) console.log(err)
-        res.json({message: 'Something went wrong'})
-    })
+        .then(() => {
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
+})
+
+// Updating a comment
+router.put('/:id', (req, res) => {
+    const id = req.params.id
+    const content = req.body
+
+    db.updateComment(id, content)
+        .then(() => {
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
 })
 
 // Delete a comment by comment id
-router.delete('/comment/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
     const id = req.params.id
-  
-    db.deleteCommentById(id)
-      .then(() => {
-        res.sendStatus(200)
-      })
-      .catch(err => {
-        if (err) throw err
-      })
-  })
+
+    db.deleteComment(id)
+        .then(() => {
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
+})
 
 
 module.exports = router
