@@ -7,7 +7,20 @@ export const fakePost = {
     lng: '174.7734782',
     published: '19 August 2018, 2:01PM',
     user_id: 1
-  }
+}
+
+export const fakeComment = {
+    user_id: 2,
+    post_id: 1,
+    content: 'Testing, testing'
+}
+
+export const fakeUpdatedComment = {
+    id: 2,
+    user_id: 2,
+    post_id: 1,
+    content: 'Can I bring my uncle bobbo? Edit: nvm he can\'t come'
+}
 
 export const getGeneralPostsKeys = [
     'post_id',
