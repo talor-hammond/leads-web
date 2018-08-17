@@ -13,6 +13,7 @@
     "d:re": "knex migrate:rollback && knex migrate:latest",
     "d:rb": "knex migrate:rollback",
     "d:m": "knex migrate:latest",
+    "d:seed": "knex seed:run",
     "h:deploy": "git push heroku master",
     "h:rd": "heroku run knex migrate:rollback && heroku run knex migrate:latest",
     "h:migrate": "heroku run knex migrate:latest",
