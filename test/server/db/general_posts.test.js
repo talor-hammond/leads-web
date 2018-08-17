@@ -12,7 +12,8 @@ import {
 
 // mock-imports:
 import {
-    getGeneralPostsKeys
+    getGeneralPostsKeys,
+    fakePost
 } from './mocks'
 
 let testDb = null
@@ -25,7 +26,6 @@ afterEach(() => { // destroying the connection; clean-slate
 })
 
 // ********************************************************** TESTS ********************************************************** //
-
 test('getGeneralPosts returns an array', () => {
     return getGeneralPosts(testDb)
         .then(posts => {
@@ -69,5 +69,20 @@ test('getGeneralPostsByUserId returns the correct array', () => {
             posts.forEach(post => {
                 expect(post.user_id).toBe(2)
             })
+        })
+})
+
+test('addGeneralPost adds a post', () => {
+    return addGeneralPost(fakePost, testDb)
+        .then(ids => {
+            const expected = 'number'
+            const actual = typeof ids[0]
+
+            expect(actual).toBe(expected)
+            
+            return getGeneralPosts(testDb)
+                .then(posts => {
+                    expect(posts).toHaveLength(4)
+                })
         })
 })
