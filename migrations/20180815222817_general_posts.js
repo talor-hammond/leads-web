@@ -1,7 +1,7 @@
 
 exports.up = function(knex, Promise) {
  return knex.schema.createTableIfNotExists('general_posts', table => {
-     table.uuid('id').primary()
+     table.increments('id').primary()
      table.string('category') // set this property as 'general_posts' in the client? 
      table.string('title')
      table.string('description')
