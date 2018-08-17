@@ -25,6 +25,8 @@ afterEach(() => { // destroying the connection; clean-slate
     return env.cleanup(testDb)
 })
 
+// NOTE: remember to pass the testDb as an argument to your db methods lol
+
 // ********************************************************** TESTS ********************************************************** //
 test('getGeneralPosts returns an array', () => {
     return getGeneralPosts(testDb)
