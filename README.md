@@ -1,4 +1,4 @@
-# leads
+# [leads](https://leadsnz.herokuapp.com)
 stay connected with your community -- find leads to just about anything: jobs, community events, alerts, etc.
 
 ## The project
