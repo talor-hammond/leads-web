@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 import LoginForm from './LoginForm'
 
-class Login extends React.Component {
+class Login extends Component {
   componentDidMount() {
     document.title = 'Login - leads'
   }
