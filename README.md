@@ -56,7 +56,7 @@ Decided to build a separate table for each category of post, as attributes are s
 
 **Notes about structure of 'comments':**
   * ~likely to have a comments table for each type of post~ 
-  * decided to use string-interpolation and a three-way join to feed a table_name into the getComments method dynamically - will save me re-writing similar methods for x-comments tables in the future:
+  * **decided to use string-interpolation and a three-way join** to feed a table_name into the getComments method dynamically - will save me re-writing similar methods for x-comments tables in the future:
       ```javascript
         return db('comments')
           .join('users', 'users.id', 'comments.user_id')
