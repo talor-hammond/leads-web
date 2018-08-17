@@ -23,7 +23,8 @@ function getGeneralPostByPostId(id, testDb) {
     const db = testDb || conn
 
     return joinPostsAndUsers(db)
-        .where('post_id', id)   
+        .where('post_id', id) 
+        .first()  
 }
 
 function addGeneralPost(post, testDb) {

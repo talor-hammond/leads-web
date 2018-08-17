@@ -4,7 +4,10 @@ const env = require('./test-environment')
 // db methods to be tested:
 import {
     getGeneralPosts,
-    getGeneralPostById
+    getGeneralPostByPostId,
+    getGeneralPostsByUserId,
+    addGeneralPost,
+    deletePostById
 } from '../../../server/db/general_posts'
 
 // mock-imports:
@@ -49,9 +52,22 @@ test('getGeneralPosts joins to users w correct keys', () => {
         })
 })
 
-// test('getGeneralPostById returns an object', () => {
-//     return getGeneralPostById(1)
-//         .then(post => {
-//             expect(post)
-//         })
-// })
+test('getGeneralPostByPostId returns the right object', () => {
+    return getGeneralPostByPostId(1, testDb)
+        .then(post => {
+            expect(post.post_id).toBe(1)
+            expect(post.title).toBe('Car broken down')
+        })
+})
+
+test('getGeneralPostsByUserId returns the correct array', () => {
+    return getGeneralPostsByUserId(2, testDb)
+        .then(posts => {
+            expect(posts).toHaveLength(2)
+            expect(Array.isArray(posts)).toBe(true)
+            
+            posts.forEach(post => {
+                expect(post.user_id).toBe(2)
+            })
+        })
+})
