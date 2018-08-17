@@ -4,6 +4,9 @@ import React, { Component } from 'react'
 import RegisterForm from './RegisterForm'
 
 class Register extends Component {
+  componentDidMount() {
+    document.title = 'Sign-up - leads'
+  }
 
   render() {
     return (
