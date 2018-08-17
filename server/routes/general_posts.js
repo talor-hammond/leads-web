@@ -53,4 +53,43 @@ router.post('/', (req, res) => {
 
 })
 
+// Getting a post, by the post's id
+router.get('/post/:id', (req, res) => {
+    const id = req.params.id
+
+    db.getPostByPostId(id)
+        .then(post => {
+            res.json(post)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
+})
+
+// Getting all posts, from a particular user id
+router.get('/user/:id', (req, res) => {
+    const id = req.params.id
+
+    db.getPostsByUserId(id)
+        .then(posts => {
+            res.json(posts)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
+})
+
+// Deleting a post by post id
+router.delete('/post/:id', (req, res) => {
+    const id = req.params.id
+
+    db.deletePostById(id)
+        .then(() => {
+            res.sendStatus(200)
+        })
+        .catch(err => {
+            if (err) throw err
+        })
+})
+
 module.exports = router
