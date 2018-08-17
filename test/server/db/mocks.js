@@ -9,24 +9,6 @@ export const fakePost = {
     user_id: 1
   }
 
-export const fakeComment = {
-    user_id: 2, 
-    post_id: 1, 
-    content: 'Here\s a fake comment'
-}
-
-// export const getPostsKeys = [
-//     'post_id',
-//     'user_id',
-//     'username',
-//     'address',
-//     'lat',
-//     'long',
-//     'title',
-//     'topic',
-//     'description'
-// ]
-
 export const getGeneralPostsKeys = [
     'post_id',
     'category',
