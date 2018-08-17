@@ -8,6 +8,31 @@ function getGeneralPosts(testDb) { // comes with relevant user data
         .select('general_posts.id as post_id', 'category', 'title', 'description', 'address', 'lat', 'lng', 'published', 'user_id', 'user_name', 'email', 'avatar')
 }
 
+function getGeneralPostById(id, testDb) {
+    const db = testDb || conn
+
+    return db('general_posts')
+        .where('id', id)
+}
+
+function addGeneralPost(post, testDb) {
+    const db = testDb || conn
+
+    return db('general_posts')
+        .insert(post)
+}
+
+function deletePostById(id, testDb) {
+    const db = testDb || conn
+
+    return db('general_posts')
+        .where('id', id)
+        .del()
+}
+
 module.exports = {
-    getGeneralPosts
+    getGeneralPosts,
+    getGeneralPostById,
+    addGeneralPost,
+    deletePostById
 }
