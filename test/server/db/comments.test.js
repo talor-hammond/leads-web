@@ -12,7 +12,7 @@ import {
 // mock-imports:
 import {
     fakeComment,
-    fakeUpdatedComment  
+    fakeUpdatedComment
 } from './mocks'
 
 let testDb = null
@@ -45,7 +45,7 @@ test('addComment adds a comment to the right post', () => {
             const actual = typeof ids[0]
 
             expect(actual).toBe(expected)
-            
+
             return getComments('general_posts', 1, testDb)
                 .then(comments => {
                     expect(comments).toHaveLength(4)
@@ -57,5 +57,17 @@ test('updateComment updates the right comment w new content', () => {
     return updateComment(2, fakeUpdatedComment, testDb)
         .then(affectedRows => {
             expect(affectedRows).toBe(1)
+        })
+})
+
+test('deleteComment does its job', () => {
+    return deleteComment(1, testDb)
+        .then(affectedRows => {
+            expect(affectedRows).toBe(1)
+
+            return getComments('general_posts', 1, testDb)
+                .then(comments => {
+                    expect(comments).toHaveLength(2)
+                })
         })
 })
