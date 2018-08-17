@@ -27,15 +27,15 @@ Decided to build a separate table for each category of post, as attributes are s
 ### users
   | Column Name | Data-type | Purpose | Other notes: |
   | --- | --- | --- | --- |
-  | **id** | increments | Unique identifier for each user | *Look at use of .uuid* |
+  | **id** | increments | Unique identifier for each user | ~*Look at use of .uuid*~ |
   | **email** | string | The email used for registration | |
-  | **user_name** | string | The chosen username of the user | *Display this in navigation bar?* |
+  | **user_name** | string | The chosen username of the user | ~*Display this in navigation bar?*~ done |
   | **hash** | string | A 'hash' of the user's password | *Gets hashed server-side* |
 
 ### general_posts (mvp)
   | Column Name | Data-type | Purpose | Other notes: |
   | --- | --- | --- | --- |
-  | **id** | increments | Unique identifier for each item | *Look at use of .uuid* |
+  | **id** | increments | Unique identifier for each item | ~*Look at use of .uuid*~ |
   | **category** | string | Defaults to 'alerts' | *Use this string to .filter on the concatenated results* |
   | **title** | string | A title of the alert |  |
   | **description** | string | A description of the alert |  |
