@@ -29,8 +29,6 @@ afterEach(() => { // destroying the connection; clean-slate
 test('getComments retrieves the correct array of comments', () => {
     return getComments('general_posts', 1, testDb)
         .then(comments => {
-            console.log(comments)
-
             expect(comments).toHaveLength(3)
 
             comments.forEach(comment => {
