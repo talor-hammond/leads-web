@@ -23,4 +23,34 @@ router.get('/', (req, res) => {
         })
 })
 
+// Adding a post...
+router.post('/', (req, res) => {
+    let post = req.body
+
+    const parsedAddress = post.address.split(' ').join('+') // splitting the string at ' ', and connecting w '+'
+
+    // fetch post.lat, post.lng with post.address from google maps api
+    request.get(`https://maps.googleapis.com/maps/api/geocode/json?apiKey=${key}&address=${parsedAddress}`)
+        .then(res => {
+            const lat = res.body.results[0].geometry.location.lat.toString()
+            const lng = res.body.results[0].geometry.location.lng.toString()
+
+            console.log(lat, lng)
+
+            post.lat = lat
+            post.lng = lng
+        })
+        .then(() => { // once we've retrieved latitude and longitude from google maps api
+            db.addPost(post)
+                .then(() => {
+                    console.log('Firing... ', post)
+                    res.sendStatus(200)
+                })
+                .catch(err => {
+                    if (err) throw err
+                })
+        })
+
+})
+
 module.exports = router
