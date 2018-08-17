@@ -11,7 +11,8 @@ import {
 
 // mock-imports:
 import {
-    fakeComment    
+    fakeComment,
+    fakeUpdatedComment  
 } from './mocks'
 
 let testDb = null
@@ -23,7 +24,7 @@ afterEach(() => { // destroying the connection; clean-slate
     return env.cleanup(testDb)
 })
 
-// NOTE: remember to pass the testDb as an argument to your db methods lol
+// polite reminder: remember to pass the testDb as an argument to your db methods lol
 
 // ********************************************************** TESTS ********************************************************** //
 test('getComments retrieves the correct array of comments', () => {
@@ -49,5 +50,12 @@ test('addComment adds a comment to the right post', () => {
                 .then(comments => {
                     expect(comments).toHaveLength(4)
                 })
+        })
+})
+
+test('updateComment updates the right comment w new content', () => {
+    return updateComment(2, fakeUpdatedComment, testDb)
+        .then(affectedRows => {
+            expect(affectedRows).toBe(1)
         })
 })

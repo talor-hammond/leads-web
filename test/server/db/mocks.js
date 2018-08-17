@@ -15,6 +15,13 @@ export const fakeComment = {
     content: 'Testing, testing'
 }
 
+export const fakeUpdatedComment = {
+    id: 2,
+    user_id: 2,
+    post_id: 1,
+    content: 'Can I bring my uncle bobbo? Edit: nvm he can\'t come'
+}
+
 export const getGeneralPostsKeys = [
     'post_id',
     'category',
