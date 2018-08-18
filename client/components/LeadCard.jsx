@@ -14,11 +14,12 @@ class LeadCard extends Component {
                 <figure className="image is-5by3">
                     <img src="http://via.placeholder.com/640x360" />
                 </figure>
-                <p className="listingTitle">{title}</p>
-                <p>
+                <h1 className="listing-title">{title}</h1>
                     <span className="address">{address}</span>
                     <span className="price"></span>
-                </p>
+                    
+                    <hr className="rule" />
+                
                 <p className="username">{username}</p>
 
             </div>

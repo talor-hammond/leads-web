@@ -130,7 +130,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0;
-  padding: 10px;
+  padding: 17px;
   transition: .5s ease;
   background-color: white;
   overflow: hidden;
@@ -148,7 +148,7 @@ section.content {
 
 .wrapper .miniListing {
   /* margin: 0 auto; */
-  margin-right: 1%;
+  margin: 0 1%;
   width: 23.5%;
   height: 275px;
   margin-bottom: 25px;
@@ -166,15 +166,23 @@ section.content {
   font-weight: bold;
 }
 
-p.listingTitle {
+h1.listing-title {
   font-weight: bold;
   font-size: 18px;
+  margin-top: 0;
   margin-bottom: 0;
   padding-bottom: 0;
 }
 
+hr.rule {
+  border: 0;
+  height: 1px;
+  background-color: rgba(200, 200, 200, .5);
+  margin: 4px 0;
+}
+
 .username {
-  font-style: italic;
+  /* font-style: italic; */
 }
 
 /* CREATE */

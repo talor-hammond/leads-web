@@ -27,11 +27,11 @@ class Browse extends Component {
                 <div className="container">
                     <h1 className="title">Refine your search</h1>
 
-                    <div className="tile is-ancestor posts-container">
+                    <div className="wrapper">
                     {
                         general_posts.map(post => {
                             return (
-                                <GeneralPostTile
+                                <LeadCard
                                     key={post.post_id}
                                     id={post.post_id}
                                     title={post.title} 

@@ -9,7 +9,7 @@ const GeneralPostTile = (props) => {
         <div className="tile is-4 is-parent post-container">
             <article className="tile is-child post-tile box">
                 <p className="title">{title}</p>
-                <p className="subtitle is-6">{address}</p>
+                <p className="subtitle is-4">{address}</p>
                 <GeneralPostTileDescription id={id} description={description} />
             </article>
         </div>
