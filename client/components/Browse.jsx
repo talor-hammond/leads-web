@@ -6,6 +6,7 @@ import { getPostsRequest } from '../actions/general_posts'
 
 // components
 import LeadCard from './LeadCard'
+import GeneralPostTile from './GeneralPostTile'
 
 class Browse extends Component {
     constructor(props) {
@@ -24,34 +25,23 @@ class Browse extends Component {
         return (
             <section className="content">
                 <div className="container">
-                    <h1 className="title">Browse</h1>
+                    <h1 className="title">Refine your search</h1>
 
-                    <div className="box">
-                        <div className="field has-addons">
-                            <div className="control is-expanded">
-                                <input className="input" type="search" placeholder="Search pins in your area..." />
-                            </div>
-                            <div className="control">
-                                <a className="button is-info">Search</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="wrapper">
-                        {
-                            general_posts.map(post => {
-                                return (
-                                    <LeadCard
-                                        key={post.post_id}
-                                        id={post.post_id}
-                                        title={post.title} 
-                                        description={post.description}
-                                        username={post.user_name}
-                                        address={post.address}
-                                    />
-                                )
-                            })
-                        }
+                    <div className="tile is-ancestor posts-container">
+                    {
+                        general_posts.map(post => {
+                            return (
+                                <GeneralPostTile
+                                    key={post.post_id}
+                                    id={post.post_id}
+                                    title={post.title} 
+                                    description={post.description}
+                                    username={post.user_name}
+                                    address={post.address}
+                                />
+                            )
+                        })
+                    }
                     </div>
 
                 </div>

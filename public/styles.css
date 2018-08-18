@@ -104,6 +104,39 @@ body {
 }
 
 /* BROWSE; CARDS */
+.posts-container {
+  flex-wrap: wrap;
+}
+
+.post-container:hover .description-overlay {
+  opacity: 1;
+}
+
+.post-tile {
+  height: 300px;
+  position: relative;
+}
+
+/* .description-text {
+
+} */
+
+.description-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  padding: 10px;
+  transition: .5s ease;
+  background-color: white;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
 section.content {
   margin-top: 75px;
 }
