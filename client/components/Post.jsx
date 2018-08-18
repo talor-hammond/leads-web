@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
-import { getPostsRequest } from '../actions/general_posts'
 
 class Post extends Component {
     constructor(props) {
@@ -18,13 +17,13 @@ class Post extends Component {
     }
 
     render() {
-        console.log(this.props)
+        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts
 
         return (
             <section className="hero pin">
                 <div className="container">
 
-                    <h1 className="title">Title of pin / listing</h1>
+                    <h1 className="title">{title}</h1>
                     <h2 className="subtitle">
                         <b>region</b> | category</h2>
 
