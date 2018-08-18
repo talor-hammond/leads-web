@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
-import { connect } from 'react-router-dom'
+import { connect } from 'react-redux'
+
+// actions
+import { getPostByPostIdRequest } from '../actions/general_posts'
 
 class Post extends Component {
     constructor(props) {
         super(props)
     }
 
+    componentDidMount() {
+        const { id } = this.props.match.params
+        const { dispatch } = this.props
+
+        dispatch(getPostByPostIdRequest(id))
+    }
+
     render() {
+        console.log(this.props)
+
         return (
             <section className="hero pin">
                 <div className="container">
@@ -75,4 +87,10 @@ class Post extends Component {
     }
 }
 
-export default connect()(Post)
+const mapStateToProps = ({ general_posts }) => {
+    return {
+        general_posts
+    }
+}
+
+export default connect(mapStateToProps)(Post)

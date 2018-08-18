@@ -11,18 +11,20 @@ class PostItem extends Component {
 
         return (
             <div className="mini-listing">
-                <figure className="image is-5by3 image-container">
-                    <img src="http://via.placeholder.com/640x360" />
-                    <div className="description-overlay">
-                        {description}
-                    </div>
-                </figure>
+                <Link to={`/post/${id}`}>
+                    <figure className="image is-5by3 image-container">
+                        <img src="http://via.placeholder.com/640x360" />
+                        <div className="description-overlay">
+                            {description}
+                        </div>
+                    </figure>
+                </Link>
                 <h1 className="listing-title">{title}</h1>
-                    <span className="address">{address}</span>
-                    <span className="price"></span>
-                    
-                    <hr className="rule" />
-                
+                <span className="address">{address}</span>
+                <span className="price"></span>
+
+                <hr className="rule" />
+
                 <p className="username">{username}</p>
 
             </div>
