@@ -1,24 +1,25 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// actions
+import { getPostsRequest } from '../actions/general_posts'
+
+// components
 import LeadCard from './LeadCard'
 
 class Browse extends Component {
     constructor(props) {
         super(props)
-
-        this.state = {
-            posts: []
-        }
     }
 
     componentDidMount() {
         const { dispatch } = this.props
+
+        dispatch(getPostsRequest())
     }
 
     render() {
-        console.log(this.props)
-        const { posts } = this.state
+        const { general_posts } = this.props
 
         return (
             <section className="content">
@@ -38,9 +39,10 @@ class Browse extends Component {
 
                     <div className="wrapper">
                         {
-                            posts.map(post => {
+                            general_posts.map(post => {
                                 return (
                                     <LeadCard
+                                        id={post.post_id}
                                         title={post.title} 
                                         description={post.description}
                                         username={post.user_name}

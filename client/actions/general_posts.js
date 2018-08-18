@@ -43,7 +43,7 @@ export function getPostsRequest() {
         request
             .get(url)
             .then(res => {
-                const posts = req.body
+                const posts = res.body
                 dispatch(getPosts(posts)) // making the change to client-side state once we have the posts
             })
             .catch(err => {
