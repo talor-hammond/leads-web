@@ -65,3 +65,17 @@ export function addPostRequest(post) {
             })
     }
 }
+
+export function getPostByPostIdRequest(id) {
+    return dispatch => {
+        request
+            .get(url + '/post/' + id)
+            .then(res => {
+                const post = res.body
+                dispatch(getPostByPostId)
+            })
+            .catch(err => {
+                if (err) throw err
+            })
+    }
+}
