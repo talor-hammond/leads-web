@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux'
 
 import auth from './auth'
-import general from './general_posts'
+import general_posts from './general_posts'
 
 export default combineReducers({
   auth,
-  general
+  general_posts
 })
