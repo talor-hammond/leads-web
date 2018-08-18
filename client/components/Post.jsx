@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
+import { getPostsRequest } from '../actions/general_posts'
 
 class Post extends Component {
     constructor(props) {

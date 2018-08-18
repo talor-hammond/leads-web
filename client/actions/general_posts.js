@@ -24,6 +24,8 @@ export function addPost(post) {
 }
 
 export function getPostByPostId(post) {
+    console.log(post)
+
     return {
         type: GET_POST_BY_POST_ID,
         post
@@ -72,7 +74,7 @@ export function getPostByPostIdRequest(id) {
             .get(url + '/post/' + id)
             .then(res => {
                 const post = res.body
-                dispatch(getPostByPostId)
+                dispatch(getPostByPostId(post))
             })
             .catch(err => {
                 if (err) throw err
