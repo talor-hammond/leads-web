@@ -42,6 +42,7 @@ class Browse extends Component {
                             general_posts.map(post => {
                                 return (
                                     <LeadCard
+                                        key={post.post_id}
                                         id={post.post_id}
                                         title={post.title} 
                                         description={post.description}
