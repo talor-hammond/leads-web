@@ -24,20 +24,11 @@ class Post extends Component {
                 <div className="container">
 
                     <h1 className="title">{title}</h1>
-                    <h2 className="subtitle">
-                        <b>region</b> | category</h2>
+                    <h2 className="subtitle">{address}</h2>
 
                     <div className="columns">
-                        <div className="column is-8">
-                            <figure className="image featuredImage">
-                                <img src="http://via.placeholder.com/640x360" alt="Featured Image" />
-                            </figure>
-
-
-                        </div>
-
                         <div className="column is-4">
-                            <div className="card">
+                            <div className="card description-card">
                                 <div className="card-content">
                                     <div className="media">
                                         <div className="media-left">
@@ -47,39 +38,32 @@ class Post extends Component {
                                         </div>
 
                                         <div className="media-content">
-                                            <p className="title is-4 no-padding">firstName</p>
-                                            <p>username</p>
-                                            <p className="subtitle is-6">rating</p>
+                                            <p className="title is-4 no-padding">{user_name}</p>
+                                            <p className="subtitle is-6">Rating</p>
                                         </div>
                                     </div>
 
                                     <div className="content description-etc">
                                         <h1 className="title is-size-6">Description</h1>
-                                        <p>"Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit sunt amet dolore autem
-                                            voluptate nihil cumque perspiciatis, nisi iusto nam vel recusandae reiciendis? Accusamus
-                                            facilis, ea, unde quo, nam inventore aliquid aperiam consequatur cum corrupti nulla officiis
-                                    nemo sequi qui atque eaque ratione libero fugit laborum porro possimus blanditiis numquam."</p>
-                                        <h1 className="title is-size-6">Price<span className="is-pulled-right">$49</span></h1>
-                                        <p></p>
-                                        <h1 className="title is-size-6">Address</h1>
-                                        <p>123 Fake Streetsmh</p>
+                                        <p>{description}</p>
                                     </div>
 
+                                    <br/>
 
+                                    <span className="published">{published}</span>
 
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <hr />
-
-                    <div className="columns">
-                        <div className="column is-4 is-offset-4">
-
+                        <div className="column is-8">
+                            <figure className="image featuredImage">
+                                <img src="http://via.placeholder.com/640x360" alt="Featured Image" />
+                            </figure>
                         </div>
                     </div>
 
+                    <hr />
 
                 </div>
             </section>
