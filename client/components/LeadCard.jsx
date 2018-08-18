@@ -10,9 +10,12 @@ class LeadCard extends Component {
         const { id, title, description, username, address } = this.props
 
         return (
-            <div className="miniListing">
-                <figure className="image is-5by3">
+            <div className="mini-listing">
+                <figure className="image is-5by3 image-container">
                     <img src="http://via.placeholder.com/640x360" />
+                    <div className="description-overlay">
+                        {description}
+                    </div>
                 </figure>
                 <h1 className="listing-title">{title}</h1>
                     <span className="address">{address}</span>
