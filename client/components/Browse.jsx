@@ -5,7 +5,7 @@ import { connect } from 'react-redux'
 import { getPostsRequest } from '../actions/general_posts'
 
 // components
-import LeadCard from './LeadCard'
+import PostItem from './PostItem'
 import GeneralPostTile from './GeneralPostTile'
 
 class Browse extends Component {
@@ -31,7 +31,7 @@ class Browse extends Component {
                     {
                         general_posts.map(post => {
                             return (
-                                <LeadCard
+                                <PostItem
                                     key={post.post_id}
                                     id={post.post_id}
                                     title={post.title} 

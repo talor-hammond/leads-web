@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 
-class LeadCard extends Component {
+class PostItem extends Component {
     constructor(props) {
         super(props)
     }
@@ -30,4 +30,4 @@ class LeadCard extends Component {
     }
 }
 
-export default LeadCard
+export default PostItem
