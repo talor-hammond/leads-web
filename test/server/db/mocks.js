@@ -1,26 +1,38 @@
 export const fakePost = {
-    title: 'Would you believe I need jumper leads',
-    topic: 'Alert',
-    description: 'My car battery just went flat, is anyone around',
-    lat: -41.2969355,
-    long: 174.7734782,
-    user_id: 3
+    category: 'general',
+    title: 'Car broken down again',
+    description: 'Tyre has gone flat again, don\'t have AA and would appreciate help from anyone in the area -- can pay $$',
+    address: '275 Cuba Street, Wellington',
+    lat: '-41.2969355',
+    lng: '174.7734782',
+    published: '19 August 2018, 2:01PM',
+    user_id: 1
 }
 
 export const fakeComment = {
-    user_id: 2, 
-    post_id: 1, 
-    content: 'Here\s a fake comment'
+    user_id: 2,
+    post_id: 1,
+    content: 'Testing, testing'
 }
 
-export const getPostsKeys = [
+export const fakeUpdatedComment = {
+    id: 2,
+    user_id: 2,
+    post_id: 1,
+    content: 'Can I bring my uncle bobbo? Edit: nvm he can\'t come'
+}
+
+export const getGeneralPostsKeys = [
     'post_id',
-    'user_id',
-    'username',
+    'category',
+    'title',
+    'description',
     'address',
     'lat',
-    'long',
-    'title',
-    'topic',
-    'description'
+    'lng',
+    'published',
+    'user_id',
+    'user_name',
+    'email',
+    'avatar'
 ]

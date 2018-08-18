@@ -1,24 +1,22 @@
-import React, { Component } from 'react'
+import React from 'react'
 
 // components:
 import RegisterForm from './RegisterForm'
 
-class Register extends Component {
+const Register = (props) => {
+  document.title = 'Register - leads'
 
-  render() {
-    return (
-      <section className="section">
-        <div className="hero-body">
-          <div className="container">
-            <div className="column is-4 is-offset-4">
-                <RegisterForm />
-            </div>
+  return (
+    <section className="section">
+      <div className="hero-body">
+        <div className="container">
+          <div className="column is-4 is-offset-4">
+            <RegisterForm />
           </div>
         </div>
-      </section>
-    )
-  }
-
+      </div>
+    </section>
+  )
 }
 
 export default Register

@@ -15,7 +15,7 @@ class BrowseMap extends Component {
         this.state = {
             isGettingRegion: true,
             browserLocation: {}, // parsed and set w browser's geolocation
-            mapTitle: '',
+            suburb: '',
             posts: [
                     { title: 'EDA STUDENT GRADUATION', topic: 'Celebration!', description: 'Bring your friends and family for EDA students presentation and appreciation. There will be nibbles and beer so come along!! 5:30pm 26th July.', lat: -41.2969355, long: 174.7734782, user_id: 1 },
                     { title: 'Need Jumper Leads', topic: 'Car Problems', description: 'Got a flat battery, if anyone has any jumper leads and would like to help, let me know.', lat: -41.2963787, long: 174.7688924, user_id: 2 },
@@ -25,8 +25,6 @@ class BrowseMap extends Component {
                 ],
             showingInfoWindow: false
         }
-
-        this.onMarkerClick = this.onMarkerClick.bind(this)
     }
 
     // Lifecycle --
@@ -48,17 +46,17 @@ class BrowseMap extends Component {
                     .then(res => {
                         console.log(res.body)
 
-                        const suburb = res.body.results[2].formatted_address
+                        const suburb = res.body.results[2].formatted_address.split(',')[0] // grabbing just the first word out of the suburb result
 
-                        const mapTitle = suburb.split(',')[0] // grabbing just the first word out of the suburb result
-
-                        return mapTitle
-                    }).then(mapTitle => { // wait for that return value before setting state...
+                        return suburb
+                    }).then(suburb => { // wait for that return value before setting state...
                         this.setState({
                             browserLocation,
-                            mapTitle,
+                            suburb,
                             isGettingRegion: false // stops map from rendering w out necessary information
                         })
+                    }).then(() => {
+                        document.title = `${this.state.suburb} Community Map - leads`
                     })
             })
         }
@@ -71,26 +69,26 @@ class BrowseMap extends Component {
         margin: '0 auto'
     }
 
-    // Marker events:
-    onMouseoverMarker(props, marker, e) { // TODO
+    // // Marker events: TODO
+    // onMouseoverMarker(props, marker, e) {
         
-    }
+    // }
 
-    onMarkerClick(props, marker, e) {
-        this.setState({
-            showingInfoWindow: true
-        })
-    }
+    // onMarkerClick(props, marker, e) {
+    //     this.setState({
+    //         showingInfoWindow: true
+    //     })
+    // }
 
     render() {
-        const { browserLocation, posts, isGettingRegion, mapTitle } = this.state
+        const { browserLocation, posts, isGettingRegion, suburb } = this.state
 
         return (
             <div className="hero is-fullheight">
                 { !isGettingRegion && (
                 <div className="map-container">
                     <div className="container map-title">
-                        <h1 className="title">Leads in <b>{mapTitle}</b></h1>
+                        <h1 className="title">Leads in <b>{suburb}</b></h1>
                     </div>
                         <Map
                             google={window.google}
