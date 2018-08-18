@@ -79,3 +79,17 @@ export function getPostByPostIdRequest(id) {
             })
     }
 }
+
+export function getPostsByUserIdRequest(id) {
+    return dispatch => {
+        request
+            .get(url + '/user/' + id)
+            .then(res => {
+                const posts = res.body
+                dispatch(getPostsByUserId(posts))
+            })
+            .catch(err => {
+                if (err) throw err
+            })
+    }
+}
