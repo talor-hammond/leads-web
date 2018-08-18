@@ -34,7 +34,7 @@ router.post('/', (req, res) => {
 // Updating a comment
 router.put('/:id', (req, res) => {
     const id = req.params.id
-    const content = req.body
+    const content = req.body.content
 
     db.updateComment(id, content)
         .then(() => {
