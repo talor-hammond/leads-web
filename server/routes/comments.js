@@ -19,7 +19,7 @@ router.get('/:table/:postId', (req, res) => {
 })
 
 // Adding a comment
-router.post('/', (req, res) => {
+router.post('/', (req, res) => { // NB: this route may need to specificy the posts table? comments migration might need another attr
     const comment = req.body
 
     db.addComment(comment)

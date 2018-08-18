@@ -136,6 +136,8 @@ section.content {
 p.listingTitle {
   font-weight: bold;
   font-size: 18px;
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
 
 .username {
