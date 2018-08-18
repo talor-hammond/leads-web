@@ -5,7 +5,7 @@ import {
     GET_POSTS_BY_USER_ID
 } from '../actions/general_posts'
 
-export function general_posts(state = [], action) {
+export default function general_posts(state = [], action) {
     switch (action.type) {
         case GET_POSTS:
             return [...action.posts]

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { connect } from ''
+import { connect } from 'react-redux'
 
 import LeadCard from './LeadCard'
 
@@ -12,7 +12,12 @@ class Browse extends Component {
         }
     }
 
+    componentDidMount() {
+        const { dispatch } = this.props
+    }
+
     render() {
+        console.log(this.props)
         const { posts } = this.state
 
         return (
@@ -52,4 +57,10 @@ class Browse extends Component {
     }
 }
 
-export default connect()(Browse)
+const mapStateToProps = ({ general_posts }) => {
+    return {
+        general_posts
+    }
+}
+
+export default connect(mapStateToProps)(Browse)
