@@ -125,7 +125,7 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0;
-  padding: 17px;
+  padding: 10px 15px;
   transition: .4s ease;
   color: white;
   background-color: rgba(0, 0, 0, 0.6);
