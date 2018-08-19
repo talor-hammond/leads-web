@@ -4,6 +4,9 @@ import { connect } from 'react-redux'
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
 
+// components
+import Comments from './Comments'
+
 class Post extends Component {
     constructor(props) {
         super(props)
@@ -64,6 +67,8 @@ class Post extends Component {
                     </div>
 
                     <hr />
+
+                    <Comments />
 
                 </div>
             </section>
