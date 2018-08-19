@@ -157,10 +157,6 @@ section.content {
   margin: 0;
 }
 
-.wrapper .mini-listing figure img {
-
-}
-
 .address, .price {
   text-transform: uppercase;
   font-size: 12px;
@@ -182,10 +178,6 @@ hr.rule {
   margin: 4px 0;
 }
 
-.username {
-  /* font-style: italic; */
-}
-
 /* CREATE */
 input.cost {
   width: 90px;
@@ -204,6 +196,14 @@ input.cost {
 .description-etc h1.title {
   margin: 0;
   padding-bottom: 5px;
+}
+
+.description-card {
+  height: 53vh;
+}
+
+.comments {
+  margin-bottom: 40px;
 }
 
 /* PROFILE */

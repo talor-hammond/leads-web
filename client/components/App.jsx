@@ -9,6 +9,7 @@ import Home from './Home'
 import Footer from './Footer'
 import Login from './Login'
 import Register from './Register'
+import Post from './Post'
 import Browse from './Browse'
 import BrowseMap from './BrowseMap'
 
@@ -22,6 +23,7 @@ const App = (props) => {
         <Route path="/register" component={Register} />
         <Route exact path="/browse" component={Browse} />
         <Route path="/browse/map" component={BrowseMap} />
+        <Route path="/post/:id" component={Post} />
         <Route path="/" component={Footer} />
       </div>
     </Router>
