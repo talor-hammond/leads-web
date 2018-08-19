@@ -25,12 +25,10 @@ function issue (req, res) {
 }
 
 function createToken (user, secret) {
-  console.log(user)
-
   const tokenDetails = {
-    user_id: user.user_id,
+    user_id: user.id,
     user_name: user.user_name,
-    user_email: user.email
+    user_email: user.email,
   }
   
   return jwt.sign(tokenDetails, secret, {

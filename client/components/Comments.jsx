@@ -1,5 +1,10 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
+// actions
+import { addCommentRequest } from '../actions/comments'
+
+// components
 import Comment from './Comment'
 
 class Comments extends React.Component {
@@ -19,10 +24,14 @@ class Comments extends React.Component {
 
     submit(e) {
         e.preventDefault()
+        const { dispatch, comments } = this.props
+
+
     }
 
     render() {
         const { comments } = this.props
+        console.log(this.props)
 
         return (
             <div className="comments">
@@ -56,7 +65,7 @@ class Comments extends React.Component {
                         </div>
                         <div className="field">
                             <p className="control">
-                                <button className="button">Post comment</button>
+                                <button onClick={(e) => this.submit(e)} className="button">Post comment</button>
                             </p>
                         </div>
                     </div>
@@ -66,4 +75,10 @@ class Comments extends React.Component {
     }
 }
 
-export default Comments
+const mapStateToProps = ({ auth }) => {
+    return {
+        auth
+    }
+}
+
+export default connect(mapStateToProps)(Comments)
