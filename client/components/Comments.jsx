@@ -13,7 +13,7 @@ class Comments extends React.Component {
                         return (
                             <Comment
                                 key={i}
-                                id={comment.id}
+                                id={comment.comment_id}
                                 content={comment.content}
                                 postId={comment.post_id}
                                 userId={comment.user_id}

@@ -2,6 +2,9 @@ import React from 'react'
 
 class Comment extends React.Component {
     render() {
+        console.log(this.props)
+        const { id, content, published, username } = this.props
+
         return (
             <article className="media">
                 <figure className="media-left">
@@ -12,12 +15,12 @@ class Comment extends React.Component {
                 <div className="media-content">
                     <div className="content">
                         <p>
-                            <strong>Username</strong>
+                            <strong>{username}</strong>
                             <br />
-                            Description, description, description description description description description
+                            {content}
                             <br />
                             <br/>
-                            <em>Date published</em>
+                            <em>{published}</em>
                         </p>
                     </div>
                 </div>
