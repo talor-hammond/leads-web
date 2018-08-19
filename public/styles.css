@@ -104,17 +104,12 @@ body {
 }
 
 /* BROWSE; CARDS */
-.posts-container {
-  flex-wrap: wrap;
-}
-
-.post-container:hover .description-overlay {
-  opacity: 1;
-}
-
-.post-tile {
-  height: 300px;
+.image-container {
   position: relative;
+}
+
+.image-container:hover .description-overlay {
+  opacity: 1;
 }
 
 /* .description-text {
@@ -130,11 +125,13 @@ body {
   height: 100%;
   width: 100%;
   opacity: 0;
-  padding: 17px;
-  transition: .5s ease;
-  background-color: white;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  padding: 10px 15px;
+  transition: .4s ease;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  /* overflow: scroll; */
+  /* text-overflow: ellipsis; */
 }
 
 section.content {
@@ -146,7 +143,7 @@ section.content {
   flex-wrap: wrap;
 }
 
-.wrapper .miniListing {
+.wrapper .mini-listing {
   /* margin: 0 auto; */
   margin: 0 1%;
   width: 23.5%;
@@ -155,7 +152,7 @@ section.content {
   text-align: left;
 }
 
-.wrapper .miniListing figure {
+.wrapper .mini-listing figure {
   width: 100%;
   margin: 0;
 }
@@ -181,10 +178,6 @@ hr.rule {
   margin: 4px 0;
 }
 
-.username {
-  /* font-style: italic; */
-}
-
 /* CREATE */
 input.cost {
   width: 90px;
@@ -203,6 +196,14 @@ input.cost {
 .description-etc h1.title {
   margin: 0;
   padding-bottom: 5px;
+}
+
+.description-card {
+  height: 53vh;
+}
+
+.comments {
+  margin-bottom: 40px;
 }
 
 /* PROFILE */

@@ -57,7 +57,7 @@ router.post('/', (req, res) => {
 router.get('/post/:id', (req, res) => {
     const id = req.params.id
 
-    db.getPostByPostId(id)
+    db.getGeneralPostByPostId(id)
         .then(post => {
             res.json(post)
         })
@@ -70,7 +70,7 @@ router.get('/post/:id', (req, res) => {
 router.get('/user/:id', (req, res) => {
     const id = req.params.id
 
-    db.getPostsByUserId(id)
+    db.getGeneralPostsByUserId(id)
         .then(posts => {
             res.json(posts)
         })

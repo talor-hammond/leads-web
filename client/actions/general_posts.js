@@ -72,7 +72,7 @@ export function getPostByPostIdRequest(id) {
             .get(url + '/post/' + id)
             .then(res => {
                 const post = res.body
-                dispatch(getPostByPostId)
+                dispatch(getPostByPostId(post))
             })
             .catch(err => {
                 if (err) throw err
