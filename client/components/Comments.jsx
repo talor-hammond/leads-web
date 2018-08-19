@@ -3,6 +3,24 @@ import React from 'react'
 import Comment from './Comment'
 
 class Comments extends React.Component {
+    constructor(props) {
+        super(props)
+
+        this.state = {
+            comment: ''
+        }
+
+        this.updateCommentData = this.updateCommentData.bind(this)
+    }
+
+    updateCommentData(e) {
+        this.setState({ comment: e.target.value })
+    }
+
+    submit(e) {
+        e.preventDefault()
+    }
+
     render() {
         const { comments } = this.props
 
@@ -33,7 +51,7 @@ class Comments extends React.Component {
                     <div className="media-content">
                         <div className="field">
                             <p className="control">
-                                <textarea className="textarea" placeholder="Add a comment..."></textarea>
+                                <textarea onChange={(e) => this.updateCommentData(e)} name="comment" className="textarea" placeholder="Add a comment..."></textarea>
                             </p>
                         </div>
                         <div className="field">

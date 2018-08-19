@@ -2,7 +2,6 @@ import React from 'react'
 
 class Comment extends React.Component {
     render() {
-        console.log(this.props)
         const { id, content, published, username } = this.props
 
         return (
