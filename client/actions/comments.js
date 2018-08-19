@@ -15,3 +15,11 @@ function getComments(comments) {
         comments
     }
 }
+
+function addComment(comment) {
+    return {
+        type: ADD_COMMENT,
+        comment
+    }
+}
+
