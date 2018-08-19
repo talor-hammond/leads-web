@@ -12,26 +12,38 @@ class Comments extends React.Component {
         super(props)
 
         this.state = {
-            comment: ''
+            content: ''
         }
 
         this.updateCommentData = this.updateCommentData.bind(this)
     }
 
     updateCommentData(e) {
-        this.setState({ comment: e.target.value })
+        this.setState({ content: e.target.value })
     }
 
     submit(e) {
         e.preventDefault()
-        const { dispatch, comments } = this.props
 
+        const { dispatch, auth, general_posts } = this.props
 
+        // grabbing the stuff we need from places (state; redux + react)
+        const { content } = this.state
+        const { user_id } = auth.user
+        const { post_id } = general_posts
+
+        const comment = {
+            content,
+            user_id,
+            post_id
+        }
+
+        dispatch(addCommentRequest(comment, 'general_posts', post_id))
+        this.refs.commentInput.value = ''
     }
 
     render() {
         const { comments } = this.props
-        console.log(this.props)
 
         return (
             <div className="comments">
@@ -60,7 +72,7 @@ class Comments extends React.Component {
                     <div className="media-content">
                         <div className="field">
                             <p className="control">
-                                <textarea onChange={(e) => this.updateCommentData(e)} name="comment" className="textarea" placeholder="Add a comment..."></textarea>
+                                <textarea onChange={(e) => this.updateCommentData(e)} ref="commentInput" className="textarea" placeholder="Add a comment..."></textarea>
                             </p>
                         </div>
                         <div className="field">
@@ -75,9 +87,10 @@ class Comments extends React.Component {
     }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, general_posts }) => {
     return {
-        auth
+        auth,
+        general_posts
     }
 }
 
