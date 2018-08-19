@@ -2,8 +2,8 @@ import request from 'superagent'
 
 // string variables; for consistency:
 export const GET_COMMENTS = 'GET_COMMENTS'
-export const ADD_COMMENT = 'ADD_COMMENT'
-export const UPDATE_COMMENT = 'UPDATE_COMMENT' // should just 'refresh'
+export const ADD_COMMENT = 'ADD_COMMENT' // should just 'refresh'
+export const UPDATE_COMMENT = 'UPDATE_COMMENT' // ditto
 export const DELETE_COMMENT = 'DELETE_COMMENT' // ditto
 
 const url = '/api/comments'

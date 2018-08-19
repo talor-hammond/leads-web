@@ -4,15 +4,22 @@ import Comment from './Comment'
 
 class Comments extends React.Component {
     render() {
-        // console.log(this.props)
         const { comments } = this.props
 
         return (
             <div className="comments">
                 {
-                    comments.map(comment => {
+                    comments.map((comment, i) => {
                         return (
-                            <Comment />
+                            <Comment
+                                key={i}
+                                id={comment.id}
+                                content={comment.content}
+                                postId={comment.post_id}
+                                userId={comment.user_id}
+                                username={comment.user_name}
+                                published={comment.published}
+                            />
                         )
                     })
                 }

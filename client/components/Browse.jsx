@@ -6,7 +6,6 @@ import { getPostsRequest } from '../actions/general_posts'
 
 // components
 import PostItem from './PostItem'
-import GeneralPostTile from './GeneralPostTile'
 
 class Browse extends Component {
     constructor(props) {
