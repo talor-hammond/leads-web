@@ -16,15 +16,15 @@ class Post extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         const { dispatch } = this.props
-        const { post_id } = this.props.general_posts[0]
+        const { post_id } = this.props.general_posts
 
         dispatch(getPostByPostIdRequest(id))
-        // dispatch(getCommentsRequest('general_posts', 2))
+        dispatch(getCommentsRequest('general_posts', post_id))
     }
 
     render() {
-        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts[0]
-        console.log('Post props: ' + this.props.general_posts[0])
+        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts
+        const { comments } = this.props
 
         return (
             <section className="hero pin">
@@ -74,7 +74,7 @@ class Post extends Component {
 
                     <div className="column is-10 is-offset-2">
                         <h1 className="title is-4">Discussion</h1>
-                        <Comments />
+                        <Comments comments={comments} />
                     </div>
 
                 </div>
@@ -84,6 +84,7 @@ class Post extends Component {
 }
 
 const mapStateToProps = ({ general_posts, comments }) => {
+    console.log(general_posts)
     return {
         general_posts,
         comments

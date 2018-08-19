@@ -29,7 +29,7 @@ class Browse extends Component {
 
                     <div className="wrapper">
                     {
-                        general_posts.map(post => {
+                        Array.isArray(general_posts) && general_posts.map(post => {
                             return (
                                 <PostItem
                                     key={post.post_id}

@@ -4,12 +4,18 @@ import Comment from './Comment'
 
 class Comments extends React.Component {
     render() {
+        // console.log(this.props)
+        const { comments } = this.props
+
         return (
             <div className="comments">
-                <Comment />
-                <Comment />
-                <Comment />
-                <Comment />
+                {
+                    comments.map(comment => {
+                        return (
+                            <Comment />
+                        )
+                    })
+                }
 
                 <article className="media">
                     <figure className="media-left">
