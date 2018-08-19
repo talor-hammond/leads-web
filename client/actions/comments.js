@@ -36,3 +36,17 @@ export function getCommentsRequest(table, postId) {
             })
     }
 }
+
+export function addCommentRequest(comment, table, postId) {
+    return dispatch => {
+        request
+            .post('/')
+            .send(comment)
+            .then(() => {
+                dispatch(getCommentsRequest(table, postId))
+            })
+            .catch(err => {
+                if (err) throw err
+            })
+    }
+}
