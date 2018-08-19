@@ -79,6 +79,10 @@ Decided to build a separate table for each category of post, as attributes are s
   | **lng** | text | Longitude | *Reverse-geocoded w google api, parsed into a float server-side* |
   | **published** | timestamp | Timestamp at .insert | *Use 'moment' to format the timestamp* |
   | **user_id** | integer | The id of the user that made the post | *FK, used for .join('users')* |
+**Notes:**
+  * Put a `region` attribute in later! 
+      * Need to sift through google's geocoding api to grab region data per a post's address
+      * ...that way will be able to `.filter()' by region client-side
 
 ### comments
   | Column Name | Data-type | Purpose | Notes |
