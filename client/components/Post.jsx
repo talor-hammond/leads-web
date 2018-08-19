@@ -39,8 +39,8 @@ class Post extends Component {
                                 <div className="card-content">
                                     <div className="media">
                                         <div className="media-left">
-                                            <figure className="image is-96x96">
-                                                <img src="http://via.placeholder.com/96x96" />
+                                            <figure className="image is-128x128">
+                                                <img src="http://via.placeholder.com/128x128" />
                                             </figure>
                                         </div>
 
@@ -72,7 +72,7 @@ class Post extends Component {
 
                     <hr />
 
-                    <div className="column is-10 is-offset-2">
+                    <div className="column">
                         <h1 className="title is-4">Discussion</h1>
                         <Comments comments={comments} />
                     </div>
@@ -84,8 +84,6 @@ class Post extends Component {
 }
 
 const mapStateToProps = ({ general_posts, comments }) => {
-    console.log(general_posts)
-    console.log(comments)
     return {
         general_posts,
         comments

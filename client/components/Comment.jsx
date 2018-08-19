@@ -10,12 +10,11 @@ class Comment extends React.Component {
                     <p className="image is-64x64">
                         <img src="https://bulma.io/images/placeholders/128x128.png" />
                     </p>
+                    {username}
                 </figure>
                 <div className="media-content">
                     <div className="content">
                         <p>
-                            <strong>{username}</strong>
-                            <br />
                             {content}
                             <br />
                             <br/>

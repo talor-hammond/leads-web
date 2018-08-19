@@ -43,7 +43,8 @@ class Comments extends React.Component {
     }
 
     render() {
-        const { comments } = this.props
+        const { comments, auth } = this.props
+        const { user_name } = auth.user
 
         return (
             <div className="comments">
@@ -65,9 +66,10 @@ class Comments extends React.Component {
 
                 <article className="media">
                     <figure className="media-left">
-                        <p className="image is-64x64"> 
+                        <p className="image is-96x96"> 
                             <img src="https://bulma.io/images/placeholders/128x128.png" />
                         </p>
+                        <strong>{user_name}</strong>
                     </figure>
                     <div className="media-content">
                         <div className="field">
