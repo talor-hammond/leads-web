@@ -24,8 +24,6 @@ export function addPost(post) {
 }
 
 export function getPostByPostId(post) {
-    console.log(post)
-
     return {
         type: GET_POST_BY_POST_ID,
         post

@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
+import { getCommentsRequest } from '../actions/comments'
 
 // components
 import Comments from './Comments'
@@ -15,12 +16,15 @@ class Post extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         const { dispatch } = this.props
+        const { post_id } = this.props.general_posts[id - 1] // definitely needs revision; i.e. the reducer: state is an array of posts here, not the individual one like it should be in the render method
 
         dispatch(getPostByPostIdRequest(id))
+        dispatch(getCommentsRequest('general_posts', post_id))
     }
 
     render() {
-        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts[0]
+        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts
+        const { comments } = this.props
 
         return (
             <section className="hero pin">
@@ -35,8 +39,8 @@ class Post extends Component {
                                 <div className="card-content">
                                     <div className="media">
                                         <div className="media-left">
-                                            <figure className="image is-96x96">
-                                                <img src="http://via.placeholder.com/96x96" />
+                                            <figure className="image is-128x128">
+                                                <img src="http://via.placeholder.com/128x128" />
                                             </figure>
                                         </div>
 
@@ -68,9 +72,9 @@ class Post extends Component {
 
                     <hr />
 
-                    <div className="column is-10 is-offset-2">
+                    <div className="column">
                         <h1 className="title is-4">Discussion</h1>
-                        <Comments />
+                        <Comments comments={comments} />
                     </div>
 
                 </div>
@@ -79,9 +83,10 @@ class Post extends Component {
     }
 }
 
-const mapStateToProps = ({ general_posts }) => {
+const mapStateToProps = ({ general_posts, comments }) => {
     return {
-        general_posts
+        general_posts,
+        comments
     }
 }
 

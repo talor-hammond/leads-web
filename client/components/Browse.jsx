@@ -6,7 +6,6 @@ import { getPostsRequest } from '../actions/general_posts'
 
 // components
 import PostItem from './PostItem'
-import GeneralPostTile from './GeneralPostTile'
 
 class Browse extends Component {
     constructor(props) {
@@ -21,7 +20,6 @@ class Browse extends Component {
 
     render() {
         const { general_posts } = this.props
-        console.log(general_posts)
 
         return (
             <section className="content">
@@ -30,7 +28,7 @@ class Browse extends Component {
 
                     <div className="wrapper">
                     {
-                        general_posts.map(post => {
+                        Array.isArray(general_posts) && general_posts.map(post => {
                             return (
                                 <PostItem
                                     key={post.post_id}
