@@ -178,10 +178,6 @@ hr.rule {
   margin: 4px 0;
 }
 
-.username {
-  /* font-style: italic; */
-}
-
 /* CREATE */
 input.cost {
   width: 90px;
@@ -204,6 +200,10 @@ input.cost {
 
 .description-card {
   height: 53vh;
+}
+
+.comments {
+  margin-bottom: 40px;
 }
 
 /* PROFILE */

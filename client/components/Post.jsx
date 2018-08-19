@@ -20,7 +20,7 @@ class Post extends Component {
     }
 
     render() {
-        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts
+        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts[0]
 
         return (
             <section className="hero pin">
@@ -51,7 +51,7 @@ class Post extends Component {
                                         <p>{description}</p>
                                     </div>
 
-                                    <br/>
+                                    <br />
 
                                     <span className="published">{published}</span>
 
@@ -68,7 +68,10 @@ class Post extends Component {
 
                     <hr />
 
-                    <Comments />
+                    <div className="column is-10 is-offset-2">
+                        <h1 className="title is-4">Discussion</h1>
+                        <Comments />
+                    </div>
 
                 </div>
             </section>
