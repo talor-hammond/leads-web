@@ -16,7 +16,7 @@ class Post extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         const { dispatch } = this.props
-        const { post_id } = this.props.general_posts
+        const { post_id } = this.props.general_posts[id - 1] // definitely needs revision; i.e. the reducer: state is an array of posts here, not the individual one like it should be in the render method
 
         dispatch(getPostByPostIdRequest(id))
         dispatch(getCommentsRequest('general_posts', post_id))
@@ -85,6 +85,7 @@ class Post extends Component {
 
 const mapStateToProps = ({ general_posts, comments }) => {
     console.log(general_posts)
+    console.log(comments)
     return {
         general_posts,
         comments
