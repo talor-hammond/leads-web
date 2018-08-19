@@ -12,6 +12,41 @@ stay connected with your community -- find leads to just about anything: jobs, c
   * **Geolocation**
     * Browser geolocation to build a map view
     * Geocoding & reverse-geocoding with google maps api to parse and determine addresses / lats & longs for both the database and the community map
+    ```javascript
+      componentDidMount() {
+        if (navigator.geolocation) { /* if the browser has geolocation available, request the user's position... */
+            navigator.geolocation.getCurrentPosition(pos => {
+                console.log(pos)
+
+                const coords = pos.coords
+
+                const browserLocation = {
+                    lat: coords.latitude,
+                    lng: coords.longitude
+                }
+
+                /* reverse-geocoding (through google maps api) with browser's lat & long */
+                request
+                    .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
+                    .then(res => {
+                        console.log(res.body)
+
+                        const suburb = res.body.results[2].formatted_address.split(',')[0] /* grabbing just the first word out of the suburb result */
+
+                        return suburb
+                    }).then(suburb => { /* wait for that return value before setting state... */
+                        this.setState({
+                            browserLocation,
+                            suburb,
+                            isGettingRegion: false /* stops map from rendering w out necessary information */
+                        })
+                    }).then(() => {
+                        document.title = `${this.state.suburb} Community Map - leads`
+                    })
+            })
+        }
+    }
+    ```
   * **React** front-end; componentisation of views -- connected to Redux state...
   * **Redux**, **redux-thunk**
     * Used Redux to manage the application's state
