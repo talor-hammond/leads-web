@@ -3,8 +3,8 @@ import request from 'superagent'
 // string variables; for consistency:
 export const GET_COMMENTS = 'GET_COMMENTS'
 export const ADD_COMMENT = 'ADD_COMMENT'
-export const UPDATE_COMMENT = 'UPDATE_COMMENT'
-export const DELETE_COMMENT = 'DELETE_COMMENT'
+export const UPDATE_COMMENT = 'UPDATE_COMMENT' // should just 'refresh'
+export const DELETE_COMMENT = 'DELETE_COMMENT' // ditto
 
 const url = '/api/comments'
 
@@ -23,3 +23,16 @@ function addComment(comment) {
     }
 }
 
+// asynchronous, redux-thunk actions
+export function getCommentsRequest(table, postId) {
+    return dispatch => {
+        request
+            .get(`/${table}/${postId}`)
+            .then(comments => {
+                dispatch(getComments(comments))
+            })
+            .catch(err => {
+                if (err) throw err
+            })
+    }
+}
