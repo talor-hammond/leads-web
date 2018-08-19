@@ -50,3 +50,17 @@ export function addCommentRequest(comment, table, postId) {
             })
     }
 }
+
+export function updateCommentRequest(newContent, id, table, postId) {
+    return dispatch => {
+        request
+            .put(`/${id}`)
+            .send(newContent)
+            .then(() => {
+                dispatch(getCommentsRequest(table, postId))
+            })
+            .catch(err => {
+                if (err) throw err
+            })
+    }
+}
