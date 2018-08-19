@@ -27,7 +27,7 @@ function addComment(comment) {
 export function getCommentsRequest(table, postId) {
     return dispatch => {
         request
-            .get(`/${table}/${postId}`)
+            .get(`${url}/${table}/${postId}`)
             .then(comments => {
                 dispatch(getComments(comments))
             })
@@ -40,7 +40,7 @@ export function getCommentsRequest(table, postId) {
 export function addCommentRequest(comment, table, postId) {
     return dispatch => {
         request
-            .post('/')
+            .post(url)
             .send(comment)
             .then(() => {
                 dispatch(getCommentsRequest(table, postId))
@@ -54,8 +54,21 @@ export function addCommentRequest(comment, table, postId) {
 export function updateCommentRequest(newContent, id, table, postId) {
     return dispatch => {
         request
-            .put(`/${id}`)
+            .put(`${url}/${id}`)
             .send(newContent)
+            .then(() => {
+                dispatch(getCommentsRequest(table, postId))
+            })
+            .catch(err => {
+                if (err) throw err
+            })
+    }
+}
+
+export function deleteCommentRequest(id, table, postId) {
+    return dispatch => {
+        request
+            .delete(`${url}/${id}`)
             .then(() => {
                 dispatch(getCommentsRequest(table, postId))
             })
