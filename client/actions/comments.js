@@ -10,6 +10,7 @@ const url = '/api/comments'
 
 // client-side, synchronous actions
 function getComments(comments) {
+    // console.log('and the client: ' + comments)
     return {
         type: GET_COMMENTS,
         comments
@@ -28,7 +29,9 @@ export function getCommentsRequest(table, postId) {
     return dispatch => {
         request
             .get(`${url}/${table}/${postId}`)
-            .then(comments => {
+            .then(res => {
+                const comments = res.body
+                // console.log('Here\'s the comments from the server: ', comments)
                 dispatch(getComments(comments))
             })
             .catch(err => {

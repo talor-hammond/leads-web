@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
+import { getCommentsRequest } from '../actions/comments'
 
 // components
 import Comments from './Comments'
@@ -15,12 +16,15 @@ class Post extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         const { dispatch } = this.props
+        const { post_id } = this.props.general_posts[0]
 
         dispatch(getPostByPostIdRequest(id))
+        // dispatch(getCommentsRequest('general_posts', 2))
     }
 
     render() {
         const { title, address, description, post_id, published, email, user_name } = this.props.general_posts[0]
+        console.log('Post props: ' + this.props.general_posts[0])
 
         return (
             <section className="hero pin">
@@ -79,9 +83,10 @@ class Post extends Component {
     }
 }
 
-const mapStateToProps = ({ general_posts }) => {
+const mapStateToProps = ({ general_posts, comments }) => {
     return {
-        general_posts
+        general_posts,
+        comments
     }
 }
 
