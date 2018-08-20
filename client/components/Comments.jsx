@@ -45,6 +45,7 @@ class Comments extends React.Component {
     render() {
         const { comments, auth } = this.props
         const { user_name } = auth.user
+        // NB: conditional for user comments section depending on whether user is signed in or not
 
         return (
             <div className="comments">
@@ -66,7 +67,7 @@ class Comments extends React.Component {
 
                 <article className="media">
                     <figure className="media-left">
-                        <p className="image is-96x96"> 
+                        <p className="image is-96x96">
                             <img src="https://bulma.io/images/placeholders/128x128.png" />
                         </p>
                         <strong>{user_name}</strong>
