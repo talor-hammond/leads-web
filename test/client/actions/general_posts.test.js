@@ -8,7 +8,8 @@ import {
 
 // mocks
 import {
-    fakePosts
+    fakePosts,
+    fakePost
 } from './mocks'
 
 // action types
@@ -29,6 +30,17 @@ describe('general_posts actions', () => {
         }
 
         expect(getPosts(posts)).toEqual(expectedAction)
+    })
+
+    it('should create an action to add a post', () => {
+        const post = fakePost
+
+        const expectedAction = {
+            type: ADD_POST,
+            post
+        }
+
+        expect(addPost(post)).toEqual(expectedAction)
     })
 
     it('should create an action that returns a single post', () => {
