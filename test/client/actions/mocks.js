@@ -22,7 +22,7 @@ export const fakePosts = [
         email: "tay@gmail.com",
         lat: -41.2969355,
         lng: 174.7734782,
-        post_id: 1,
+        post_id: 2,
         published: "17 August 2018, 4:01PM",
         title: "Need help moving furniture",
         user_id: 2,
