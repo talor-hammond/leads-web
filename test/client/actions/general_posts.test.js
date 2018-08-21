@@ -53,4 +53,15 @@ describe('general_posts actions', () => {
 
         expect(getPostByPostId(post)).toEqual(expectedAction)
     })
+
+    it('should create an action the returns an array of user\'s posts', () => {
+        const posts = fakePosts.filter(post => post.user_id === 1)
+
+        const expectedAction = {
+            type: GET_POSTS_BY_USER_ID,
+            posts
+        }
+
+        expect(getPostsByUserId(posts)).toEqual(expectedAction)
+    })
 })
