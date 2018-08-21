@@ -14,8 +14,6 @@ import Browse from './Browse'
 import BrowseMap from './BrowseMap'
 
 const App = (props) => {
-  console.log(props.auth)
-
   return (
     <Router>
       <div className='app-container'>

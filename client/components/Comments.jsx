@@ -45,7 +45,7 @@ class Comments extends React.Component {
     render() {
         const { comments, auth } = this.props
         const { user_name } = auth.user
-        // NB: conditional for user comments section depending on whether user is signed in or not
+        // TODO: conditional for user comments section depending on whether user is signed in or not; only renders for signed-in users
 
         return (
             <div className="comments">
