@@ -7,7 +7,9 @@ import {
 } from '../../../client/actions/general_posts'
 
 // mocks
-
+import {
+    fakePosts
+} from './mocks'
 
 // action types
 import {
@@ -19,6 +21,12 @@ import {
 
 describe('general_posts actions', () => {
     it('should create an action to get all posts', () => {
-        const posts
+        const posts = fakePosts
+        const expectedAction = {
+            type: GET_POSTS,
+            posts
+        }
+
+        expect(getPosts(posts)).toEqual(expectedAction)
     })
 })
