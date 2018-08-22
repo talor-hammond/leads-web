@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 // actions
@@ -90,7 +91,9 @@ class Comments extends React.Component {
                 )
                 :
                 (
-                    <h1>Hello</h1>
+                <div className="comments-not-signed has-vertically-aligned-content has-text-centered">
+                    <p><Link to="/login">Sign-in</Link> or <Link to="/register">register</Link> to join the discussion</p>
+                </div>
                 )
             }
             </div>
