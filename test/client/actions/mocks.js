@@ -57,3 +57,9 @@ export const fakeComments = [
         content: 'ok cheers'
     }
 ]
+
+export const fakeComment = {
+    user_id: 1,
+    post_id: 1,
+    content: 'how\'s it going'
+}

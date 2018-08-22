@@ -26,4 +26,8 @@ describe('comments actions', () => {
 
         expect(getComments(comments)).toEqual(expectedAction)
     })
+
+    it('should create an action to add a comment to a post', () => {
+        const comment = 
+    })
 })
