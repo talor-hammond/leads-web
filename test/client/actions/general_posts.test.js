@@ -10,7 +10,7 @@ import {
 import {
     fakePosts,
     fakePost
-} from './mocks'
+} from '../mocks/mocks'
 
 // action types
 import {

@@ -8,7 +8,7 @@ import {
 import {
     fakeComments,
     fakeComment
-} from './mocks'
+} from '../mocks/mocks'
 
 // action types
 import {
