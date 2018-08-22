@@ -16,8 +16,19 @@ describe('general_posts reducer', () => {
     it('returns default state', () => {
         expect(general_posts(undefined, {})).toEqual([])
     })
-    it('handles GET_POSTS')
+
+    it('handles GET_POSTS', () => {
+        const action = {
+            type: GET_POSTS,
+            posts: fakePosts
+        }    
+
+        expect(general_posts(undefined, action)).toEqual(action.posts)
+    })
+
     it('handles GET_POST_BY_POST_ID')
+
     it('handles GET_POSTS_BY_USER_ID')
+
     it('handles ADD_POST')
 })
