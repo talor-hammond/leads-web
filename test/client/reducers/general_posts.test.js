@@ -27,17 +27,26 @@ describe('general_posts reducer', () => {
     })
 
     it('handles GET_POST_BY_POST_ID', () => {
-        const postById = fakePosts.find(post => post.post_id == 1)
+        const post = fakePosts.find(post => post.post_id == 1)
         
         const action = {
             type: GET_POST_BY_POST_ID,
-            post: postById
+            post
         }
 
         expect(general_posts(undefined, action)).toEqual(action.post)
     })
 
-    it('handles GET_POSTS_BY_USER_ID')
+    it('handles GET_POSTS_BY_USER_ID', () => {
+        const posts = fakePosts.filter(post => post.user_id == 1)
+
+        const action = {
+            type: GET_POSTS_BY_USER_ID,
+            posts
+        }
+
+        expect(general_posts(undefined, action)).toEqual(action.posts)
+    })
 
     it('handles ADD_POST')
 })
