@@ -13,7 +13,9 @@ import {
 } from '../mocks/mocks'
 
 describe('general_posts reducer', () => {
-    it('returns default state')
+    it('returns default state', () => {
+        expect(general_posts(undefined, {})).toEqual([])
+    })
     it('handles GET_POSTS')
     it('handles GET_POST_BY_POST_ID')
     it('handles GET_POSTS_BY_USER_ID')
