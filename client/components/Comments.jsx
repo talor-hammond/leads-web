@@ -73,7 +73,7 @@ class Comments extends React.Component {
                         <p className="image is-96x96">
                             <img src="https://bulma.io/images/placeholders/128x128.png" />
                         </p>
-                        <strong>{user_name}</strong>
+                        <strong>{auth.user.user_name}</strong>
                     </figure>
                     <div className="media-content">
                         <div className="field">
