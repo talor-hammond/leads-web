@@ -6,7 +6,8 @@ import {
 
 // mocks
 import {
-    fakeComments
+    fakeComments,
+    fakeComment
 } from './mocks'
 
 // action types
@@ -28,6 +29,13 @@ describe('comments actions', () => {
     })
 
     it('should create an action to add a comment to a post', () => {
-        const comment = 
+        const comment = fakeComment
+
+        const expectedAction = {
+            type: ADD_COMMENT,
+            comment
+        }
+
+        expect(addComment(comment)).toEqual(expectedAction)
     })
 })
