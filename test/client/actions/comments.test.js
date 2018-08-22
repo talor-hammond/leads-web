@@ -5,9 +5,9 @@ import {
 } from '../../../client/actions/comments'
 
 // mocks
-// import {
-
-// } from './mocks'
+import {
+    fakeComments
+} from './mocks'
 
 // action types
 import {
@@ -17,11 +17,7 @@ import {
 
 describe('comments actions', () => {
     it('should create an action to get comments for a post', () => {
-        const comments = [
-            {
-
-            }
-        ]
+        const comments = fakeComments
         
         const expectedAction = {
             type: GET_COMMENTS,
