@@ -43,3 +43,17 @@ export const fakePost = {
     user_id: 2,
     user_name: "tay2000"
 }
+
+export const fakeComments = [
+    { 
+        id: 1,
+        user_id: 1,
+        post_id: 1,
+        content: 'Everyone is invited'
+    },
+    {   id: 2,
+        user_id: 2,
+        post_id: 1,
+        content: 'ok cheers'
+    }
+]

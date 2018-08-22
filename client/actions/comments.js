@@ -9,7 +9,7 @@ export const DELETE_COMMENT = 'DELETE_COMMENT' // ditto
 const url = '/api/comments'
 
 // client-side, synchronous actions
-function getComments(comments) {
+export function getComments(comments) {
     // console.log('and the client: ' + comments)
     return {
         type: GET_COMMENTS,
@@ -17,7 +17,7 @@ function getComments(comments) {
     }
 }
 
-function addComment(comment) {
+export function addComment(comment) {
     return {
         type: ADD_COMMENT,
         comment
