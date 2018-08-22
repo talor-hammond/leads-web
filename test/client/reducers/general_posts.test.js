@@ -48,5 +48,14 @@ describe('general_posts reducer', () => {
         expect(general_posts(undefined, action)).toEqual(action.posts)
     })
 
-    it('handles ADD_POST')
+    it('handles ADD_POST' ,() => {
+        const post = fakePost
+
+        const action = {
+            type: ADD_POST,
+            post
+        }
+
+        expect(general_posts(undefined, action)).toEqual([])
+    })
 })
