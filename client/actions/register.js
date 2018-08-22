@@ -4,7 +4,7 @@ import { receiveLogin } from './login'
 
 export function registerUserRequest (user) {
   // console.log(user)
-  global.window.localStorage.setItem('fun', 'times') // this needs to set a token doesn't it?
+  global.window.localStorage.setItem('fun', 'times')
   return (dispatch) => {
     request
       .post('/api/auth/register')
