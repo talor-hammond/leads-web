@@ -42,12 +42,16 @@ class CreateForm extends Component {
         }
 
         dispatch(addPostRequest(post))
+
+        // TODO: redirect to post itself (need id though); if not, redirect to browse
     }
 
     render() {
         return (
-            <section className="content">
+            <section className="content form">
                 <div className="container">
+
+                    <h1 className="title">Category > <span className="thin">General</span></h1>
 
                     <div className="field">
                         <label className="label">Title</label>
@@ -97,7 +101,7 @@ class CreateForm extends Component {
                             <button onClick={(e) => this.submit(e)} className="button is-link">Submit</button>
                         </div>
                         <div className="control">
-                            <button className="button is-text">Cancel</button>
+                            <button onClick={() => this.props.top()} className="button is-text">Cancel</button>
                         </div>
                     </div>
 
