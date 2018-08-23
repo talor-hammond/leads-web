@@ -54,26 +54,6 @@ class CreateForm extends Component {
                         </div>
                     </div>
 
-                    <div className="field">
-                        <label className="label">Price</label>
-                        <div className="control has-icons-left">
-                            <input className="input cost" type="text" />
-                            <span className="icon is-small is-left">
-                                <i className="fa fa-usd"></i>
-                            </span>
-                        </div>
-                    </div>
-
-
-                    <div className="field">
-                        <div className="control">
-                            <label className="checkbox">
-                                <input type="checkbox" /> I agree to the
-                        <a href="#">terms and conditions</a>
-                            </label>
-                        </div>
-                    </div>
-
                     <div className="field is-grouped">
                         <div className="control">
                             <button className="button is-link">Submit</button>
