@@ -101,7 +101,7 @@ class CreateForm extends Component {
                             <button onClick={(e) => this.submit(e)} className="button is-link">Submit</button>
                         </div>
                         <div className="control">
-                            <button className="button is-text">Cancel</button>
+                            <button onClick={() => this.props.top()} className="button is-text">Cancel</button>
                         </div>
                     </div>
 

@@ -14,18 +14,32 @@ class Create extends Component {
         }
 
         this.select = this.select.bind(this)
-        this.handleScrollToElement = this.handleScrollToElement.bind(this)
+        this.handleScrollToForm = this.handleScrollToForm.bind(this)
+        // this.top = this.top.bind(this)
+        this.handleScrollToTop = this.handleScrollToTop.bind(this)
     }
 
     select() {
         this.setState({ categorySelected: true }, () => { // setState is async; thus, need to handle scrolling to the ref after
-            this.handleScrollToElement()                  // the "form" ref has been rendered -- we can do this by passing
+            this.handleScrollToForm()                     // the "form" ref has been rendered -- we can do this by passing
         })                                                // the scrolling method as a callback
     }
 
-    handleScrollToElement() {
+    // top() {
+    //     this.handleScrollToTop()
+    // }
+
+    handleScrollToForm() {
         scrollToComponent(this.refs.form, {
             offset: 0,
+            align: 'top',
+            duration: 800
+        })
+    }
+
+    handleScrollToTop() {
+        scrollToComponent(this.refs.top, {
+            offset: -200,
             align: 'top',
             duration: 800
         })
@@ -35,7 +49,7 @@ class Create extends Component {
         const { categorySelected } = this.state
 
         return (
-            <section className="section">
+            <section ref="top" className="section">
 
                 <div className="choose-categories">
                     <div className="container">
@@ -58,7 +72,7 @@ class Create extends Component {
                 </div>
 
                     {categorySelected && (
-                        <CreateForm ref="form" />
+                        <CreateForm top={this.handleScrollToTop} ref="form" />
                     )}
 
             </section>
