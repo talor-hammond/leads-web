@@ -12,6 +12,7 @@ import Register from './Register'
 import Post from './Post'
 import Browse from './Browse'
 import BrowseMap from './BrowseMap'
+import Create from './Create'
 
 const App = (props) => {
   return (
@@ -24,6 +25,7 @@ const App = (props) => {
         <Route exact path="/browse" component={Browse} />
         <Route path="/browse/map" component={BrowseMap} />
         <Route path="/post/:id" component={Post} />
+        <Route path="/create" component={Create} />
         <Route path="/" component={Footer} />
       </div>
     </Router>
