@@ -191,15 +191,25 @@ input.cost {
   margin: 0 3%;
 }
 
-.category {
-  transition: .18s ease-in-out background-color;
+.general, .services, .jobs {
+  transition: .15s ease-in-out background-color;
   margin: 0 1%;
+  border-radius: 3.5%;
 }
 
-.category:hover {
-  /* height: 100px; */
+.general:hover {
   cursor: pointer;
-  background-color: rgba(210, 210, 210, 0.3);
+  background-color: rgba(0, 255, 0, 0.4);
+}
+
+.services:hover {
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.jobs:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.3);
 }
 
 /* PINS / LISTING */
