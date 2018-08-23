@@ -1,8 +1,20 @@
 import React from 'react'
 
+import moment from 'moment'
+
 class Comment extends React.Component {
+    
+
     formatDate(published) {
-        // let m = 
+        let oldDate = moment(published)
+
+        let fromNow = oldDate.fromNow()
+        console.log(fromNow)
+        return fromNow
+    }
+
+    componentDidMount() {
+        this.formatDate(this.props.published)
     }
 
     render() {
@@ -22,7 +34,7 @@ class Comment extends React.Component {
                             {content}
                             <br />
                             <br/>
-                            <em>{published}</em>
+                            <em>{this.formatDate(published)}</em>
                         </p>
                     </div>
                 </div>
