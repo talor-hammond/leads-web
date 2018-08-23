@@ -26,6 +26,7 @@ router.get('/', (req, res) => {
 // Adding a post...
 router.post('/', (req, res) => {
     let post = req.body
+    console.log(post)
 
     const parsedAddress = post.address.split(' ').join('+') // splitting the string at ' ', and connecting w '+'
 
@@ -41,7 +42,7 @@ router.post('/', (req, res) => {
             post.lng = lng
         })
         .then(() => { // once we've retrieved latitude and longitude from google maps api
-            db.addPost(post)
+            db.addGeneralPost(post)
                 .then(() => {
                     console.log('Firing... ', post)
                     res.sendStatus(200)

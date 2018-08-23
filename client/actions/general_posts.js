@@ -53,6 +53,8 @@ export function getPostsRequest() {
 }
 
 export function addPostRequest(post) {
+    console.log('dispatching...', post)
+
     return dispatch => {
         request
             .post(url)

@@ -41,7 +41,7 @@ class CreateForm extends Component {
             user_id
         }
 
-        
+        dispatch(addPostRequest(post))
     }
 
     render() {
