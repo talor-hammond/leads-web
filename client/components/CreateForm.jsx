@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 
+// redux, actions
 import { connect } from 'react-redux'
+import { addPostRequest } from '../actions/general_posts'
 
 class CreateForm extends Component {
     constructor(props) {
@@ -19,6 +21,15 @@ class CreateForm extends Component {
 
     updateDetails(e) {
         this.setState({ [e.target.name]: e.target.value })
+    }
+
+    submit(e) {
+        e.preventDefault()
+
+        const { dispatch } = this.props
+        const { title, category, region, description, address } = this.state
+
+        console.log('dispatching', dispatch)
     }
 
     render() {
@@ -48,8 +59,9 @@ class CreateForm extends Component {
                         <div className="control has-icons-left">
                             <div className="select">
                                 <select onChange={this.updateDetails} name="region">
-                                    <option>Wellington</option>
-                                    <option>Auckland</option>
+                                    <option>...</option>
+                                    <option value="wellington">Wellington</option>
+                                    <option value="auckland">Auckland</option>
                                 </select>
                             </div>
                             <div className="icon is-small is-left">
@@ -70,7 +82,7 @@ class CreateForm extends Component {
 
                     <div className="field is-grouped">
                         <div className="control">
-                            <button className="button is-link">Submit</button>
+                            <button onClick={(e) => this.submit(e)} className="button is-link">Submit</button>
                         </div>
                         <div className="control">
                             <button className="button is-text">Cancel</button>
@@ -83,4 +95,4 @@ class CreateForm extends Component {
     }
 }
 
-export default CreateForm
+export default connect()(CreateForm)
