@@ -17,6 +17,7 @@ class CreateForm extends Component {
         }
 
         this.updateDetails = this.updateDetails.bind(this)
+        this.submit = this.submit.bind(this)
     }
 
     updateDetails(e) {
@@ -26,10 +27,21 @@ class CreateForm extends Component {
     submit(e) {
         e.preventDefault()
 
+        // grabbing the stuff we need from state and props
         const { dispatch } = this.props
         const { title, category, region, description, address } = this.state
+        const { user_id } = this.props.auth.user
 
-        console.log('dispatching', dispatch)
+        const post = {
+            category,
+            title,
+            address,
+            description,
+            region,
+            user_id
+        }
+
+        
     }
 
     render() {
@@ -95,4 +107,10 @@ class CreateForm extends Component {
     }
 }
 
-export default connect()(CreateForm)
+const mapStateToProps = ({ auth }) => {
+    return {
+        auth
+    }
+}
+
+export default connect(mapStateToProps)(CreateForm)
