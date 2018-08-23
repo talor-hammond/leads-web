@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
      table.string('category') // set this property as 'general_posts' in the client? 
      table.string('title')
      table.string('description')
+     table.string('region')
      table.string('address') // these can be 'null' -- TODO: conditional in route
      table.text('lat')
      table.text('lng')

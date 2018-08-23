@@ -24,7 +24,7 @@ const HomeNav = (props) => {
             </div>
 
             <div className="navbar-item">
-              <Link to="/post" className="has-text-light">post a lead</Link>
+              <Link to="/create" className="has-text-light">post a lead</Link>
             </div>
 
             {

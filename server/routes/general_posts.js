@@ -35,15 +35,12 @@ router.post('/', (req, res) => {
             const lat = res.body.results[0].geometry.location.lat.toString()
             const lng = res.body.results[0].geometry.location.lng.toString()
 
-            console.log(lat, lng)
-
             post.lat = lat
             post.lng = lng
         })
         .then(() => { // once we've retrieved latitude and longitude from google maps api
-            db.addPost(post)
+            db.addGeneralPost(post)
                 .then(() => {
-                    console.log('Firing... ', post)
                     res.sendStatus(200)
                 })
                 .catch(err => {
