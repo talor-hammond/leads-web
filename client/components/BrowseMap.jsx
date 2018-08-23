@@ -31,7 +31,7 @@ class BrowseMap extends Component {
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
             navigator.geolocation.getCurrentPosition(pos => {
-                console.log(pos)
+                // console.log(pos)
 
                 const coords = pos.coords
 
@@ -44,7 +44,7 @@ class BrowseMap extends Component {
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        console.log(res.body)
+                        // console.log(res.body)
 
                         const suburb = res.body.results[2].formatted_address.split(',')[0] // grabbing just the first word out of the suburb result
 

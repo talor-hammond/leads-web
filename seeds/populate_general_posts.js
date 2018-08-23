@@ -13,7 +13,6 @@ exports.seed = function(knex, Promise) {
           address: '275 Cuba Street, Wellington',
           lat: '-41.2969355',
           lng: '174.7734782',
-          published: '17 August 2018, 4:01PM',
           user_id: 1
         },
         {
@@ -24,7 +23,6 @@ exports.seed = function(knex, Promise) {
           address: '230 Cuba Street, Wellington',
           lat: '-41.2963787',
           lng: '174.7688924',
-          published: '17 August 2018, 7:31PM',
           user_id: 2
         },
         {
@@ -35,7 +33,6 @@ exports.seed = function(knex, Promise) {
           region: 'Wellington',
           lat: '-41.2948087',
           lng: '174.7747454',
-          published: '18 August 2018, 10:01AM',
           user_id: 2
         }
       ]);
