@@ -138,6 +138,14 @@ section.content {
   margin-top: 75px;
 }
 
+section.content.form {
+  margin-top: 0;
+}
+
+.thin {
+  font-weight: 100 !important;
+}
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;
@@ -146,7 +154,7 @@ section.content {
 .wrapper .mini-listing {
   /* margin: 0 auto; */
   margin: 0 1%;
-  width: 23.5%;
+  width: 22.5%;
   height: 275px;
   margin-bottom: 25px;
   text-align: left;
@@ -181,6 +189,35 @@ hr.rule {
 /* CREATE */
 input.cost {
   width: 90px;
+}
+
+.choose-categories {
+  height: 90vh;
+}
+
+.categories {
+  margin: 0 3%;
+}
+
+.general, .services, .jobs {
+  transition: .15s ease-in-out background-color;
+  margin: 0 1%;
+  border-radius: 3.5%;
+}
+
+.general:hover {
+  cursor: pointer;
+  background-color: rgba(0, 255, 0, 0.4);
+}
+
+.services:hover {
+  cursor: pointer;
+  background-color: rgba(255, 0, 0, 0.4);
+}
+
+.jobs:hover {
+  cursor: pointer;
+  background-color: rgba(0, 0, 255, 0.3);
 }
 
 /* PINS / LISTING */
