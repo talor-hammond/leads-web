@@ -42,6 +42,8 @@ class CreateForm extends Component {
         }
 
         dispatch(addPostRequest(post))
+
+        // TODO: redirect to post itself (need id though); if not, redirect to browse
     }
 
     render() {

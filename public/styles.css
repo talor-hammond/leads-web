@@ -183,6 +183,18 @@ input.cost {
   width: 90px;
 }
 
+.choose-categories {
+  height: 85vh;
+}
+
+.categories {
+  margin: 0 3%;
+}
+
+.category {
+  /* height: 100px; */
+}
+
 /* PINS / LISTING */
 .pin h2.subtitle {
   text-transform: uppercase;
