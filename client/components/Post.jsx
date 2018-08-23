@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import moment from 'moment'
+
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
 import { getCommentsRequest } from '../actions/comments'
@@ -11,6 +13,13 @@ import Comments from './Comments'
 class Post extends Component {
     constructor(props) {
         super(props)
+    }
+
+    formatDate(published) {
+        let oldDate = moment(published)
+        let fromNow = oldDate.fromNow()
+        
+        return fromNow
     }
 
     componentDidMount() {
@@ -57,7 +66,7 @@ class Post extends Component {
 
                                     <br />
 
-                                    <span className="published">{published}</span>
+                                    <span className="published">{this.formatDate(published)}</span>
 
                                 </div>
                             </div>
