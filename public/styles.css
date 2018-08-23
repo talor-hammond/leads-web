@@ -206,6 +206,12 @@ input.cost {
   margin-bottom: 40px;
 }
 
+.comments-not-signed {
+  background-color: rgba(210, 210, 210, 0.5);
+  height: 105px;
+  margin-top: 13px;
+}
+
 /* PROFILE */
 .profile, .pin {
   margin-top: 75px;

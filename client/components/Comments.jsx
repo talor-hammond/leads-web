@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 // actions
@@ -44,7 +45,7 @@ class Comments extends React.Component {
 
     render() {
         const { comments, auth } = this.props
-        const { user_name } = auth.user
+        // const { user_name } = auth.user // auth.user obj is null when no one is signed-in
         // TODO: conditional for user comments section depending on whether user is signed in or not; only renders for signed-in users
 
         return (
@@ -64,13 +65,15 @@ class Comments extends React.Component {
                         )
                     })
                 }
-
+                
+                { auth.user ? 
+                (
                 <article className="media">
                     <figure className="media-left">
                         <p className="image is-96x96">
                             <img src="https://bulma.io/images/placeholders/128x128.png" />
                         </p>
-                        <strong>{user_name}</strong>
+                        <strong>{auth.user.user_name}</strong>
                     </figure>
                     <div className="media-content">
                         <div className="field">
@@ -85,6 +88,14 @@ class Comments extends React.Component {
                         </div>
                     </div>
                 </article>
+                )
+                :
+                (
+                <div className="comments-not-signed has-vertically-aligned-content has-text-centered">
+                    <p><Link to="/login">Sign-in</Link> or <Link to="/register">register</Link> to join the discussion</p>
+                </div>
+                )
+            }
             </div>
         )
     }
