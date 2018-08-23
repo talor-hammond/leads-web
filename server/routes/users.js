@@ -10,7 +10,7 @@ router.get('/:username', (req, res) => {
     db.getUserByUsername(user)
     .then(user => {
         res.json(user)
-        console.log(user)
+        // console.log(user)
     })
     .catch(err => {
         if (err) throw err
