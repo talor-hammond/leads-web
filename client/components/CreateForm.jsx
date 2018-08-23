@@ -48,8 +48,10 @@ class CreateForm extends Component {
 
     render() {
         return (
-            <section className="content">
+            <section className="content form">
                 <div className="container">
+
+                    <h1 className="title">Category > <span className="thin">General</span></h1>
 
                     <div className="field">
                         <label className="label">Title</label>

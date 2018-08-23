@@ -138,6 +138,14 @@ section.content {
   margin-top: 75px;
 }
 
+section.content.form {
+  margin-top: 0;
+}
+
+.thin {
+  font-weight: 100 !important;
+}
+
 .wrapper {
   display: flex;
   flex-wrap: wrap;

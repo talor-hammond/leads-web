@@ -18,9 +18,9 @@ class Create extends Component {
     }
 
     select() {
-        this.setState({ categorySelected: true }, () => {
-            this.handleScrollToElement()
-        })
+        this.setState({ categorySelected: true }, () => { // setState is async; thus, need to handle scrolling to the ref after
+            this.handleScrollToElement()                  // the "form" ref has been rendered -- we can do this by passing
+        })                                                // the scrolling method as a callback
     }
 
     handleScrollToElement() {
