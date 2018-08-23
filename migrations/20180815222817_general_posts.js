@@ -9,7 +9,7 @@ exports.up = function(knex, Promise) {
      table.string('address') // these can be 'null' -- TODO: conditional in route
      table.text('lat')
      table.text('lng')
-     table.timestamp('published')
+     table.timestamp('published', 6).defaultTo(knex.fn.now(6))
      table.integer('user_id')
  }) 
 }
