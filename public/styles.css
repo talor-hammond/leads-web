@@ -192,7 +192,14 @@ input.cost {
 }
 
 .category {
+  transition: .18s ease-in-out background-color;
+  margin: 0 1%;
+}
+
+.category:hover {
   /* height: 100px; */
+  cursor: pointer;
+  background-color: rgba(210, 210, 210, 0.3);
 }
 
 /* PINS / LISTING */
