@@ -5,7 +5,9 @@ import CreateForm from './CreateForm'
 
 class Create extends Component {
     render() {
-        <CreateForm />
+        return (
+            <CreateForm />
+        )
     }
 }
 
