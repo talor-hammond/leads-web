@@ -17,9 +17,9 @@ class Post extends Component {
 
     formatDate(published) {
         let oldDate = moment(published)
-        let fromNow = oldDate.fromNow()
+        let newDate = oldDate.format('LLLL')
         
-        return fromNow
+        return newDate
     }
 
     componentDidMount() {
@@ -64,7 +64,7 @@ class Post extends Component {
                                         <p>{description}</p>
                                     </div>
 
-                                    <br />
+                                    <hr />
 
                                     <span className="published">{this.formatDate(published)}</span>
 
