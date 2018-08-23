@@ -5,6 +5,19 @@ import { connect } from 'react-redux'
 class CreateForm extends Component {
     constructor(props) {
         super(props)
+
+        this.state = {
+            title: '',
+            category: 'general_posts',
+            description: '',
+            address: ''
+        }
+
+        this.updateDetails = this.updateDetails.bind(this)
+    }
+
+    updateDetails(e) {
+        this.setState({ [e.target.name]: e.target.value })
     }
 
     render() {
