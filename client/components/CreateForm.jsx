@@ -9,6 +9,7 @@ class CreateForm extends Component {
         this.state = {
             title: '',
             category: 'general_posts',
+            region: '',
             description: '',
             address: ''
         }
@@ -28,7 +29,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Title</label>
                         <div className="control has-icons-left">
-                            <input className="input" type="text" placeholder="e.g. 'Broke my window smh, help plz'" />
+                            <input className="input" onChange={this.updateDetails} name="title" type="text" placeholder="e.g. 'Broke my window smh, help plz'" />
                             <div className="icon is-small is-left">
                                 <i className="fa fa-map-pin"></i>
                             </div>
@@ -38,7 +39,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Add a description</label>
                         <div className="control">
-                            <textarea className="textarea" placeholder="Describe it?????"></textarea>
+                            <textarea className="textarea" onChange={this.updateDetails} name="description" placeholder="Describe it?????"></textarea>
                         </div>
                     </div>
 
@@ -46,7 +47,7 @@ class CreateForm extends Component {
                         <label htmlFor="region" className="label">Select region:</label>
                         <div className="control has-icons-left">
                             <div className="select">
-                                <select>
+                                <select onChange={this.updateDetails} name="region">
                                     <option>Wellington</option>
                                     <option>Auckland</option>
                                 </select>
@@ -60,7 +61,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Address</label>
                         <div className="control has-icons-left">
-                            <input className="input" type="text" placeholder="Start typing an address..." />
+                            <input className="input" onChange={this.updateDetails} name="address" type="text" placeholder="Start typing an address..." />
                             <div className="icon is-small is-left">
                                 <i className="fa fa-map-marker"></i>
                             </div>
