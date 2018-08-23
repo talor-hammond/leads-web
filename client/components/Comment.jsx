@@ -1,6 +1,10 @@
 import React from 'react'
 
 class Comment extends React.Component {
+    formatDate(published) {
+        // let m = 
+    }
+
     render() {
         const { id, content, published, username } = this.props
 
