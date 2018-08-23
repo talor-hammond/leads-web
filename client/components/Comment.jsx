@@ -1,6 +1,15 @@
 import React from 'react'
 
+import moment from 'moment'
+
 class Comment extends React.Component {
+    formatDate(published) {
+        let oldDate = moment(published)
+        let fromNow = oldDate.fromNow()
+        
+        return fromNow
+    }
+
     render() {
         const { id, content, published, username } = this.props
 
@@ -18,7 +27,7 @@ class Comment extends React.Component {
                             {content}
                             <br />
                             <br/>
-                            <em>{published}</em>
+                            <em>{this.formatDate(published)}</em>
                         </p>
                     </div>
                 </div>

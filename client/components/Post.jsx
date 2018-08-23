@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+import moment from 'moment'
+
 // actions
 import { getPostByPostIdRequest } from '../actions/general_posts'
 import { getCommentsRequest } from '../actions/comments'
@@ -11,6 +13,13 @@ import Comments from './Comments'
 class Post extends Component {
     constructor(props) {
         super(props)
+    }
+
+    formatDate(published) {
+        let oldDate = moment(published)
+        let newDate = oldDate.format('LLLL')
+        
+        return newDate
     }
 
     componentDidMount() {
@@ -55,9 +64,9 @@ class Post extends Component {
                                         <p>{description}</p>
                                     </div>
 
-                                    <br />
+                                    <hr />
 
-                                    <span className="published">{published}</span>
+                                    <span className="published">{this.formatDate(published)}</span>
 
                                 </div>
                             </div>
