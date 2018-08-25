@@ -1,9 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { logoutUser } from '../../actions/logout'
+import { logoutUser } from '../actions/logout'
 
-const HomeNav = (props) => {
+const Nav = (props) => {
   return (
     <div>
       <nav className="navbar is-dark is-fixed-top" role="navigation" aria-label="dropdown navigation">
@@ -66,4 +66,4 @@ const mapStateToProps = ({ auth }) => {
   return { auth }
 }
 
-export default connect(mapStateToProps)(HomeNav)
+export default connect(mapStateToProps)(Nav)

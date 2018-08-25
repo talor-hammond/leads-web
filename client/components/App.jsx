@@ -4,7 +4,7 @@ import { HashRouter as Router, Route } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 // Components:
-import HomeNav from './home/HomeNav'
+import Nav from './Nav'
 import Home from './home/Home'
 import Footer from './Footer'
 import Login from './login/Login'
@@ -18,7 +18,7 @@ const App = (props) => {
   return (
     <Router>
       <div className='app-container'>
-        <Route path="/" component={HomeNav} />
+        <Route path="/" component={Nav} />
         <Route exact path="/" component={Home} />
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
