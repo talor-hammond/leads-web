@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { logoutUser } from '../actions/logout'
+import { logoutUser } from '../../actions/logout'
 
 const HomeNav = (props) => {
   return (

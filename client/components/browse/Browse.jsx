@@ -2,10 +2,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // actions
-import { getPostsRequest } from '../actions/general_posts'
+import { getPostsRequest } from '../../actions/general_posts'
 
 // components
-import PostItem from './PostItem'
+import PostItem from '../PostItem'
 
 class Browse extends Component {
     constructor(props) {
