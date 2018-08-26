@@ -15,7 +15,7 @@ const SecondHero = () => {
                             <p className="bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, cupiditate!</p>
                             <br />
                             <p className="control">
-                                <Link to="/browse" className="button cta is-info">View pins in your area</Link>
+                                <Link to="/browse/map" className="button cta is-info">View pins in your area</Link>
                             </p>
                         </div>
                     </div>
