@@ -127,6 +127,7 @@ Decided to build a separate table for each category of post, as attributes are s
 * [Google's geocoding-API](https://developers.google.com/maps/documentation/geocoding/intro)
 
 ## To-do's // next-up
+* connect posts state to community map; .map through and render markers
 * re-direct to post / browse when post is submitted, `window.location`?
 * re-write reducers to track isFetching state
 * complete min profile page for users
