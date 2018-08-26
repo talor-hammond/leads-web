@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react'
 
+import { getPostsRequest } from '../../actions/general_posts'
+
 import request from 'superagent'
 
 class BrowseMap extends Component {
@@ -13,12 +15,17 @@ class BrowseMap extends Component {
             isGettingRegion: true,
             browserLocation: {}, // parsed and set w browser's geolocation
             suburb: '',
-            posts: [],
             showingInfoWindow: false
         }
     }
 
     // Lifecycle --
+    componentWillMount() {
+        const { dispatch } = this.props
+
+        dispatch(getPostsRequest())
+    }
+
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
             navigator.geolocation.getCurrentPosition(pos => {
@@ -72,9 +79,8 @@ class BrowseMap extends Component {
     // }
 
     render() {
-        console.log(this.props)
-
-        const { browserLocation, posts, isGettingRegion, suburb } = this.state
+        const { general_posts } = this.props
+        const { browserLocation, isGettingRegion, suburb } = this.state
 
         return (
             <div className="hero is-fullheight">
@@ -94,10 +100,10 @@ class BrowseMap extends Component {
                             position={browserLocation}
                         />
                             {
-                                posts.map(post => {
+                                general_posts.map(post => {
                                     return (
                                         <Marker
-                                            key={post.id}
+                                            key={post.post_id}
                                             title={post.title}
                                             description={post.description}
                                             name={'SOMA'}
