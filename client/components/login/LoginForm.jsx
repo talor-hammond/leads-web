@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
 
 // Actions:
-import { loginUser } from '../actions/login'
+import { loginUser } from '../../actions/login'
 
 class LoginForm extends Component {
 

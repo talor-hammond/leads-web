@@ -4,8 +4,8 @@ import { connect } from 'react-redux'
 import moment from 'moment'
 
 // actions
-import { getPostByPostIdRequest } from '../actions/general_posts'
-import { getCommentsRequest } from '../actions/comments'
+import { getPostByPostIdRequest } from '../../actions/general_posts'
+import { getCommentsRequest } from '../../actions/comments'
 
 // components
 import Comments from './Comments'
