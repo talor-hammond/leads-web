@@ -126,6 +126,11 @@ Decided to build a separate table for each category of post, as attributes are s
 * [moment](https://momentjs.com/) - a simple library for formatting dates and timestamps and such
 * [Google's geocoding-API](https://developers.google.com/maps/documentation/geocoding/intro)
 
+## To-do's // next-up
+* re-direct to post / browse when post is submitted, `window.location`?
+* re-write reducers to track isFetching state
+* complete min profile page for users
+
 ## stretch-stuff -- i.e. stuff for later:
 
 ### jobs  -- *stretch (left to be added to)*
