@@ -121,7 +121,13 @@ class BrowseMap extends Component {
 
 const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'
 
-export default connect()(
+const mapStateToProps = ({ general_posts }) => {
+    return {
+        general_posts
+    }
+}
+
+export default connect(mapStateToProps)(
     GoogleApiWrapper({apiKey})
     (BrowseMap)
 )
