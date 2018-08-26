@@ -47,10 +47,10 @@ stay connected with your community -- find leads to just about anything: jobs, c
         }
     }
     ```
-  * **React** front-end; componentisation of views -- connected to Redux state...
+  * **React** front-end; componentisation of views + **Bulma.css**, custom stylesheet + react-scroll-to-component
   * **Redux**, **redux-thunk**
     * Used Redux to manage the application's state
-    * Redux-thunk to make asynchronous api calls from the server to feed back to the client's redux state
+    * Redux-thunk to make asynchronous api calls from the server to feed back to the client's state
     
 ## db; migrations (server-side) --
 Decided to build a separate table for each category of post, as attributes are specific to each category. Additionally, will make altering the required data for different types of post easier in the long run.
@@ -130,7 +130,7 @@ Decided to build a separate table for each category of post, as attributes are s
   | **TBD** | tbd | tbd | tbd |
 
 ### services -- *stretch  (left to be added to)*
-  | Column Name | Data-type | Purpose |
+  | Column Name | Data-type | Purpose | Notes |
   | --- | --- | --- | --- |
   | **id** | increments | Unique identifier for each item | |
   | **category** | string | defaults to 'services' | |
