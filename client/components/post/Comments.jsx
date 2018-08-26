@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 // actions
-import { addCommentRequest } from '../actions/comments'
+import { addCommentRequest } from '../../actions/comments'
 
 // components
 import Comment from './Comment'
