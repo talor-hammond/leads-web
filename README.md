@@ -1,14 +1,14 @@
 # [leads](https://leadsnz.herokuapp.com)
-stay connected with your community -- find leads to just about anything: jobs, community events, alerts, etc.
+little project to help people find leads to just about anything: jobs, community events, offer services, alerts, etc.
 
 ## The project
-* The website -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com)
+* The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com)
 * there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
 * **the technology / concepts involved:**
   * Authorisation with jwt
     * *Note:* had to re-design the 'setting' of tokens with **[Async Storage](https://facebook.github.io/react-native/docs/asyncstorage.html)** in the mobile-app
   * Structuring the database (SQL); built with Knex
-  * Building a custom-api with SQL, Knex, & Express
+  * Building a custom-api with Knex & Express
   * **Geolocation**
     * Browser geolocation to build a map view
     * Geocoding & reverse-geocoding with google maps api to parse and determine addresses / lats & longs for both the database and the community map
@@ -130,6 +130,7 @@ Decided to build a separate table for each category of post, as attributes are s
 * connect posts state to community map; .map through and render markers
 * re-direct to post / browse when post is submitted, `window.location`?
 * re-write reducers to track isFetching state
+* add relevant `document.title` to new pages
 * complete min profile page for users
 
 ## stretch-stuff -- i.e. stuff for later:
