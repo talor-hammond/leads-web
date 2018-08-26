@@ -121,6 +121,7 @@ class BrowseMap extends Component {
 
 const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'
 
-export default GoogleApiWrapper({
-    apiKey
-})(BrowseMap)
+export default connect()(
+    GoogleApiWrapper({apiKey})
+    (BrowseMap)
+)
