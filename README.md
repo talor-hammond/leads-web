@@ -97,15 +97,15 @@ Decided to build a separate table for each category of post, as attributes are s
   * ~likely to have a comments table for each type of post~ 
   * **decided to use string-interpolation and a three-way join** to feed a table_name into the getComments method dynamically - will save me re-writing similar methods for x-comments tables in the future:
       ```javascript
-        function getComments(table, postId, testDb) {
-    const db = testDb || conn
+      function getComments(table, postId, testDb) {
+       const db = testDb || conn
 
-    return db('comments')
-        .join('users', 'users.id', 'comments.user_id')
-        .join(table, `${table}.id`, 'comments.post_id') // in future, will let me feed other categories of posts into the query.
-        .select('comments.id as comment_id', 'comments.user_id as user_id', 'user_name', 'post_id', 'content', 'comments.published as published')
-        .where('comments.post_id', postId)
-    }
+       return db('comments')
+           .join('users', 'users.id', 'comments.user_id')
+           .join(table, `${table}.id`, 'comments.post_id') // in future, will let me feed other categories of posts into the query.
+           .select('comments.id as comment_id', 'comments.user_id as user_id', 'user_name', 'post_id', 'content', 'comments.published as published')
+           .where('comments.post_id', postId)
+      }
       ``` 
 
 ### favourites
