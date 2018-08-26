@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
-import { connect } from 'react-redux'
 
 import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react'
-
-// Components:
-// import Map from './Map'
 
 import request from 'superagent'
 
@@ -127,7 +123,7 @@ class BrowseMap extends Component {
 }
 
 const LoadingContainer = (props) => (
-    <div>Fancy loading container!</div>
+    <div></div> // TODO: have it render like this -- or during isFetching state
 )
 
 const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'

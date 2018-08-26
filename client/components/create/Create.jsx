@@ -15,7 +15,6 @@ class Create extends Component {
 
         this.select = this.select.bind(this)
         this.handleScrollToForm = this.handleScrollToForm.bind(this)
-        // this.top = this.top.bind(this)
         this.handleScrollToTop = this.handleScrollToTop.bind(this)
     }
 
@@ -24,10 +23,6 @@ class Create extends Component {
             this.handleScrollToForm()                     // the "form" ref has been rendered -- we can do this by passing
         })                                                // the scrolling method as a callback
     }
-
-    // top() {
-    //     this.handleScrollToTop()
-    // }
 
     handleScrollToForm() {
         scrollToComponent(this.refs.form, {
