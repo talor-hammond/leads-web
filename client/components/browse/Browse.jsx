@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // actions
-import { getPostsRequest } from '../actions/general_posts'
+import { getPostsRequest } from '../../actions/general_posts'
 
 // components
 import PostItem from './PostItem'

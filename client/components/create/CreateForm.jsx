@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // redux, actions
 import { connect } from 'react-redux'
-import { addPostRequest } from '../actions/general_posts'
+import { addPostRequest } from '../../actions/general_posts'
 
 class CreateForm extends Component {
     constructor(props) {

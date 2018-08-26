@@ -1,8 +1,8 @@
 import React from 'react'
 
 // components:
-import FirstHero from './homeComponents/FirstHero'
-import SecondHero from './homeComponents/SecondHero'
+import FirstHero from './FirstHero'
+import SecondHero from './SecondHero'
 
 const Home = (props) => {
     document.title = 'leads'
