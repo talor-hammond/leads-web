@@ -28,7 +28,7 @@ class CreateForm extends Component {
         e.preventDefault()
 
         // grabbing the stuff we need from state and props
-        const { dispatch } = this.props
+        const { dispatch, handleRedirect } = this.props
         const { title, category, region, description, address } = this.state
         const { user_id } = this.props.auth.user
 
@@ -43,7 +43,7 @@ class CreateForm extends Component {
 
         dispatch(addPostRequest(post))
 
-        // TODO: redirect to post itself (need id though); if not, redirect to browse
+        handleRedirect()
     }
 
     render() {

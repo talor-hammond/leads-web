@@ -20,14 +20,13 @@ class BrowseMap extends Component {
     }
 
     // Lifecycle --
-    componentWillMount() {
-        const { dispatch } = this.props
-
-        dispatch(getPostsRequest())
-    }
-
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
+
+            const { dispatch } = this.props
+
+            dispatch(getPostsRequest())
+
             navigator.geolocation.getCurrentPosition(pos => {
                 // console.log(pos)
 
@@ -109,7 +108,7 @@ class BrowseMap extends Component {
                                             name={'SOMA'}
                                             position={{ 
                                                 lat: post.lat,
-                                                lng: post.long
+                                                lng: post.lng
                                             }}
                                             onMouseover={this.onMouseoverMarker}
                                             onClick={this.onMarkerClick}
