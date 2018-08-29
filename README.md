@@ -2,7 +2,7 @@
 little project to help people find leads to just about anything: jobs, community events, offer services, alerts, etc.
 
 ## The project
-* The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com)
+* The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com) for my own peace of mind lol
 * there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
 * **the technology / concepts involved:**
   * Authorisation with jwt
