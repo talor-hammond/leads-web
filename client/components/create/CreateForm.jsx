@@ -46,6 +46,7 @@ class CreateForm extends Component {
         // TODO: redirect to post itself (need id though); if not, redirect to browse
         // this.props.history.push('/') 'history isn't a prop'
         // const { handleRedirect } = this.props
+        console.log(this.props.handleRedirect)
         this.props.handleRedirect()
     }
 
