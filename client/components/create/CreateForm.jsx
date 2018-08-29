@@ -44,9 +44,12 @@ class CreateForm extends Component {
         dispatch(addPostRequest(post))
 
         // TODO: redirect to post itself (need id though); if not, redirect to browse
+        // this.props.history.push('/') 'history isn't a prop'
     }
 
     render() {
+        console.log(this)
+
         return (
             <section className="content form">
                 <div className="container">

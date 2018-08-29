@@ -40,6 +40,10 @@ class Create extends Component {
         })
     }
 
+    handleRedirect() {
+        this.props.history.push('/browse')
+    }
+
     render() {
         const { categorySelected } = this.state
 
@@ -67,7 +71,7 @@ class Create extends Component {
                 </div>
 
                     {categorySelected && (
-                        <CreateForm top={this.handleScrollToTop} ref="form" />
+                        <CreateForm top={this.handleScrollToTop} ref="form" handleRedirect={this.handleRedirect()} />
                     )}
 
             </section>
