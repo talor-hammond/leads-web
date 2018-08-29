@@ -129,10 +129,12 @@ Decided to build a separate table for each category of post, as attributes are s
 ## To-do's // next-up
 * ~connect posts state to community map; .map through and render markers~
 * re-write reducers to track `isFetching` state for posts & comments(?)
-* loading circle or other while map `isGettingRegion`
-  * this, for posts in `isFetching` state
-* re-direct to post / browse when post is submitted, `window.location`?
-* add relevant `document.title` to new pages
+  * loading circle or other while map `isGettingRegion`
+    * this, for posts in `isFetching` state
+* ~re-direct to post / browse when post is submitted, `window.location`?~
+  * used `this.props.history.push('/')` to redirect
+    * fed the method from `Create` through to the `CreateForm` component in props, fires on submit
+* ~add relevant `document.title` to new pages~
 * complete min profile page for users
 
 ## stretch-stuff -- i.e. stuff for later:
