@@ -16,6 +16,7 @@ class Create extends Component {
         this.select = this.select.bind(this)
         this.handleScrollToForm = this.handleScrollToForm.bind(this)
         this.handleScrollToTop = this.handleScrollToTop.bind(this)
+        this.handleRedirect = this.handleRedirect.bind(this)
     }
 
     select() {
@@ -41,8 +42,6 @@ class Create extends Component {
     }
 
     handleRedirect() {
-        console.log('firing with: ', this.props)
-
         this.props.history.push('/browse')
     }
 
