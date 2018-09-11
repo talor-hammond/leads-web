@@ -56,7 +56,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Title</label>
                         <div className="control has-icons-left">
-                            <input className="input" onChange={this.updateDetails} name="title" type="text" placeholder="e.g. 'Broke my window smh, help plz'" />
+                            <input className="input" onChange={this.updateDetails} name="title" type="text" placeholder="e.g. 'Broken window @flat, need help'" />
                             <div className="icon is-small is-left">
                                 <i className="fa fa-map-pin"></i>
                             </div>
@@ -66,7 +66,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Add a description</label>
                         <div className="control">
-                            <textarea className="textarea" onChange={this.updateDetails} name="description" placeholder="Describe it?????"></textarea>
+                            <textarea className="textarea" onChange={this.updateDetails} name="description" placeholder="e.g. Need help from someone who knows how to fix windows..."></textarea>
                         </div>
                     </div>
 
