@@ -205,19 +205,9 @@ input.cost {
   border-radius: 3.5%;
 }
 
-.general:hover {
+.general:hover, .services:hover, .jobs:hover {
   cursor: pointer;
-  background-color: rgba(0, 255, 0, 0.4);
-}
-
-.services:hover {
-  cursor: pointer;
-  background-color: rgba(255, 0, 0, 0.4);
-}
-
-.jobs:hover {
-  cursor: pointer;
-  background-color: rgba(0, 0, 255, 0.3);
+  background-color: rgba(210, 210, 210, 0.5);
 }
 
 /* PINS / LISTING */
