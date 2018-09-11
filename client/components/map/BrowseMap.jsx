@@ -26,7 +26,7 @@ class BrowseMap extends Component {
             dispatch(getPostsRequest())
 
             navigator.geolocation.getCurrentPosition(pos => {
-                // console.log(pos)
+                
                 const browserLocation = {
                     lat: pos.coords.latitude,
                     lng: pos.coords.longitude
