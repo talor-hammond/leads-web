@@ -59,6 +59,7 @@ export function addPostRequest(post) {
             .send(post)
             .then(() => {
                 dispatch(getPostsRequest()) // just causes a 'refresh' to client & server once the new post is added
+                document.location = "/#/"
             })
             .catch(err => {
                 if (err) throw err

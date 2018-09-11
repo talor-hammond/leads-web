@@ -16,7 +16,6 @@ class Create extends Component {
         this.select = this.select.bind(this)
         this.handleScrollToForm = this.handleScrollToForm.bind(this)
         this.handleScrollToTop = this.handleScrollToTop.bind(this)
-        this.handleRedirect = this.handleRedirect.bind(this)
     }
 
     select() {
@@ -39,10 +38,6 @@ class Create extends Component {
             align: 'top',
             duration: 800
         })
-    }
-
-    handleRedirect() {
-        this.props.history.push('/browse')
     }
 
     render() {

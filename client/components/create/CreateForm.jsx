@@ -27,7 +27,7 @@ class CreateForm extends Component {
     submit(e) {
         e.preventDefault()
 
-        const { dispatch, handleRedirect } = this.props
+        const { dispatch } = this.props
         const { title, category, region, description, address } = this.state
         const { user_id } = this.props.auth.user
 
@@ -41,8 +41,6 @@ class CreateForm extends Component {
         }
 
         dispatch(addPostRequest(post))
-
-        window.setTimeout(handleRedirect(), 2000) // need a piece of state to track while it is posting -- so can !redirect while it's posting
     }
 
     render() {
