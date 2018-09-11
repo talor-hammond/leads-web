@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
             post.lat = lat
             post.lng = lng
         })
-        .then(() => { // once we've retrieved latitude and longitude from google maps api
+        .then(() => {
             db.addGeneralPost(post)
                 .then(() => {
                     res.sendStatus(200)
