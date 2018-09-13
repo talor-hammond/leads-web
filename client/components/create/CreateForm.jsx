@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // redux, actions
 import { connect } from 'react-redux'
-import { addPostRequest } from '../../actions/general_posts'
+import { addPost } from '../../actions/general_posts'
 
 class CreateForm extends Component {
     constructor(props) {
@@ -40,7 +40,7 @@ class CreateForm extends Component {
             user_id
         }
 
-        dispatch(addPostRequest(post))
+        dispatch(addPost(post))
     }
 
     render() {
@@ -108,9 +108,10 @@ class CreateForm extends Component {
     }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, general_posts }) => {
     return {
-        auth
+        auth,
+        general_posts
     }
 }
 

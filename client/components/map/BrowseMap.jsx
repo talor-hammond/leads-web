@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react'
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 
-import { getPostsRequest } from '../../actions/general_posts'
+import { getPosts } from '../../actions/general_posts'
 
 import request from 'superagent'
 
@@ -23,7 +23,7 @@ class BrowseMap extends Component {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
 
             const { dispatch } = this.props
-            dispatch(getPostsRequest())
+            dispatch(getPosts())
 
             navigator.geolocation.getCurrentPosition(pos => {
                 
@@ -70,7 +70,7 @@ class BrowseMap extends Component {
     // }
 
     render() {
-        const { general_posts } = this.props
+        const { general_posts } = this.props.general_posts
         const { browserLocation, isGettingRegion, suburb } = this.state
 
         return (
