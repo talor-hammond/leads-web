@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// 'spinner' library
+const Spinner = require('react-spinkit')
+
 import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 
 import { getPosts } from '../../actions/general_posts'
@@ -14,8 +17,7 @@ class BrowseMap extends Component {
         this.state = {
             isGettingRegion: true,
             browserLocation: {}, // parsed and set w browser's geolocation
-            suburb: '',
-            showingInfoWindow: false
+            suburb: ''
         }
     }
 
@@ -74,7 +76,15 @@ class BrowseMap extends Component {
         const { browserLocation, isGettingRegion, suburb } = this.state
 
         return (
-            <div className="hero is-fullheight">
+            <div className="hero is-fullheight relative">
+                {
+                    isGettingRegion && (
+                        <div className="loader-container">
+                            <Spinner name="ball-spin-fade-loader" />
+                        </div>
+                    )
+                }
+
                 { !isGettingRegion && (
                 <div className="map-container">
                     <div className="container map-title">

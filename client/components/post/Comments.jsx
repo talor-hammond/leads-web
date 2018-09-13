@@ -31,7 +31,7 @@ class Comments extends React.Component {
         // grabbing the stuff we need from places (state; redux + react)
         const { content } = this.state
         const { user_id } = auth.user
-        const { post_id } = general_posts
+        const { post_id } = general_posts.general_posts
 
         const comment = {
             content,
