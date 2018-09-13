@@ -32,7 +32,7 @@ class Browse extends Component {
                     <div className="wrapper">
                         {
                             isFetching && (
-                                <div className="center-loader">
+                                <div className="loader-container">
                                     <Spinner name="ball-spin-fade-loader" fadeIn="none" />
                                 </div>
                             )

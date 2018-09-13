@@ -90,6 +90,12 @@ body {
 }
 
 /* BROWSE; MAPS */
+.loader-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+}
 /* .map-container {
   width: 20%;
   height: 20%;
@@ -149,6 +155,7 @@ section.content.form {
 .wrapper {
   display: flex;
   flex-wrap: wrap;
+  position: relative;
 }
 
 .wrapper .mini-listing {
