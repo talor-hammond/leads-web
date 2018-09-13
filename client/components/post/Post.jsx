@@ -25,9 +25,9 @@ class Post extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         const { dispatch } = this.props
-        // const { title } = this.props.general_posts.general_posts[id - 1] // definitely needs revision; i.e. the reducer: state is an array of posts here, not the individual one like it should be in the render method
+        const { title } = this.props.general_posts.general_posts[id - 1] // definitely needs revision; i.e. the reducer: state is an array of posts here, not the individual one like it should be in the render method
 
-        // document.title = `${title}, leads`
+        document.title = `${title}, leads`
 
         dispatch(getPostByPostId(id))
         dispatch(getCommentsRequest('general_posts', id))

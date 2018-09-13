@@ -106,15 +106,6 @@ function addPostError(err) {
     }
 }
 
-
-
-
-
-
-
-
-
-
 export function getPostsByUserId(posts) {
     return {
         type: GET_POSTS_BY_USER_ID,
