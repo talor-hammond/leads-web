@@ -48,7 +48,6 @@ class CreateForm extends Component {
 
     render() {
         const { isFetching } = this.props.general_posts
-        console.log(isFetching)
 
         return (
             <section className="content form">

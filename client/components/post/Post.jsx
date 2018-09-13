@@ -4,7 +4,7 @@ import { connect } from 'react-redux'
 import moment from 'moment'
 
 // actions
-import { getPostByPostIdRequest } from '../../actions/general_posts'
+import { getPostByPostId } from '../../actions/general_posts'
 import { getCommentsRequest } from '../../actions/comments'
 
 // components
@@ -25,16 +25,17 @@ class Post extends Component {
     componentDidMount() {
         const { id } = this.props.match.params
         const { dispatch } = this.props
-        const { title } = this.props.general_posts[id - 1] // definitely needs revision; i.e. the reducer: state is an array of posts here, not the individual one like it should be in the render method
+        // const { title } = this.props.general_posts.general_posts[id - 1] // definitely needs revision; i.e. the reducer: state is an array of posts here, not the individual one like it should be in the render method
 
-        document.title = `${title}, leads`
+        // document.title = `${title}, leads`
 
-        dispatch(getPostByPostIdRequest(id))
+        dispatch(getPostByPostId(id))
         dispatch(getCommentsRequest('general_posts', id))
     }
 
     render() {
-        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts
+        console.log(this.props)
+        const { title, address, description, post_id, published, email, user_name } = this.props.general_posts.general_posts
         const { comments } = this.props
 
         return (
