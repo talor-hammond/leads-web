@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// 'spinner' library
+const Spinner = require('react-spinkit')
+
 // actions
 import { getPosts } from '../../actions/general_posts'
 
@@ -19,7 +22,7 @@ class Browse extends Component {
     }
 
     render() {
-        const { general_posts } = this.props.general_posts
+        const { general_posts, isFetching } = this.props.general_posts
 
         return (
             <section className="content">
