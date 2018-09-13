@@ -5,7 +5,7 @@ export function get (key) {
 }
 
 export function set (key, value) {
-  console.log('setting ' + key + ' with value: ' + value) // NOTE: gets set correctly the first time, then 'refreshes' -- set as null????
+  // console.log('setting ' + key + ' with value: ' + value) // NOTE: gets set correctly the first time, then 'refreshes' -- set as null????
 
   if(value === null) {
     localStorage.removeItem(key)
