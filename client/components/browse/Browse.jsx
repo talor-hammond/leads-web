@@ -20,7 +20,6 @@ class Browse extends Component {
 
     render() {
         const { general_posts } = this.props.general_posts
-        console.log(this.props.general_posts)
 
         return (
             <section className="content">
