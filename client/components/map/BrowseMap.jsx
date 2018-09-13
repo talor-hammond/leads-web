@@ -80,7 +80,7 @@ class BrowseMap extends Component {
                 {
                     isGettingRegion && (
                         <div className="loader-container">
-                            <Spinner name="ball-spin-fade-loader" fadeIn="quarter" />
+                            <Spinner name="ball-spin-fade-loader" />
                         </div>
                     )
                 }
