@@ -5,7 +5,10 @@ export const POSTS_REQUEST = 'POSTS_REQUEST'
 export const POSTS_SUCCESS = 'POSTS_SUCCESS'
 export const POSTS_ERROR = 'POSTS_ERROR'
 
-export const ADD_POST = 'ADD_POST'
+export const ADD_POST_REQUEST = 'ADD_POST_REQUEST'
+export const ADD_POST_SUCCESS = 'ADD_POST_SUCCESS'
+export const ADD_POST_ERROR = 'ADD_POST_ERROR'
+
 export const GET_POST_BY_POST_ID = 'GET_POST_BY_POST_ID'
 export const GET_POSTS_BY_USER_ID = 'GET_POSTS_BY_USER_ID'
 
@@ -49,10 +52,42 @@ function requestPostsError(error) {
     }
 }
 
+// ADDPOST
 export function addPost(post) {
+    return dispatch => {
+        dispatch(addPostRequest())
+        request
+            .post(url)
+            .send(post)
+            .then(() => {
+                dispatch(addPostSuccess())
+                dispatch(getPostsRequest()) // just causes a 'refresh' to client & server once the new post is added
+                document.location = "/#/"
+            })
+            .catch(err => {
+                if (err) {
+                    dispatch(addPostError(err))
+                }
+            })
+    }
+}
+
+function addPostRequest() {
     return {
-        type: ADD_POST,
-        post
+        type: 'ADD_POST_REQUEST'
+    }
+}
+
+function addPostSuccess() {
+    return {
+        type: 'ADD_POST_SUCCESS'
+    }
+}
+
+function addPostError(err) {
+    return {
+        type: 'ADD_POST_ERROR',
+        err
     }
 }
 
@@ -67,21 +102,6 @@ export function getPostsByUserId(posts) {
     return {
         type: GET_POSTS_BY_USER_ID,
         posts
-    }
-}
-
-export function addPostRequest(post) {
-    return dispatch => {
-        request
-            .post(url)
-            .send(post)
-            .then(() => {
-                dispatch(getPostsRequest()) // just causes a 'refresh' to client & server once the new post is added
-                document.location = "/#/"
-            })
-            .catch(err => {
-                if (err) throw err
-            })
     }
 }
 
