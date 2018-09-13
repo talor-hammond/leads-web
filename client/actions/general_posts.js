@@ -61,7 +61,7 @@ export function addPost(post) {
             .send(post)
             .then(() => {
                 dispatch(addPostSuccess())
-                dispatch(getPostsRequest()) // just causes a 'refresh' to client & server once the new post is added
+                dispatch(getPosts()) // just causes a 'refresh' to client & server once the new post is added
                 document.location = "/#/"
             })
             .catch(err => {
