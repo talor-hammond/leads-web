@@ -1,18 +1,51 @@
 import request from 'superagent'
 
 // string variables; for consistency:
-export const GET_POSTS = 'GET_POSTS'
+export const POSTS_REQUEST = 'POSTS_REQUEST'
+export const POSTS_SUCCESS = 'POSTS_SUCCESS'
+export const POSTS_ERROR = 'POSTS_ERROR'
+
 export const ADD_POST = 'ADD_POST'
 export const GET_POST_BY_POST_ID = 'GET_POST_BY_POST_ID'
 export const GET_POSTS_BY_USER_ID = 'GET_POSTS_BY_USER_ID'
 
 const url = '/api/posts/general'
 
-// client-side; synchronous actions
-export function getPosts(posts) {
+// GETPOSTS
+export function getPosts() {
+    return dispatch => {
+        dispatch(requestPosts()) // update the state to show isFetching
+        return request
+            .get(url)
+            .then(res => {
+                const posts = res.body
+                dispatch(receivePosts(posts)) // making the change to client-side state once we have the posts
+            })
+            .catch(error => {
+                if (error) {
+                    dispatch(requestPostsError(error))
+                }
+            })
+    }
+}
+
+function requestPosts() {
     return {
-        type: GET_POSTS,
+        type: POSTS_REQUEST
+    }
+}
+
+function receivePosts(posts) {
+    return {
+        type: POSTS_SUCCESS,
         posts
+    }
+}
+
+function requestPostsError(error) {
+    return {
+        type: POSTS_ERROR,
+        error
     }
 }
 
@@ -34,21 +67,6 @@ export function getPostsByUserId(posts) {
     return {
         type: GET_POSTS_BY_USER_ID,
         posts
-    }
-}
-
-// asynchronous, server-side actions; redux-thunk
-export function getPostsRequest() {
-    return dispatch => {
-        request
-            .get(url)
-            .then(res => {
-                const posts = res.body
-                dispatch(getPosts(posts)) // making the change to client-side state once we have the posts
-            })
-            .catch(err => {
-                if (err) throw err
-            })
     }
 }
 

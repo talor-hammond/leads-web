@@ -1,14 +1,48 @@
 import {
-    GET_POSTS,
+    // for requesting all posts
+    POSTS_REQUEST,
+    POSTS_SUCCESS,
+    POSTS_ERROR,
+    // for adding a post
     ADD_POST,
+    // fetching post by post id
     GET_POST_BY_POST_ID,
+    // fetching post by user id
     GET_POSTS_BY_USER_ID
 } from '../actions/general_posts'
 
-export default function general_posts(state = [], action) {
+const initialState = {
+    isFetching: false,
+    isPosting: false,
+    general_posts: [],
+    errorMessage: ''
+}
+
+export default function general_posts(state = initialState, action) {
     switch (action.type) {
-        case GET_POSTS:
-            return [...action.posts]
+        // requesting all posts
+        case POSTS_REQUEST:
+            return {
+                isFetching: true,
+                isPosting: false,
+                general_posts: [],
+                errorMessage: ''
+            }
+        case POSTS_SUCCESS:
+            return {
+                isFetching: false,
+                isPosting: false,
+                general_posts: action.posts,
+                errorMessage: ''
+            }
+        case POSTS_ERROR:
+            return {
+                isFetching: false,
+                isPosting: false,
+                general_post: [],
+                errorMessage: action.error
+            }
+        // adding a post
         case ADD_POST:
             return [...state]
         case GET_POST_BY_POST_ID:
