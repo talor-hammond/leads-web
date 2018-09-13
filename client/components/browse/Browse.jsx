@@ -30,20 +30,28 @@ class Browse extends Component {
                     <h1 className="title">Refine your search</h1>
 
                     <div className="wrapper">
-                    {
-                        Array.isArray(general_posts) && general_posts.map(post => {
-                            return (
-                                <PostItem
-                                    key={post.post_id}
-                                    id={post.post_id}
-                                    title={post.title} 
-                                    description={post.description}
-                                    username={post.user_name}
-                                    address={post.address}
-                                />
+                        {
+                            isFetching && (
+                                <div className="center-loader">
+                                    <Spinner name="ball-spin-fade-loader" fadeIn="none" />
+                                </div>
                             )
-                        })
-                    }
+                        }
+
+                        {
+                            Array.isArray(general_posts) && general_posts.map(post => {
+                                return (
+                                    <PostItem
+                                        key={post.post_id}
+                                        id={post.post_id}
+                                        title={post.title}
+                                        description={post.description}
+                                        username={post.user_name}
+                                        address={post.address}
+                                    />
+                                )
+                            })
+                        }
                     </div>
 
                 </div>
