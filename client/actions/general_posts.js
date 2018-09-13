@@ -25,13 +25,28 @@ export function getPosts() {
                 dispatch(receivePosts(posts)) // making the change to client-side state once we have the posts
             })
             .catch(error => {
-                if (error) {
-                    dispatch(requestPostsError(error))
-                }
+                if (error) dispatch(requestPostsError(error))
             })
     }
 }
 
+// getting a post by post_id
+export function getPostByPostId(id) {
+    return dispatch => {
+        dispatch(requestPosts())
+        request
+            .get(url + '/post/' + id)
+            .then(res => {
+                const post = res.body
+                dispatch(receivePosts(post))
+            })
+            .catch(err => {
+                if (error) dispatch(requestPostsError(error))
+            })
+    }
+}
+
+// async-accomodators for getting posts
 function requestPosts() {
     return {
         type: POSTS_REQUEST
@@ -91,31 +106,10 @@ function addPostError(err) {
     }
 }
 
-export function getPostByPostId(post) {
-    return {
-        type: GET_POST_BY_POST_ID,
-        post
-    }
-}
-
 export function getPostsByUserId(posts) {
     return {
         type: GET_POSTS_BY_USER_ID,
         posts
-    }
-}
-
-export function getPostByPostIdRequest(id) {
-    return dispatch => {
-        request
-            .get(url + '/post/' + id)
-            .then(res => {
-                const post = res.body
-                dispatch(getPostByPostId(post))
-            })
-            .catch(err => {
-                if (err) throw err
-            })
     }
 }
 

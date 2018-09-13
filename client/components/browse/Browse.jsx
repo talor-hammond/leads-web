@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
+// 'spinner' library
+const Spinner = require('react-spinkit')
+
 // actions
 import { getPosts } from '../../actions/general_posts'
 
@@ -19,28 +22,36 @@ class Browse extends Component {
     }
 
     render() {
-        const { general_posts } = this.props.general_posts
+        const { general_posts, isFetching } = this.props.general_posts
 
         return (
             <section className="content">
                 <div className="container">
                     <h1 className="title">Refine your search</h1>
 
-                    <div className="wrapper">
-                    {
-                        Array.isArray(general_posts) && general_posts.map(post => {
-                            return (
-                                <PostItem
-                                    key={post.post_id}
-                                    id={post.post_id}
-                                    title={post.title} 
-                                    description={post.description}
-                                    username={post.user_name}
-                                    address={post.address}
-                                />
+                    <div className="wrapper relative">
+                        {
+                            isFetching && (
+                                <div className="loader-container">
+                                    <Spinner name="ball-spin-fade-loader" fadeIn="none" />
+                                </div>
                             )
-                        })
-                    }
+                        }
+
+                        {
+                            Array.isArray(general_posts) && general_posts.map(post => {
+                                return (
+                                    <PostItem
+                                        key={post.post_id}
+                                        id={post.post_id}
+                                        title={post.title}
+                                        description={post.description}
+                                        username={post.user_name}
+                                        address={post.address}
+                                    />
+                                )
+                            })
+                        }
                     </div>
 
                 </div>

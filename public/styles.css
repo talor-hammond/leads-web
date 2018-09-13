@@ -90,6 +90,16 @@ body {
 }
 
 /* BROWSE; MAPS */
+.relative {
+  position: relative;
+}
+
+.loader-container {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 50%;
+}
 /* .map-container {
   width: 20%;
   height: 20%;
@@ -208,6 +218,13 @@ input.cost {
 .general:hover, .services:hover, .jobs:hover {
   cursor: pointer;
   background-color: rgba(210, 210, 210, 0.5);
+}
+
+.centered-window {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 /* PINS / LISTING */

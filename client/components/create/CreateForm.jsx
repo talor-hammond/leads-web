@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 
+// 'spinner' library
+const Spinner = require('react-spinkit')
+
 // redux, actions
 import { connect } from 'react-redux'
 import { addPost } from '../../actions/general_posts'
@@ -44,6 +47,8 @@ class CreateForm extends Component {
     }
 
     render() {
+        const { isFetching } = this.props.general_posts
+
         return (
             <section className="content form">
                 <div className="container">
@@ -103,6 +108,15 @@ class CreateForm extends Component {
                     </div>
 
                 </div>
+
+                {
+                    isFetching && (
+                        <div className="centered-window">
+                            <Spinner name="ball-spin-fade-loader" />
+                        </div>
+                    )
+                }
+
             </section>
         )
     }
