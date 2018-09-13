@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
 // actions
-import { getPostsRequest } from '../../actions/general_posts'
+import { getPosts } from '../../actions/general_posts'
 
 // components
 import PostItem from './PostItem'
@@ -15,11 +15,11 @@ class Browse extends Component {
     componentDidMount() {
         const { dispatch } = this.props
 
-        dispatch(getPostsRequest())
+        dispatch(getPosts())
     }
 
     render() {
-        const { general_posts } = this.props
+        const { general_posts } = this.props.general_posts
 
         return (
             <section className="content">

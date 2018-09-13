@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 // redux, actions
 import { connect } from 'react-redux'
-import { addPostRequest } from '../../actions/general_posts'
+import { addPost } from '../../actions/general_posts'
 
 class CreateForm extends Component {
     constructor(props) {
@@ -27,8 +27,7 @@ class CreateForm extends Component {
     submit(e) {
         e.preventDefault()
 
-        // grabbing the stuff we need from state and props
-        const { dispatch, handleRedirect } = this.props
+        const { dispatch } = this.props
         const { title, category, region, description, address } = this.state
         const { user_id } = this.props.auth.user
 
@@ -41,9 +40,7 @@ class CreateForm extends Component {
             user_id
         }
 
-        dispatch(addPostRequest(post))
-
-        handleRedirect()
+        dispatch(addPost(post))
     }
 
     render() {
@@ -56,7 +53,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Title</label>
                         <div className="control has-icons-left">
-                            <input className="input" onChange={this.updateDetails} name="title" type="text" placeholder="e.g. 'Broke my window smh, help plz'" />
+                            <input className="input" onChange={this.updateDetails} name="title" type="text" placeholder="e.g. 'Broken window @flat, need help'" />
                             <div className="icon is-small is-left">
                                 <i className="fa fa-map-pin"></i>
                             </div>
@@ -66,7 +63,7 @@ class CreateForm extends Component {
                     <div className="field">
                         <label className="label">Add a description</label>
                         <div className="control">
-                            <textarea className="textarea" onChange={this.updateDetails} name="description" placeholder="Describe it?????"></textarea>
+                            <textarea className="textarea" onChange={this.updateDetails} name="description" placeholder="e.g. Need help from someone who knows how to fix windows..."></textarea>
                         </div>
                     </div>
 
@@ -111,9 +108,10 @@ class CreateForm extends Component {
     }
 }
 
-const mapStateToProps = ({ auth }) => {
+const mapStateToProps = ({ auth, general_posts }) => {
     return {
-        auth
+        auth,
+        general_posts
     }
 }
 

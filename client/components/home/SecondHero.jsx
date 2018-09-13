@@ -12,10 +12,10 @@ const SecondHero = () => {
                                 odio corrupti, veritatis tenetur temporibus velit vitae qui? At, eos corrupti ipsam debitis ex
                             a fuga reprehenderit.</p>
                             <br />
-                            <p className="bold">Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, cupiditate!</p>
+                            <p className="bold">See leads around you with the community map.</p>
                             <br />
                             <p className="control">
-                                <Link to="/browse/map" className="button cta is-info">View pins in your area</Link>
+                                <Link to="/browse/map" className="button cta is-info">View leads in your area</Link>
                             </p>
                         </div>
                     </div>

@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { Map, Marker, InfoWindow, GoogleApiWrapper } from 'google-maps-react'
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
 
-import { getPostsRequest } from '../../actions/general_posts'
+import { getPosts } from '../../actions/general_posts'
 
 import request from 'superagent'
 
@@ -19,30 +19,23 @@ class BrowseMap extends Component {
         }
     }
 
-    // Lifecycle --
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
 
             const { dispatch } = this.props
-
-            dispatch(getPostsRequest())
+            dispatch(getPosts())
 
             navigator.geolocation.getCurrentPosition(pos => {
-                // console.log(pos)
-
-                const coords = pos.coords
-
+                
                 const browserLocation = {
-                    lat: coords.latitude,
-                    lng: coords.longitude
+                    lat: pos.coords.latitude,
+                    lng: pos.coords.longitude
                 }
 
                 // reverse-geocoding (through google maps api) with browser's lat & long
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        // console.log(res.body)
-
                         const suburb = res.body.results[2].formatted_address.split(',')[0] // grabbing just the first word out of the suburb result
 
                         return suburb
@@ -52,14 +45,13 @@ class BrowseMap extends Component {
                             suburb,
                             isGettingRegion: false // stops map from rendering w out necessary information
                         })
-                    }).then(() => {
+
                         document.title = `${this.state.suburb} Community Map - leads`
                     })
             })
         }
     }
 
-    // Class variables
     mapStyle = {
         height: '80%',
         width: '80%',
@@ -78,7 +70,7 @@ class BrowseMap extends Component {
     // }
 
     render() {
-        const { general_posts } = this.props
+        const { general_posts } = this.props.general_posts
         const { browserLocation, isGettingRegion, suburb } = this.state
 
         return (
