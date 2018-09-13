@@ -90,6 +90,10 @@ body {
 }
 
 /* BROWSE; MAPS */
+.relative {
+  position: relative;
+}
+
 .loader-container {
   position: absolute;
   top: 50%;
@@ -155,7 +159,6 @@ section.content.form {
 .wrapper {
   display: flex;
   flex-wrap: wrap;
-  position: relative;
 }
 
 .wrapper .mini-listing {

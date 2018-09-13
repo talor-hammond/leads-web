@@ -29,7 +29,7 @@ class Browse extends Component {
                 <div className="container">
                     <h1 className="title">Refine your search</h1>
 
-                    <div className="wrapper">
+                    <div className="wrapper relative">
                         {
                             isFetching && (
                                 <div className="loader-container">
