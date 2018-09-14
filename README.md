@@ -5,11 +5,15 @@ little project to help people find leads to just about anything: jobs, community
 * The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com) for my own peace of mind lol
 * there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
 * **the technology / concepts involved:**
+  * **React** front-end; componentisation of views + **Bulma.css**, custom stylesheet + react-scroll-to-component
+  * **Redux**, **redux-thunk** (to accomodate asynchronous actions)
+    * Used Redux to manage the application's state
+    * Redux-thunk to make asynchronous api calls from the server to feed back to the client's state
   * Authorisation with jwt
     * *Note:* had to re-design the 'setting' of tokens with **[Async Storage](https://facebook.github.io/react-native/docs/asyncstorage.html)** in the mobile-app
   * Structuring the database (SQL); built with Knex
-  * Building a custom-api with Knex & Express
-  * **Geolocation**
+  * Building a custom-api with Node.js, Knex.js & Express.js
+  * **Geolocation** API, and Google's geocoding API
     * Browser geolocation to build a map view
     * Geocoding & reverse-geocoding with google maps api to parse and determine addresses / lats & longs for both the database and the community map
     ```javascript
@@ -47,10 +51,6 @@ little project to help people find leads to just about anything: jobs, community
         }
     }
     ```
-  * **React** front-end; componentisation of views + **Bulma.css**, custom stylesheet + react-scroll-to-component
-  * **Redux**, **redux-thunk**
-    * Used Redux to manage the application's state
-    * Redux-thunk to make asynchronous api calls from the server to feed back to the client's state
     
 ## db; migrations (server-side) --
 Decided to build a separate table for each category of post, as attributes are specific to each category. Additionally, will make altering the required data for different types of post easier in the long run.
@@ -128,9 +128,9 @@ Decided to build a separate table for each category of post, as attributes are s
 
 ## To-do's // next-up
 * ~connect posts state to community map; .map through and render markers~
-* re-write reducers to track `isFetching` state for posts & comments(?)
-  * loading circle or other while map `isGettingRegion`
-    * this, for posts in `isFetching` state
+* ~re-write reducers to track `isFetching` state for posts & comments(?)~
+  * ~loading circle or other while map `isGettingRegion`~
+    * ~this, for posts in `isFetching` state~
 * ~re-direct to post / browse when post is submitted, `window.location`?~
   * used `this.props.history.push('/')` to redirect
     * fed the method from `Create` through to the `CreateForm` component in props, fires on submit
