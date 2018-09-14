@@ -1,6 +1,8 @@
 # [leads](https://leadsnz.herokuapp.com)
 little project to help people find leads to just about anything: jobs, community events, offer services, alerts, etc.
 
+![the community map](https://i.gyazo.com/b2f50ec27ac17dc6b970a19ceae24143.gif)
+
 ## The project
 * The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com) for my own peace of mind lol
 * there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
@@ -18,7 +20,7 @@ little project to help people find leads to just about anything: jobs, community
     * Geocoding & reverse-geocoding with google maps api to parse and determine addresses / lats & longs for both the database and the community map
     ```javascript
       componentDidMount() {
-        if (navigator.geolocation) { /* if the browser has geolocation available, request the user's position... */
+        if (navigator.geolocation) { /* if the browser has geolocation API available, request the user's position... */
             navigator.geolocation.getCurrentPosition(pos => {
                 const coords = pos.coords
 
@@ -31,8 +33,6 @@ little project to help people find leads to just about anything: jobs, community
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        console.log(res.body)
-
                         const suburb = res.body.results[2].formatted_address.split(',')[0] /* grabbing just the first word out of the suburb result */
 
                         return suburb
