@@ -20,8 +20,6 @@ little project to help people find leads to just about anything: jobs, community
       componentDidMount() {
         if (navigator.geolocation) { /* if the browser has geolocation available, request the user's position... */
             navigator.geolocation.getCurrentPosition(pos => {
-                console.log(pos)
-
                 const coords = pos.coords
 
                 const browserLocation = {
