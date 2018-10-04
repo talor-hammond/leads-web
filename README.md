@@ -2,6 +2,7 @@
 little project to help people find leads to just about anything: jobs, community events, offer services, alerts, etc.
 
 ![the community map](https://i.gyazo.com/b2f50ec27ac17dc6b970a19ceae24143.gif)
+*The community map*
 
 ## The project
 * The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com) for my own peace of mind lol
