@@ -1,80 +1,60 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 // 'spinner' library
-const Spinner = require('react-spinkit')
+const Spinner = require('react-spinkit');
 
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
+import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
 
-import { getPosts } from '../../actions/general_posts'
+import { getPosts } from '../../actions/general_posts';
 
-import request from 'superagent'
+import request from 'superagent';
 
 class BrowseMap extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             isGettingRegion: true,
             browserLocation: {}, // parsed and set w browser's geolocation
             suburb: ''
-        }
-    }
+        };
+    };
 
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
 
-            const { dispatch } = this.props
-            dispatch(getPosts())
+            const { dispatch } = this.props;
+            dispatch(getPosts());
 
             navigator.geolocation.getCurrentPosition(pos => {
                 
                 const browserLocation = {
                     lat: pos.coords.latitude,
                     lng: pos.coords.longitude
-                }
+                };
 
                 // reverse-geocoding (through google maps api) with browser's lat & long
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        const suburb = res.body.results[1].address_components[2].long_name // 'sublocality'
+                        const suburb = res.body.results[1].address_components[2].long_name; // 'sublocality'
 
-                        return suburb
-                    })
-                    .then(suburb => { // wait for that return value before setting state...
                         this.setState({
                             browserLocation,
                             suburb,
                             isGettingRegion: false // stops map from rendering w out necessary information
-                        })
+                        });
 
-                        document.title = `${this.state.suburb} Community Map - leads`
+                        document.title = `${this.state.suburb} Community Map - leads`;
                     })
-            })
-        }
-    }
-
-    mapStyle = {
-        height: '80%',
-        width: '80%',
-        margin: '0 auto'
-    }
-
-    // // Marker events: TODO
-    // onMouseoverMarker(props, marker, e) {
-        
-    // }
-
-    // onMarkerClick(props, marker, e) {
-    //     this.setState({
-    //         showingInfoWindow: true
-    //     })
-    // }
+            });
+        };
+    };
 
     render() {
-        const { general_posts } = this.props.general_posts
-        const { browserLocation, isGettingRegion, suburb } = this.state
+        const { general_posts } = this.props.general_posts;
+        const { browserLocation, isGettingRegion, suburb } = this.state;
 
         return (
             <div className="hero is-fullheight relative">
@@ -83,7 +63,7 @@ class BrowseMap extends Component {
                         <div className="loader-container">
                             <Spinner name="ball-spin-fade-loader" />
                         </div>
-                    )
+                    );
                 }
 
                 { !isGettingRegion && (
@@ -92,13 +72,10 @@ class BrowseMap extends Component {
                         <h1 className="title">Leads in <b>{suburb}</b></h1>
                     </div>
                         <Map
-                            google={window.google}
-                            style={this.mapStyle}
                             zoom={17}
-                            initialCenter={browserLocation}
+                            center={browserLocation}
                         >
                         <Marker
-                            title='Your current location'
                             position={browserLocation}
                         />
                             {
@@ -106,36 +83,29 @@ class BrowseMap extends Component {
                                     return (
                                         <Marker
                                             key={post.post_id}
-                                            title={post.title}
-                                            description={post.description}
-                                            name={'SOMA'}
                                             position={{ 
                                                 lat: post.lat,
                                                 lng: post.lng
                                             }}
-                                            onMouseover={this.onMouseoverMarker}
-                                            onClick={this.onMarkerClick}
-                                        />
-                                    )
-                                })
+                                        >
+                                        </Marker>
+                                    );
+                                });
                             }
                         </Map>
                 </div>
             )}
             </div>
-        )
-    }
-}
+        );
+    };
+};
 
-const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'
+// const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY';
 
 const mapStateToProps = ({ general_posts }) => {
     return {
         general_posts
-    }
-}
+    };
+};
 
-export default connect(mapStateToProps)(
-    GoogleApiWrapper({apiKey})
-    (BrowseMap)
-)
+export default connect(mapStateToProps)((BrowseMap));

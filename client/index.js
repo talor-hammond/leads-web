@@ -6,6 +6,7 @@ import thunkMiddleware from 'redux-thunk';
 
 // Styles:
 import '../public/styles.css';
+import '../node_modules/leaflet/dist/leaflet.css';
 
 import reducers from './reducers';
 import App from './components/App';
