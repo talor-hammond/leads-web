@@ -20,6 +20,7 @@ class Nav extends Component {
 
     burger.classList.toggle('is-active');
     nav.classList.toggle('is-active');
+    nav.classList.toggle('dark-background');
   }
 
   render() {

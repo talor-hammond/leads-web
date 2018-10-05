@@ -21,25 +21,22 @@ body {
 
 .navbar {
   border-bottom: 1px solid rgba(0, 0, 0, .12);
-  /* opacity: .9; */
   background-color: 'blue';
 }
 
-.darkline {
-  background-color: #363636;
-  height: 5px;
-  width: 100%;
-}
 
 .navbar-start, .navbar-end {
-  /* text-transform: uppercase; */
   font-size: 15px;
   letter-spacing: 0.1rem;
-  /* font-weight: bold; */
 }
 
 .notHome {
   margin-bottom: 30px;
+}
+
+/* BURGER */
+.dark-background {
+  background-color: #363636;
 }
 
 /* HOME */
@@ -56,9 +53,6 @@ body {
 .footer {
   background-color: rgba(139, 139, 139, 0.05);
   border-top: 1px solid rgba(0, 0, 0, .22);
-  /* position: absolute;
-  bottom: 0;
-  width: 100%; */
 }
 
 /* REGISTER */
