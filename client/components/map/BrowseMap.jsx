@@ -1,31 +1,31 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
-// 'spinner' library
-const Spinner = require('react-spinkit')
+// Libraries:
+const Spinner = require('react-spinkit');
+import { Map, Marker, GoogleApiWrapper } from 'google-maps-react';
+import request from 'superagent';
 
-import { Map, Marker, GoogleApiWrapper } from 'google-maps-react'
+// Actions:
+import { getPosts } from '../../actions/general_posts';
 
-import { getPosts } from '../../actions/general_posts'
-
-import request from 'superagent'
 
 class BrowseMap extends Component {
     constructor(props) {
-        super(props)
+        super(props);
 
         this.state = {
             isGettingRegion: true,
             browserLocation: {}, // parsed and set w browser's geolocation
             suburb: ''
-        }
-    }
+        };
+    };
 
     componentDidMount() {
         if (navigator.geolocation) { // if the browser has geolocation available, request the user's position...
 
-            const { dispatch } = this.props
-            dispatch(getPosts())
+            const { dispatch } = this.props;
+            dispatch(getPosts());
 
             navigator.geolocation.getCurrentPosition(pos => {
                 
@@ -38,18 +38,18 @@ class BrowseMap extends Component {
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        const suburb = res.body.results[1].address_components[2].long_name // 'sublocality'
+                        const suburb = res.body.results[1].address_components[2].long_name; // 'sublocality'
 
-                        return suburb
+                        return suburb;
                     })
                     .then(suburb => { // wait for that return value before setting state...
                         this.setState({
                             browserLocation,
                             suburb,
                             isGettingRegion: false // stops map from rendering w out necessary information
-                        })
+                        });
 
-                        document.title = `${this.state.suburb} Community Map - leads`
+                        document.title = `${this.state.suburb} Community Map - leads`;
                     })
             })
         }
@@ -59,22 +59,11 @@ class BrowseMap extends Component {
         height: '80%',
         width: '80%',
         margin: '0 auto'
-    }
-
-    // // Marker events: TODO
-    // onMouseoverMarker(props, marker, e) {
-        
-    // }
-
-    // onMarkerClick(props, marker, e) {
-    //     this.setState({
-    //         showingInfoWindow: true
-    //     })
-    // }
+    };
 
     render() {
-        const { general_posts } = this.props.general_posts
-        const { browserLocation, isGettingRegion, suburb } = this.state
+        const { general_posts } = this.props.general_posts;
+        const { browserLocation, isGettingRegion, suburb } = this.state;
 
         return (
             <div className="hero is-fullheight relative">
@@ -123,19 +112,19 @@ class BrowseMap extends Component {
                 </div>
             )}
             </div>
-        )
+        );
     }
 }
 
-const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY'
+const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY';
 
 const mapStateToProps = ({ general_posts }) => {
     return {
         general_posts
-    }
-}
+    };
+};
 
 export default connect(mapStateToProps)(
     GoogleApiWrapper({apiKey})
     (BrowseMap)
-)
+);
