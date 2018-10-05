@@ -38,10 +38,11 @@ class BrowseMap extends Component {
                 request
                     .get(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${browserLocation.lat},${browserLocation.lng}&key=${apiKey}`)
                     .then(res => {
-                        const suburb = res.body.results[2].formatted_address.split(',')[0] // grabbing just the first word out of the suburb result
+                        const suburb = res.body.results[1].address_components[2].long_name // 'sublocality'
 
                         return suburb
-                    }).then(suburb => { // wait for that return value before setting state...
+                    })
+                    .then(suburb => { // wait for that return value before setting state...
                         this.setState({
                             browserLocation,
                             suburb,

@@ -16,8 +16,8 @@ class Post extends Component {
     }
 
     formatDate(published) {
-        let oldDate = moment(published)
-        let newDate = oldDate.format('LLLL')
+        const oldDate = moment(published)
+        const newDate = oldDate.format('LLLL')
         
         return newDate
     }
