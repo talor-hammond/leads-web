@@ -1,7 +1,7 @@
-import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { logoutUser } from '../actions/logout'
+import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+import { logoutUser } from '../actions/logout';
 
 const Nav = (props) => {
   return (
@@ -13,14 +13,14 @@ const Nav = (props) => {
             <Link to="/" className="navbar-item logo"><strong>leads</strong></Link>
 
             {/* Mobile / tablet 'burger' */}
-            <span className="navbar-burger burger" data-target="navMenu">
+            <span className="navbar-burger burger" data-target="navMenu" onClick={() => toggleBurger()}>
               <span></span>
               <span></span>
               <span></span>
             </span>
           </div>
 
-          <div id="navMenu" className="navbar-menu">
+          <div id="navMenu" className="navbar-menu is-dark">
             <div className="navbar-end">
               <div className="navbar-item">
                 <Link to="/browse/" className="has-text-light">browse</Link>
@@ -72,8 +72,16 @@ const Nav = (props) => {
 
 }
 
-const mapStateToProps = ({ auth }) => {
-  return { auth }
+function toggleBurger() {
+  const burger = document.querySelector('.burger');
+  const nav = document.querySelector(`#${burger.dataset.target}`); // i.e. the el w id: navMenu
+
+  burger.classList.toggle('is-active');
+  nav.classList.toggle('is-active');
 }
 
-export default connect(mapStateToProps)(Nav)
+const mapStateToProps = ({ auth }) => {
+  return { auth }
+};
+
+export default connect(mapStateToProps)(Nav);
