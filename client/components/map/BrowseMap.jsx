@@ -4,8 +4,6 @@ import { connect } from 'react-redux';
 // 'spinner' library
 const Spinner = require('react-spinkit');
 
-import { Map, TileLayer, Marker, Popup } from 'react-leaflet';
-
 import { getPosts } from '../../actions/general_posts';
 
 import request from 'superagent';
@@ -63,7 +61,7 @@ class BrowseMap extends Component {
                         <div className="loader-container">
                             <Spinner name="ball-spin-fade-loader" />
                         </div>
-                    );
+                    )
                 }
 
                 { !isGettingRegion && (
@@ -71,36 +69,13 @@ class BrowseMap extends Component {
                     <div className="container map-title">
                         <h1 className="title">Leads in <b>{suburb}</b></h1>
                     </div>
-                        <Map
-                            zoom={17}
-                            center={browserLocation}
-                        >
-                        <Marker
-                            position={browserLocation}
-                        />
-                            {
-                                general_posts.map(post => {
-                                    return (
-                                        <Marker
-                                            key={post.post_id}
-                                            position={{ 
-                                                lat: post.lat,
-                                                lng: post.lng
-                                            }}
-                                        >
-                                        </Marker>
-                                    );
-                                });
-                            }
-                        </Map>
+                        
                 </div>
             )}
             </div>
         );
     };
 };
-
-// const apiKey = 'AIzaSyD5lA7MpAm577yhx-Y8xh22w69mA3qmVAY';
 
 const mapStateToProps = ({ general_posts }) => {
     return {

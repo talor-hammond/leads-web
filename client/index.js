@@ -6,12 +6,12 @@ import thunkMiddleware from 'redux-thunk';
 
 // Styles:
 import '../public/styles.css';
-import '../node_modules/leaflet/dist/leaflet.css';
+import 'leaflet/dist/leaflet.css';
 
 import reducers from './reducers';
 import App from './components/App';
 
-let store = createStore(reducers, compose(
+const store = createStore(reducers, compose(
   applyMiddleware(thunkMiddleware),
   window.devToolsExtension ? window.devToolsExtension() : f => f
 ));
