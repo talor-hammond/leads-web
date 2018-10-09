@@ -34,7 +34,7 @@ test('getComments for post_id 1 returns an empty array', () => {
         })
 })
 
-test('addComment adds a comment to the right post', () => {
+test.only('addComment adds a comment to the right post', () => {
     return addComment(fakeComment, testDb)
         .then(ids => {
             const expected = 'number'
@@ -44,7 +44,7 @@ test('addComment adds a comment to the right post', () => {
 
             return getComments('general_posts', 1, testDb)
                 .then(comments => {
-                    expect(comments).toHaveLength(4)
+                    expect(comments).toHaveLength(1)
                 })
         })
 })
