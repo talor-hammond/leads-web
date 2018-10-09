@@ -13,10 +13,6 @@ import {
 } from '../mocks/mocks'
 
 describe('general_posts reducer', () => {
-    it('returns default state', () => {
-        expect(general_posts(undefined, {})).toEqual([])
-    })
-
     it('handles GET_POSTS', () => {
         const action = {
             type: GET_POSTS,

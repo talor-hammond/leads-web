@@ -1,6 +1,6 @@
 // client-side, synchronous actions
 import {
-    getPosts,
+    receivePosts,
     addPost,
     getPostByPostId,
     getPostsByUserId
@@ -21,7 +21,7 @@ import {
 } from '../../../client/actions/general_posts'
 
 describe('general_posts actions', () => {
-    it('should create an action to return all posts', () => {
+    fit('should create an action to return all posts', () => {
         const posts = fakePosts
         
         const expectedAction = {
@@ -29,7 +29,7 @@ describe('general_posts actions', () => {
             posts
         }
 
-        expect(getPosts(posts)).toEqual(expectedAction)
+        expect(receivePosts(posts)).toEqual(expectedAction)
     })
 
     it('should create an action to add a post', () => {

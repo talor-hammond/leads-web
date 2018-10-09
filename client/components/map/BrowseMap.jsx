@@ -61,17 +61,6 @@ class BrowseMap extends Component {
         margin: '0 auto'
     }
 
-    // // Marker events: TODO
-    // onMouseoverMarker(props, marker, e) {
-        
-    // }
-
-    // onMarkerClick(props, marker, e) {
-    //     this.setState({
-    //         showingInfoWindow: true
-    //     })
-    // }
-
     render() {
         const { general_posts } = this.props.general_posts
         const { browserLocation, isGettingRegion, suburb } = this.state
@@ -108,13 +97,10 @@ class BrowseMap extends Component {
                                             key={post.post_id}
                                             title={post.title}
                                             description={post.description}
-                                            name={'SOMA'}
                                             position={{ 
                                                 lat: post.lat,
                                                 lng: post.lng
                                             }}
-                                            onMouseover={this.onMouseoverMarker}
-                                            onClick={this.onMarkerClick}
                                         />
                                     )
                                 })
