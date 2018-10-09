@@ -27,14 +27,10 @@ afterEach(() => { // destroying the connection; clean-slate
 // polite reminder: remember to pass the testDb as an argument to your db methods lol
 
 // ********************************************************** TESTS ********************************************************** //
-test('getComments retrieves the correct array of comments', () => {
+test('getComments for post_id 1 returns an empty array', () => {
     return getComments('general_posts', 1, testDb)
         .then(comments => {
-            expect(comments).toHaveLength(3)
-
-            comments.forEach(comment => {
-                expect(comment.post_id).toBe(1)
-            })
+            expect(comments).toHaveLength(0)
         })
 })
 
