@@ -5,8 +5,7 @@ little project to help people find leads to just about anything: jobs, community
 *The community map*: loading symbol is rendered while the app `isFetching` -- asynchronous action-creators
 
 ## The project
-* The web-app -- while still very much in development (I'm adding stuff most days) -- is live on [Heroku](https://leadsnz.herokuapp.com) for my own peace of mind lol
-* there is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
+* There is a custom-built api in this repo, which serves to both the **[ios-app](https://github.com/talor-hammond/leads-mobile)**, and the web-frontend
 * **the technology / concepts involved:**
   * **React** front-end; componentisation of views + **Bulma.css**, custom stylesheet + react-scroll-to-component
   * **Redux**, **redux-thunk** (to accomodate asynchronous actions)
